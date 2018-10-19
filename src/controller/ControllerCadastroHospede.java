@@ -6,17 +6,47 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.Hospede;
 
 import java.io.IOException;
 
-public class ControllerMainWindow {
+public class ControllerCadastroHospede {
 
     @FXML
     public Parent mainWindow;
 
     @FXML
-    public void carregarHospedes() {
+    private TextField tfNome;
+
+    @FXML
+    private TextField tfCpf;
+
+    @FXML
+    private TextField tfRg;
+
+    @FXML
+    private TextField tfTelefone;
+
+    @FXML
+    private DatePicker tfDataNasc;
+
+    @FXML
+    private ComboBox<Hospede> tfEstado;
+
+    @FXML
+    private ComboBox<Hospede> tfCidade;
+
+    @FXML
+    public void salvarHospede() {
+
+    }
+
+    @FXML
+    public void voltar() {
         switchWindow("../view/janelaHospede.fxml");
     }
 
@@ -50,5 +80,4 @@ public class ControllerMainWindow {
         alert.setContentText(message);
         alert.showAndWait();
     }
-
 }

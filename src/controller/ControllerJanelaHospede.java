@@ -5,19 +5,23 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ControllerMainWindow {
+public class ControllerJanelaHospede {
 
     @FXML
     public Parent mainWindow;
 
     @FXML
-    public void carregarHospedes() {
-        switchWindow("../view/janelaHospede.fxml");
+    public void voltar() {
+        switchWindow("../view/mainWindow.fxml");
+    }
+
+    @FXML
+    public void cadastrar() {
+        switchWindow("../view/janelaCadastrarHospede.fxml");
     }
 
     public void switchWindow(String address){
@@ -42,13 +46,6 @@ public class ControllerMainWindow {
             }
         });
 
-    }
-
-    protected void message(Alert.AlertType type, String message) {
-        Alert alert = new Alert(type);
-        alert.setTitle("Message!");
-        alert.setContentText(message);
-        alert.showAndWait();
     }
 
 }

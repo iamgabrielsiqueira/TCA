@@ -14,7 +14,7 @@
             style="-fx-background-color: #dfe6e9;"
             xmlns="http://javafx.com/javafx/8.0.60"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="controller.ControllerMainWindow">
+            fx:controller="controller.ControllerMainWindow" fx:id="mainWindow">
     <center>
         <GridPane alignment="CENTER" hgap="10" vgap="20">
             <HBox alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="0">

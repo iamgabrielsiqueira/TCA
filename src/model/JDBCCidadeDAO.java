@@ -7,32 +7,33 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class JDBCEstadoDAO implements EstadoDAO {
+public class JDBCCidadeDAO implements CidadeDAO {
 
-    private static JDBCEstadoDAO instance;
-    private ObservableList<Estado> list;
+    private static JDBCCidadeDAO instance;
+    private ObservableList<Cidade> list;
 
-    private JDBCEstadoDAO(){
+    private JDBCCidadeDAO(){
         list = FXCollections.observableArrayList();
     }
 
-    public static JDBCEstadoDAO getInstance() {
+    public static JDBCCidadeDAO getInstance() {
         if(instance == null) {
-            instance = new JDBCEstadoDAO();
+            instance = new JDBCCidadeDAO();
         }
         return instance;
     }
 
 
     @Override
-    public void create(Estado estado) throws Exception {
+    public void create(Cidade cidade) throws Exception {
         Connection connection = FabricaConexao.getConnection();
 
-        String sql = "insert into tca_estado(nome) values(?)";
+        String sql = "insert into tca_cidade(nome, fk_estado) values(?, ?)";
 
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
-        preparedStatement.setString(1, estado.getNome());
+        preparedStatement.setString(1, cidade.getNome());
+        preparedStatement.setInt(2, cidade.getFk_estado());
 
         preparedStatement.execute();
 
@@ -41,33 +42,35 @@ public class JDBCEstadoDAO implements EstadoDAO {
 
     }
 
-    private Estado carregarEstado(ResultSet resultSet) throws Exception {
+    private Cidade carregarCidade(ResultSet resultSet) throws Exception {
 
         int id = resultSet.getInt("id");
         String nome = resultSet.getString("nome");
+        int fk_estado = resultSet.getInt("fk_estado");
 
-        Estado estado = new Estado();
-        estado.setId(id);
-        estado.setNome(nome);
+        Cidade cidade = new Cidade();
+        cidade.setId(id);
+        cidade.setNome(nome);
+        cidade.setFk_estado(fk_estado);
 
-        return estado;
+        return cidade;
     }
 
 
     @Override
-    public ObservableList<Estado> list() throws Exception {
+    public ObservableList<Cidade> list() throws Exception {
 
         list.clear();
 
         try {
             Connection connection = FabricaConexao.getConnection();
-            String sql = "select * from tca_estado";
+            String sql = "select * from tca_cidade";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()){
-                Estado estado = carregarEstado(resultSet);
-                list.add(estado);
+                Cidade cidade = carregarCidade(resultSet);
+                list.add(cidade);
             }
 
             resultSet.close();
@@ -82,14 +85,14 @@ public class JDBCEstadoDAO implements EstadoDAO {
     }
 
     @Override
-    public void delete(Estado estado) throws Exception {
+    public void delete(Cidade cidade) throws Exception {
 
-        String sql = "delete from tca_estado where id=?";
+        String sql = "delete from tca_cidade where id=?";
 
         Connection c = FabricaConexao.getConnection();
         PreparedStatement statement = c.prepareStatement(sql);
 
-        statement.setInt(1, estado.getId());
+        statement.setInt(1, cidade.getId());
 
         statement.execute();
         statement.close();
@@ -98,14 +101,15 @@ public class JDBCEstadoDAO implements EstadoDAO {
     }
 
     @Override
-    public void update(Estado estado, Estado e) throws Exception {
-        String sql = "update tca_estado set nome=? where id=?";
+    public void update(Cidade cidade, Cidade e) throws Exception {
+        String sql = "update tca_cidade set nome=?, fk_estado=? where id=?";
 
         Connection c = FabricaConexao.getConnection();
         PreparedStatement statement = c.prepareStatement(sql);
 
         statement.setString(1, e.getNome());
-        statement.setInt(2, estado.getId());
+        statement.setInt(2, e.getFk_estado());
+        statement.setInt(3, cidade.getId());
 
         statement.execute();
         statement.close();

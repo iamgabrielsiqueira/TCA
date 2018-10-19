@@ -3,6 +3,8 @@ package model;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
+import java.util.Date;
+
 public class Hospede {
 
     private int id;
@@ -10,6 +12,7 @@ public class Hospede {
     private SimpleStringProperty cpf;
     private SimpleStringProperty rg;
     private SimpleStringProperty telefone;
+    private Date dataNasc;
     private SimpleIntegerProperty idCidade;
 
     public int getId() {
@@ -80,4 +83,11 @@ public class Hospede {
         this.idCidade.set(idCidade);
     }
 
+    public Date getDataNasc() {
+        return dataNasc;
+    }
+
+    public void setDataNasc(Date dataNasc) {
+        this.dataNasc = dataNasc;
+    }
 }

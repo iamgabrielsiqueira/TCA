@@ -2,10 +2,8 @@ package model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
+import java.sql.*;
 
 public class JDBCHospedeDAO implements HospedeDAO {
 
@@ -28,15 +26,16 @@ public class JDBCHospedeDAO implements HospedeDAO {
     public void create(Hospede hospede) throws Exception {
         Connection connection = FabricaConexao.getConnection();
 
-        String sql = "insert into tca_hospede(nome, cpf, rg, telefone, fk_cidade) values(?, ?, ?, ?, ?)";
+        String sql = "insert into tca_hospede(nome, cpf, rg, telefone, data_nasc, fk_cidade) values(?, ?, ?, ?, ?, ?)";
 
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
         preparedStatement.setString(1, hospede.getNome());
         preparedStatement.setString(2, hospede.getCpf());
         preparedStatement.setString(3, hospede.getRg());
-        preparedStatement.setString(4, hospede.getTelefone());
-        preparedStatement.setInt(5, hospede.getIdCidade());
+        preparedStatement.setDate(5, (Date) hospede.getDataNasc());
+        preparedStatement.setString(6, hospede.getTelefone());
+        preparedStatement.setInt(7, hospede.getIdCidade());
 
         preparedStatement.execute();
 
@@ -51,6 +50,7 @@ public class JDBCHospedeDAO implements HospedeDAO {
         String nome = resultSet.getString("nome");
         String cpf = resultSet.getString("cpf");
         String rg = resultSet.getString("rg");
+        Date dataNasc = resultSet.getDate("data_nasc");
         String telefone = resultSet.getString("telefone");
         int cidadeId = resultSet.getInt("fk_cidade");
 
@@ -59,6 +59,7 @@ public class JDBCHospedeDAO implements HospedeDAO {
         hospede.setNome(nome);
         hospede.setCpf(cpf);
         hospede.setRg(rg);
+        hospede.setDataNasc(dataNasc);
         hospede.setTelefone(telefone);
         hospede.setIdCidade(cidadeId);
 
@@ -111,7 +112,7 @@ public class JDBCHospedeDAO implements HospedeDAO {
 
     @Override
     public void update(Hospede hospede, Hospede h) throws Exception {
-        String sql = "update tca_hospede set nome=?, cpf=?, rg=?, telefone=?, fk_cidade=? where id=?";
+        String sql = "update tca_hospede set nome=?, cpf=?, rg=?, data_nasc=?, telefone=?, fk_cidade=? where id=?";
 
         Connection c = FabricaConexao.getConnection();
         PreparedStatement statement = c.prepareStatement(sql);
@@ -119,9 +120,10 @@ public class JDBCHospedeDAO implements HospedeDAO {
         statement.setString(1, h.getNome());
         statement.setString(2, h.getCpf());
         statement.setString(3, h.getRg());
-        statement.setString(4, h.getTelefone());
-        statement.setInt(5, h.getIdCidade());
-        statement.setInt(6, hospede.getId());
+        statement.setDate(4, (Date) h.getDataNasc());
+        statement.setString(5, h.getTelefone());
+        statement.setInt(6, h.getIdCidade());
+        statement.setInt(7, hospede.getId());
 
         statement.execute();
         statement.close();

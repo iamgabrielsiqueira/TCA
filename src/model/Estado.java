@@ -7,6 +7,10 @@ public class Estado {
     private int id;
     private SimpleStringProperty nome;
 
+    public Estado() {
+        nome = new SimpleStringProperty();
+    }
+
     public int getId() {
         return id;
     }
@@ -25,5 +29,10 @@ public class Estado {
 
     public void setNome(String nome) {
         this.nome.set(nome);
+    }
+
+    @Override
+    public String toString() {
+        return this.getNome();
     }
 }

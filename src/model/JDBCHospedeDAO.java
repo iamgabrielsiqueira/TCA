@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
+import java.time.LocalDate;
 
 public class JDBCHospedeDAO implements HospedeDAO {
 
@@ -33,7 +34,7 @@ public class JDBCHospedeDAO implements HospedeDAO {
         preparedStatement.setString(1, hospede.getNome());
         preparedStatement.setString(2, hospede.getCpf());
         preparedStatement.setString(3, hospede.getRg());
-        preparedStatement.setDate(5, (Date) hospede.getDataNasc());
+        preparedStatement.setDate(5, hospede.getDataNasc());
         preparedStatement.setString(6, hospede.getTelefone());
         preparedStatement.setInt(7, hospede.getIdCidade());
 

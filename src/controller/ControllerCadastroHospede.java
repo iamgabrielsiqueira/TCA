@@ -12,11 +12,10 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import model.Estado;
-import model.Hospede;
-import model.JDBCEstadoDAO;
+import model.*;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.time.LocalDate;
 
 public class ControllerCadastroHospede {
@@ -40,17 +39,21 @@ public class ControllerCadastroHospede {
     private DatePicker tfDataNasc;
 
     @FXML
-    private ComboBox<Hospede> tfEstado;
+    private ComboBox<Estado> tfEstado;
 
     @FXML
-    private ComboBox<Hospede> tfCidade;
+    private ComboBox<Cidade> tfCidade;
 
     private ObservableList<Estado> listaEstado;
+
+    private ObservableList<Cidade> listaCidade;
 
     public void initialize() throws Exception {
         listaEstado = FXCollections.observableArrayList(JDBCEstadoDAO.getInstance().list());
         tfEstado.setItems(listaEstado);
 
+        listaCidade = FXCollections.observableArrayList(JDBCCidadeDAO.getInstance().list());
+        tfCidade.setItems(listaCidade);
     }
 
     @FXML
@@ -59,7 +62,23 @@ public class ControllerCadastroHospede {
         String cpf = tfCpf.getText();
         String rg = tfRg.getText();
         String telefone = tfTelefone.getText();
-        LocalDate dataNasc = tfDataNasc.getValue();
+        Date dataNasc = Date.valueOf(tfDataNasc.getValue());
+
+        Hospede hospede = new Hospede();
+        hospede.setNome(nome);
+        hospede.setCpf(cpf);
+        hospede.setRg(rg);
+        hospede.setTelefone(telefone);
+        hospede.setDataNasc(dataNasc);
+        hospede.setIdCidade(tfCidade.getSelectionModel().getSelectedIndex());
+
+        try {
+            JDBCHospedeDAO.getInstance().create(hospede);
+            message(Alert.AlertType.CONFIRMATION, "Cadastrado!");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     @FXML

@@ -9,6 +9,11 @@ public class Cidade {
     private SimpleStringProperty nome;
     private SimpleIntegerProperty fk_estado;
 
+    public Cidade() {
+        nome = new SimpleStringProperty();
+        fk_estado = new SimpleIntegerProperty();
+    }
+
     public int getId() {
         return id;
     }
@@ -41,4 +46,8 @@ public class Cidade {
         this.fk_estado.set(fk_estado);
     }
 
+    @Override
+    public String toString() {
+        return this.getNome();
+    }
 }

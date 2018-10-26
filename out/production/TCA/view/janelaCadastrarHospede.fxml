@@ -46,7 +46,7 @@
                         <TextField fx:id="tfRg"/>
                         <TextField fx:id="tfTelefone"/>
                         <DatePicker fx:id="tfDataNasc"/>
-                        <ComboBox prefHeight="26.0" prefWidth="170.0" fx:id="tfEstado"/>
+                        <ComboBox prefHeight="26.0" prefWidth="170.0" fx:id="tfEstado" onAction="#carregarCidade"/>
                         <ComboBox prefHeight="26.0" prefWidth="170.0" fx:id="tfCidade"/>
                     </VBox>
                 </HBox>

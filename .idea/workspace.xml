@@ -2,16 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="95d13e3d-11d0-47e0-b9ee-b1c08b101503" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/controller/MaskFieldUtil.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/controller/ValidaCPF.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/TCA/model/Cidade.class" afterPath="$PROJECT_DIR$/out/production/TCA/model/Cidade.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/TCA/model/Estado.class" afterPath="$PROJECT_DIR$/out/production/TCA/model/Estado.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/TCA/model/FabricaConexao.class" afterPath="$PROJECT_DIR$/out/production/TCA/model/FabricaConexao.class" />
+      <change beforePath="$PROJECT_DIR$/TCA.iml" afterPath="$PROJECT_DIR$/TCA.iml" />
+      <change beforePath="$PROJECT_DIR$/out/production/TCA/controller/ControllerCadastroHospede$1.class" afterPath="$PROJECT_DIR$/out/production/TCA/controller/ControllerCadastroHospede$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/TCA/controller/ControllerCadastroHospede.class" afterPath="$PROJECT_DIR$/out/production/TCA/controller/ControllerCadastroHospede.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/TCA/model/JDBCCidadeDAO.class" afterPath="$PROJECT_DIR$/out/production/TCA/model/JDBCCidadeDAO.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/TCA/model/JDBCHospedeDAO.class" afterPath="$PROJECT_DIR$/out/production/TCA/model/JDBCHospedeDAO.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/TCA/view/janelaCadastrarHospede.fxml" afterPath="$PROJECT_DIR$/out/production/TCA/view/janelaCadastrarHospede.fxml" />
       <change beforePath="$PROJECT_DIR$/src/controller/ControllerCadastroHospede.java" afterPath="$PROJECT_DIR$/src/controller/ControllerCadastroHospede.java" />
-      <change beforePath="$PROJECT_DIR$/src/model/Cidade.java" afterPath="$PROJECT_DIR$/src/model/Cidade.java" />
-      <change beforePath="$PROJECT_DIR$/src/model/Estado.java" afterPath="$PROJECT_DIR$/src/model/Estado.java" />
-      <change beforePath="$PROJECT_DIR$/src/model/FabricaConexao.java" afterPath="$PROJECT_DIR$/src/model/FabricaConexao.java" />
-      <change beforePath="$PROJECT_DIR$/src/model/Hospede.java" afterPath="$PROJECT_DIR$/src/model/Hospede.java" />
+      <change beforePath="$PROJECT_DIR$/src/model/JDBCCidadeDAO.java" afterPath="$PROJECT_DIR$/src/model/JDBCCidadeDAO.java" />
       <change beforePath="$PROJECT_DIR$/src/model/JDBCHospedeDAO.java" afterPath="$PROJECT_DIR$/src/model/JDBCHospedeDAO.java" />
+      <change beforePath="$PROJECT_DIR$/src/view/janelaCadastrarHospede.fxml" afterPath="$PROJECT_DIR$/src/view/janelaCadastrarHospede.fxml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,23 +27,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ControllerCadastroHospede.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ControllerCadastroHospede.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controller/ControllerCadastroHospede.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="64" column="60" lean-forward="true" selection-start-line="64" selection-start-column="60" selection-end-line="64" selection-end-column="60" />
+            <state relative-caret-position="134">
+              <caret line="97" column="40" lean-forward="false" selection-start-line="97" selection-start-column="40" selection-end-line="97" selection-end-column="40" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JDBCHospedeDAO.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="JDBCHospedeDAO.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/model/JDBCHospedeDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="42" column="34" lean-forward="true" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
+            <state relative-caret-position="252">
+              <caret line="20" column="9" lean-forward="true" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
               <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JDBCCidadeDAO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/JDBCCidadeDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="25">
+              <caret line="88" column="35" lean-forward="false" selection-start-line="88" selection-start-column="35" selection-end-line="88" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="janelaCadastrarHospede.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/janelaCadastrarHospede.fxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="50" column="27" lean-forward="true" selection-start-line="50" selection-start-column="27" selection-end-line="50" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
           </provider>
         </entry>
       </file>
@@ -69,19 +96,22 @@
         <option value="$PROJECT_DIR$/src/view/mainWindow.fxml" />
         <option value="$PROJECT_DIR$/src/controller/ControllerMainWindow.java" />
         <option value="$PROJECT_DIR$/src/controller/ControllerJanelaHospede.java" />
-        <option value="$PROJECT_DIR$/src/view/janelaCadastrarHospede.fxml" />
         <option value="$PROJECT_DIR$/src/view/janelaHospede.fxml" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/model/CidadeDAO.java" />
         <option value="$PROJECT_DIR$/src/model/EstadoDAO.java" />
-        <option value="$PROJECT_DIR$/src/model/JDBCCidadeDAO.java" />
         <option value="$PROJECT_DIR$/src/model/FabricaConexao.java" />
         <option value="$PROJECT_DIR$/src/model/JDBCEstadoDAO.java" />
         <option value="$PROJECT_DIR$/src/model/Estado.java" />
         <option value="$PROJECT_DIR$/src/model/Cidade.java" />
         <option value="$PROJECT_DIR$/src/model/Hospede.java" />
-        <option value="$PROJECT_DIR$/src/model/JDBCHospedeDAO.java" />
+        <option value="$PROJECT_DIR$/src/MaskFieldUtil.java" />
+        <option value="$PROJECT_DIR$/src/controller/MaskFieldUtil.java" />
+        <option value="$PROJECT_DIR$/src/view/janelaCadastrarHospede.fxml" />
+        <option value="$PROJECT_DIR$/src/model/JDBCCidadeDAO.java" />
+        <option value="$PROJECT_DIR$/src/controller/ValidaCPF.java" />
         <option value="$PROJECT_DIR$/src/controller/ControllerCadastroHospede.java" />
+        <option value="$PROJECT_DIR$/src/model/JDBCHospedeDAO.java" />
       </list>
     </option>
   </component>
@@ -107,8 +137,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
+      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -144,14 +175,13 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/MaskFormatterFX.jar!/" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -336,6 +366,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/JDBCHospedeDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="756">
+          <caret line="42" column="34" lean-forward="true" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/ControllerCadastroHospede.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/ControllerCadastroHospede.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -449,16 +495,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="77" lean-forward="false" selection-start-line="10" selection-start-column="67" selection-end-line="10" selection-end-column="77" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/HospedeDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -488,16 +524,8 @@
         <state relative-caret-position="306">
           <caret line="17" column="43" lean-forward="false" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/JDBCCidadeDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="9" column="23" lean-forward="true" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -514,10 +542,10 @@
         <state relative-caret-position="471">
           <caret line="50" column="30" lean-forward="false" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="30" />
           <folding>
-            <element signature="e#727#728#0" expanded="true" />
-            <element signature="e#765#766#0" expanded="true" />
-            <element signature="e#991#992#0" expanded="true" />
-            <element signature="e#1028#1029#0" expanded="true" />
+            <element signature="e#727#728#0" expanded="false" />
+            <element signature="e#765#766#0" expanded="false" />
+            <element signature="e#991#992#0" expanded="false" />
+            <element signature="e#1028#1029#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -527,25 +555,14 @@
         <state relative-caret-position="381">
           <caret line="35" column="30" lean-forward="false" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
           <folding>
-            <element signature="e#171#172#0" expanded="true" />
-            <element signature="e#220#221#0" expanded="true" />
-            <element signature="e#513#514#0" expanded="true" />
-            <element signature="e#548#549#0" expanded="true" />
-            <element signature="e#594#595#0" expanded="true" />
-            <element signature="e#631#632#0" expanded="true" />
+            <element signature="e#171#172#0" expanded="false" />
+            <element signature="e#220#221#0" expanded="false" />
+            <element signature="e#513#514#0" expanded="false" />
+            <element signature="e#548#549#0" expanded="false" />
+            <element signature="e#594#595#0" expanded="false" />
+            <element signature="e#631#632#0" expanded="false" />
           </folding>
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/janelaCadastrarHospede.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-591">
-          <caret line="16" column="145" lean-forward="false" selection-start-line="16" selection-start-column="145" selection-end-line="16" selection-end-column="145" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Hospede.java">
@@ -553,26 +570,71 @@
         <state relative-caret-position="255">
           <caret line="93" column="0" lean-forward="true" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
           <folding>
-            <element signature="e#1972#1973#0" expanded="true" />
-            <element signature="e#2003#2004#0" expanded="true" />
-            <element signature="e#2058#2059#0" expanded="true" />
-            <element signature="e#2098#2099#0" expanded="true" />
+            <element signature="e#1972#1973#0" expanded="false" />
+            <element signature="e#2003#2004#0" expanded="false" />
+            <element signature="e#2058#2059#0" expanded="false" />
+            <element signature="e#2098#2099#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/JDBCHospedeDAO.java">
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="42" column="34" lean-forward="true" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
+        <state relative-caret-position="72">
+          <caret line="4" column="26" lean-forward="true" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/MaskFieldUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="212" column="98" lean-forward="false" selection-start-line="212" selection-start-column="98" selection-end-line="212" selection-end-column="98" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/janelaCadastrarHospede.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="50" column="27" lean-forward="true" selection-start-line="50" selection-start-column="27" selection-end-line="50" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/JDBCCidadeDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="88" column="35" lean-forward="false" selection-start-line="88" selection-start-column="35" selection-end-line="88" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/ValidaCPF.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="18" lean-forward="false" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/ControllerCadastroHospede.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="97" column="40" lean-forward="false" selection-start-line="97" selection-start-column="40" selection-end-line="97" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/JDBCHospedeDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
-          <caret line="64" column="60" lean-forward="true" selection-start-line="64" selection-start-column="60" selection-end-line="64" selection-end-column="60" />
+          <caret line="20" column="9" lean-forward="true" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
           <folding />
         </state>
       </provider>

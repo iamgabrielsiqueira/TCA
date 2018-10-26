@@ -25,18 +25,19 @@ public class JDBCHospedeDAO implements HospedeDAO {
 
     @Override
     public void create(Hospede hospede) throws Exception {
+
         Connection connection = FabricaConexao.getConnection();
 
-        String sql = "insert into tca_hospede(nome, cpf, rg, telefone, data_nasc, fk_cidade) values(?, ?, ?, ?, ?, ?)";
+        String sql = "insert into tca_hospede(nome, cpf, rg, data_nasc, telefone, fk_cidade) values(?, ?, ?, ?, ?, ?)";
 
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
         preparedStatement.setString(1, hospede.getNome());
         preparedStatement.setString(2, hospede.getCpf());
         preparedStatement.setString(3, hospede.getRg());
-        preparedStatement.setDate(5, hospede.getDataNasc());
-        preparedStatement.setString(6, hospede.getTelefone());
-        preparedStatement.setInt(7, hospede.getIdCidade());
+        preparedStatement.setDate(4, hospede.getDataNasc());
+        preparedStatement.setString(5, hospede.getTelefone());
+        preparedStatement.setInt(6, hospede.getIdCidade());
 
         preparedStatement.execute();
 

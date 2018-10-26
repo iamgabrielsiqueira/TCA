@@ -11,9 +11,11 @@ public class JDBCCidadeDAO implements CidadeDAO {
 
     private static JDBCCidadeDAO instance;
     private ObservableList<Cidade> list;
+    private ObservableList<Cidade> list2;
 
     private JDBCCidadeDAO(){
         list = FXCollections.observableArrayList();
+        list2 = FXCollections.observableArrayList();
     }
 
     public static JDBCCidadeDAO getInstance() {
@@ -83,6 +85,34 @@ public class JDBCCidadeDAO implements CidadeDAO {
         return list;
 
     }
+
+    public ObservableList<Cidade> listaPorEstado(Estado estado) throws Exception {
+
+        list2.clear();
+
+        try {
+            Connection connection = FabricaConexao.getConnection();
+            String sql = "select * from tca_cidade where fk_estado = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, estado.getId());
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+                Cidade cidade = carregarCidade(resultSet);
+                list2.add(cidade);
+            }
+
+            resultSet.close();
+            preparedStatement.close();
+            connection.close();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+        return list2;
+    }
+
+
 
     @Override
     public void delete(Cidade cidade) throws Exception {

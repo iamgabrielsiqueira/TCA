@@ -25,14 +25,14 @@
             </VBox.margin></Button>
             <Label />
             <VBox alignment="CENTER">
-                <TableView fx:id="tbExpenses" maxHeight="500" maxWidth="500" minHeight="500" minWidth="500" style="-fx-background-color: none;">
+                <TableView fx:id="tbHospedes" maxHeight="500" maxWidth="500" minHeight="500" minWidth="500" style="-fx-background-color: none;">
                     <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                     </columnResizePolicy>
                     <columns>
-                        <TableColumn fx:id="tcCategory" style="-fx-background-color:  #dfe6e9;" text="Nome" />
-                        <TableColumn fx:id="tcSubcategory" minWidth="50" style="-fx-background-color:  #dfe6e9;" text="CPF" />
-                        <TableColumn fx:id="tcDate" minWidth="50" style="-fx-background-color:  #dfe6e9;" text="Data de Nascimento" />
+                        <TableColumn fx:id="tcNome" style="-fx-background-color:  #dfe6e9;" text="Nome" />
+                        <TableColumn fx:id="tcCPF" minWidth="50" style="-fx-background-color:  #dfe6e9;" text="CPF" />
+                        <TableColumn fx:id="tcData" minWidth="50" style="-fx-background-color:  #dfe6e9;" text="Data de Nascimento" />
                     </columns>
                 </TableView>
             </VBox>

@@ -4,7 +4,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
-import java.time.LocalDate;
 
 public class JDBCHospedeDAO implements HospedeDAO {
 
@@ -28,7 +27,10 @@ public class JDBCHospedeDAO implements HospedeDAO {
 
         Connection connection = FabricaConexao.getConnection();
 
-        String sql = "insert into tca_hospede(nome, cpf, rg, data_nasc, telefone, fk_cidade) values(?, ?, ?, ?, ?, ?)";
+        String sql = "insert into tca_hospede(nome, cpf, rg, data_nasc, telefone, " +
+                "fk_cidade, data_criado) values(?, ?, ?, ?, ?, ?, ?)";
+
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
@@ -38,6 +40,7 @@ public class JDBCHospedeDAO implements HospedeDAO {
         preparedStatement.setDate(4, hospede.getDataNasc());
         preparedStatement.setString(5, hospede.getTelefone());
         preparedStatement.setInt(6, hospede.getIdCidade());
+        preparedStatement.setTimestamp(7, timestamp);
 
         preparedStatement.execute();
 
@@ -55,6 +58,8 @@ public class JDBCHospedeDAO implements HospedeDAO {
         Date dataNasc = resultSet.getDate("data_nasc");
         String telefone = resultSet.getString("telefone");
         int cidadeId = resultSet.getInt("fk_cidade");
+        Timestamp dataCriado = resultSet.getTimestamp("data_criado");
+        Timestamp dataAlterado = resultSet.getTimestamp("data_alterado");
 
         Hospede hospede = new Hospede();
         hospede.setId(id);
@@ -64,6 +69,8 @@ public class JDBCHospedeDAO implements HospedeDAO {
         hospede.setDataNasc(dataNasc);
         hospede.setTelefone(telefone);
         hospede.setIdCidade(cidadeId);
+        hospede.setDataCriado(dataCriado);
+        hospede.setDataAlterado(dataAlterado);
 
         return hospede;
     }
@@ -114,7 +121,11 @@ public class JDBCHospedeDAO implements HospedeDAO {
 
     @Override
     public void update(Hospede hospede, Hospede h) throws Exception {
-        String sql = "update tca_hospede set nome=?, cpf=?, rg=?, data_nasc=?, telefone=?, fk_cidade=? where id=?";
+
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+
+        String sql = "update tca_hospede set nome=?, cpf=?, rg=?, " +
+                "data_nasc=?, telefone=?, fk_cidade=?, data_alterado=? where id=?";
 
         Connection c = FabricaConexao.getConnection();
         PreparedStatement statement = c.prepareStatement(sql);
@@ -122,10 +133,11 @@ public class JDBCHospedeDAO implements HospedeDAO {
         statement.setString(1, h.getNome());
         statement.setString(2, h.getCpf());
         statement.setString(3, h.getRg());
-        statement.setDate(4, (Date) h.getDataNasc());
+        statement.setDate(4, h.getDataNasc());
         statement.setString(5, h.getTelefone());
         statement.setInt(6, h.getIdCidade());
-        statement.setInt(7, hospede.getId());
+        statement.setTimestamp(7, timestamp);
+        statement.setInt(8, hospede.getId());
 
         statement.execute();
         statement.close();

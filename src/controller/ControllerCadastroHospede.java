@@ -115,6 +115,7 @@ public class ControllerCadastroHospede {
                     try {
                         JDBCHospedeDAO.getInstance().create(hospede);
                         message(Alert.AlertType.INFORMATION, "Cadastrado!");
+
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -125,7 +126,7 @@ public class ControllerCadastroHospede {
                 message(Alert.AlertType.ERROR, "Dados faltando!");
             }
         } catch (NullPointerException e) {
-            message(Alert.AlertType.ERROR, "Dados faltando!");
+            message(Alert.AlertType.ERROR, e.getMessage());
         }
 
 

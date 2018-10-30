@@ -1,11 +1,17 @@
 package controller;
 
 import javafx.application.Platform;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import model.Hospede;
+import model.JDBCHospedeDAO;
 
 import java.io.IOException;
 
@@ -13,6 +19,31 @@ public class ControllerJanelaHospede {
 
     @FXML
     public Parent mainWindow;
+
+    @FXML
+    private TableView tbHospedes;
+
+    @FXML
+    private TableColumn tcNome;
+
+    @FXML
+    private TableColumn tcCPF;
+
+    @FXML
+    private TableColumn tcData;
+
+    private ObservableList<Hospede> listaHospedes;
+
+    public void initialize() {
+
+        try {
+            for (Hospede hospede:JDBCHospedeDAO.getInstance().list()) {
+                System.out.println(hospede.getNome());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     public void voltar() {
@@ -47,5 +78,10 @@ public class ControllerJanelaHospede {
         });
 
     }
+
+    private void carregarLista() {
+
+    }
+
 
 }

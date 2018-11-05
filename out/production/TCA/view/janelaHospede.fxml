@@ -30,9 +30,9 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                     </columnResizePolicy>
                     <columns>
-                        <TableColumn fx:id="tcNome" style="-fx-background-color:  #dfe6e9;" text="Nome" />
-                        <TableColumn fx:id="tcCPF" minWidth="50" style="-fx-background-color:  #dfe6e9;" text="CPF" />
-                        <TableColumn fx:id="tcData" minWidth="50" style="-fx-background-color:  #dfe6e9;" text="Data de Nascimento" />
+                        <TableColumn fx:id="tcNome" style="-fx-background-color:  #dfe6e9; -fx-alignment: CENTER;" text="Nome" />
+                        <TableColumn fx:id="tcCPF" minWidth="50" style="-fx-background-color:  #dfe6e9; -fx-alignment: CENTER;" text="CPF" />
+                        <TableColumn fx:id="tcData" minWidth="50" style="-fx-background-color:  #dfe6e9; -fx-alignment: CENTER;" text="Data de Nascimento" />
                     </columns>
                 </TableView>
             </VBox>

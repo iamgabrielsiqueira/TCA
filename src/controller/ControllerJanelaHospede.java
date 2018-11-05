@@ -34,15 +34,16 @@ public class ControllerJanelaHospede {
 
     private ObservableList<Hospede> listaHospedes;
 
-    public void initialize() {
+    public void initialize() throws Exception {
 
-        try {
-            for (Hospede hospede:JDBCHospedeDAO.getInstance().list()) {
-                System.out.println(hospede.getNome());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        try {
+//            for (Hospede hospede:JDBCHospedeDAO.getInstance().list()) {
+//                System.out.println(hospede.getNome());
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+        carregarLista();
     }
 
     @FXML
@@ -79,8 +80,11 @@ public class ControllerJanelaHospede {
 
     }
 
-    private void carregarLista() {
-
+    private void carregarLista() throws Exception {
+        tcNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        tcCPF.setCellValueFactory(new PropertyValueFactory<>("cpf"));
+        tcData.setCellValueFactory(new PropertyValueFactory<>("dataNasc"));
+        tbHospedes.setItems(JDBCHospedeDAO.getInstance().list());
     }
 
 

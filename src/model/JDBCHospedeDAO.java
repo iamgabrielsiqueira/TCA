@@ -2,7 +2,6 @@ package model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
 import java.sql.*;
 
 public class JDBCHospedeDAO implements HospedeDAO {
@@ -30,7 +29,7 @@ public class JDBCHospedeDAO implements HospedeDAO {
         String sql = "insert into tca_hospede(nome, cpf, rg, data_nasc, telefone, " +
                 "fk_cidade, data_criado) values(?, ?, ?, ?, ?, ?, ?)";
 
-        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        Date dataAtual = new Date(System.currentTimeMillis());
 
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
@@ -40,7 +39,7 @@ public class JDBCHospedeDAO implements HospedeDAO {
         preparedStatement.setDate(4, hospede.getDataNasc());
         preparedStatement.setString(5, hospede.getTelefone());
         preparedStatement.setInt(6, hospede.getIdCidade());
-        preparedStatement.setTimestamp(7, timestamp);
+        preparedStatement.setDate(7, dataAtual);
 
         preparedStatement.execute();
 
@@ -58,8 +57,8 @@ public class JDBCHospedeDAO implements HospedeDAO {
         Date dataNasc = resultSet.getDate("data_nasc");
         String telefone = resultSet.getString("telefone");
         int cidadeId = resultSet.getInt("fk_cidade");
-        Timestamp dataCriado = resultSet.getTimestamp("data_criado");
-        Timestamp dataAlterado = resultSet.getTimestamp("data_alterado");
+        Date dataCriado = resultSet.getDate("data_criado");
+        Date dataAlterado = resultSet.getDate("data_alterado");
 
         Hospede hospede = new Hospede();
         hospede.setId(id);
@@ -122,7 +121,7 @@ public class JDBCHospedeDAO implements HospedeDAO {
     @Override
     public void update(Hospede hospede, Hospede h) throws Exception {
 
-        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        Date dataAtual = new Date(System.currentTimeMillis());
 
         String sql = "update tca_hospede set nome=?, cpf=?, rg=?, " +
                 "data_nasc=?, telefone=?, fk_cidade=?, data_alterado=? where id=?";
@@ -136,7 +135,7 @@ public class JDBCHospedeDAO implements HospedeDAO {
         statement.setDate(4, h.getDataNasc());
         statement.setString(5, h.getTelefone());
         statement.setInt(6, h.getIdCidade());
-        statement.setTimestamp(7, timestamp);
+        statement.setDate(7, dataAtual);
         statement.setInt(8, hospede.getId());
 
         statement.execute();

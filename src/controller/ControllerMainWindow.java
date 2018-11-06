@@ -7,7 +7,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class ControllerMainWindow {
@@ -18,6 +17,11 @@ public class ControllerMainWindow {
     @FXML
     public void carregarHospedes() {
         switchWindow("../view/janelaHospede.fxml");
+    }
+
+    @FXML
+    public void carregarTiposQuartos() {
+        switchWindow("../view/janelaTipoQuarto.fxml");
     }
 
     public void switchWindow(String address){

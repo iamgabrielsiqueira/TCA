@@ -65,7 +65,7 @@
                     </Label>
                 </VBox>
                 <VBox alignment="CENTER" spacing="10">
-                    <ImageView onMouseClicked="#carregarHospedes">
+                    <ImageView onMouseClicked="#carregarTiposQuartos">
                         <image>
                             <Image url="/imagens/chave.png" />
                         </image>

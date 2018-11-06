@@ -2,10 +2,7 @@ package model;
 
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
-
-import java.sql.Timestamp;
-import java.time.LocalDate;
-import java.util.Date;
+import java.sql.Date;
 
 public class Hospede {
 
@@ -14,10 +11,10 @@ public class Hospede {
     private SimpleStringProperty cpf;
     private SimpleStringProperty rg;
     private SimpleStringProperty telefone;
-    private java.sql.Date dataNasc;
+    private Date dataNasc;
     private SimpleIntegerProperty idCidade;
-    private Timestamp dataCriado;
-    private Timestamp dataAlterado;
+    private Date dataCriado;
+    private Date dataAlterado;
 
     public Hospede() {
         nome = new SimpleStringProperty();
@@ -95,28 +92,27 @@ public class Hospede {
         this.idCidade.set(idCidade);
     }
 
-
-    public java.sql.Date getDataNasc() {
+    public Date getDataNasc() {
         return dataNasc;
     }
 
-    public void setDataNasc(java.sql.Date dataNasc) {
+    public void setDataNasc(Date dataNasc) {
         this.dataNasc = dataNasc;
     }
 
-    public Timestamp getDataCriado() {
+    public Date getDataCriado() {
         return dataCriado;
     }
 
-    public void setDataCriado(Timestamp dataCriado) {
+    public void setDataCriado(Date dataCriado) {
         this.dataCriado = dataCriado;
     }
 
-    public Timestamp getDataAlterado() {
+    public Date getDataAlterado() {
         return dataAlterado;
     }
 
-    public void setDataAlterado(Timestamp dataAlterado) {
+    public void setDataAlterado(Date dataAlterado) {
         this.dataAlterado = dataAlterado;
     }
 }

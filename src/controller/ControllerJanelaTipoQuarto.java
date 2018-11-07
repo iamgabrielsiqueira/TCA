@@ -33,8 +33,6 @@ public class ControllerJanelaTipoQuarto {
     @FXML
     private TableColumn tcDescricao;
 
-    private ObservableList<TipoQuarto> listaTipos;
-
     public void initialize() throws Exception {
         carregarLista();
     }
@@ -46,7 +44,7 @@ public class ControllerJanelaTipoQuarto {
 
     @FXML
     public void cadastrar() {
-        switchWindow("../view/janelaCadastrarHospede.fxml");
+        switchWindow("../view/janelaCadastrarTipo.fxml");
     }
 
     public void switchWindow(String address){

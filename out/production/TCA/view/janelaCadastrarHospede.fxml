@@ -16,7 +16,7 @@
 
 <BorderPane fx:id="mainWindow" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #dfe6e9;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerCadastroHospede">
     <center>
-        <VBox alignment="TOP_RIGHT" spacing="10">
+        <VBox alignment="TOP_RIGHT" spacing="12">
             <Label />
             <Button alignment="CENTER" onAction="#voltar" prefHeight="28.0" prefWidth="170.0" style="-fx-background-color: #2d3436; -fx-border-radius: 0;" text="&lt; Voltar" textFill="WHITE">
                 <font>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+
+<?import javafx.scene.layout.GridPane?>
+<DialogPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.ControllerJanelaRedirecionamento"
+            prefHeight="300.0" prefWidth="400.0">
+    <content>
+        <GridPane alignment="CENTER">
+            <Label GridPane.columnIndex="0" GridPane.rowIndex="1">Selecione o hospede desejado: </Label>
+            <ComboBox GridPane.columnIndex="0" GridPane.rowIndex="2"></ComboBox>
+        </GridPane>
+    </content>
+</DialogPane>

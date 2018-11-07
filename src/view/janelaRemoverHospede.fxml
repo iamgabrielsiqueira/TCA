@@ -52,9 +52,9 @@
                 </HBox>
                 <HBox alignment="CENTER">
                     <Button onAction="#salvarHospede" prefHeight="26.0" prefWidth="350.0" style="-fx-background-color: #74b9ff;" text="Salvar" textFill="#2d3436">
-                  <font>
-                     <Font name="NanumBarunGothic" size="13.0" />
-                  </font></Button>
+                        <font>
+                            <Font name="NanumBarunGothic" size="13.0" />
+                        </font></Button>
                 </HBox>
             </VBox>
         </VBox>
@@ -77,3 +77,4 @@
         </VBox>
     </left>
 </BorderPane>
+

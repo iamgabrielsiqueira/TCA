@@ -1,19 +1,18 @@
 package controller;
 
 import javafx.application.Platform;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.Hospede;
 import model.JDBCHospedeDAO;
 
 import java.io.IOException;
+import java.util.Optional;
 
 public class ControllerJanelaHospede {
 
@@ -32,17 +31,7 @@ public class ControllerJanelaHospede {
     @FXML
     private TableColumn tcData;
 
-    private ObservableList<Hospede> listaHospedes;
-
     public void initialize() throws Exception {
-
-//        try {
-//            for (Hospede hospede:JDBCHospedeDAO.getInstance().list()) {
-//                System.out.println(hospede.getNome());
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
         carregarLista();
     }
 
@@ -54,6 +43,70 @@ public class ControllerJanelaHospede {
     @FXML
     public void cadastrar() {
         switchWindow("../view/janelaCadastrarHospede.fxml");
+    }
+
+    @FXML
+    public void alterar() {
+        redirecionar(1);
+    }
+
+    @FXML
+    public void visualizar() {
+        redirecionar(2);
+    }
+
+    @FXML
+    public void remover() {
+        redirecionar(3);
+    }
+
+    public void redirecionar(int id) {
+
+        Dialog<ButtonType> dialog = new Dialog();
+
+        switch(id) {
+            case 1:
+                dialog.setTitle("Alterar");
+                break;
+            case 2:
+                dialog.setTitle("Visualizar");
+                break;
+            case 3:
+                dialog.setTitle("Remover");
+                break;
+        }
+
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("../view/janelaRedirecionamento.fxml"));
+            dialog.getDialogPane().setContent(fxmlLoader.load());
+
+            ControllerJanelaRedirecionamento controle = fxmlLoader.getController();
+
+            dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+            dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+
+            Optional<ButtonType> result = dialog.showAndWait();
+
+            if(result.isPresent() && result.get()==ButtonType.OK){
+
+                Hospede hospede = controle.processResult();
+
+                try {
+                    switch(id) {
+                        case 1:
+                            switchWindow("../view/janelaCadastrarHospede.fxml");
+                            break;
+                    }
+                } catch (Exception e){
+                    message(Alert.AlertType.ERROR,e.getMessage());
+                }
+            }
+        }catch (IOException e){
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+
     }
 
     public void switchWindow(String address){
@@ -87,5 +140,10 @@ public class ControllerJanelaHospede {
         tbHospedes.setItems(JDBCHospedeDAO.getInstance().list());
     }
 
-
+    protected void message(Alert.AlertType type, String message) {
+        Alert alert = new Alert(type);
+        alert.setTitle("Message!");
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
 }

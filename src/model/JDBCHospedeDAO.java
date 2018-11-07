@@ -2,12 +2,14 @@ package model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+
 import java.sql.*;
 
 public class JDBCHospedeDAO implements HospedeDAO {
 
     private static JDBCHospedeDAO instance;
     private ObservableList<Hospede> list;
+    public static Hospede h1;
 
     private JDBCHospedeDAO(){
         list = FXCollections.observableArrayList();
@@ -38,7 +40,7 @@ public class JDBCHospedeDAO implements HospedeDAO {
         preparedStatement.setString(3, hospede.getRg());
         preparedStatement.setDate(4, hospede.getDataNasc());
         preparedStatement.setString(5, hospede.getTelefone());
-        preparedStatement.setInt(6, hospede.getIdCidade());
+        preparedStatement.setInt(6, hospede.getCidade().getId());
         preparedStatement.setDate(7, dataAtual);
 
         preparedStatement.execute();
@@ -67,7 +69,10 @@ public class JDBCHospedeDAO implements HospedeDAO {
         hospede.setRg(rg);
         hospede.setDataNasc(dataNasc);
         hospede.setTelefone(telefone);
-        hospede.setIdCidade(cidadeId);
+        Cidade cidade = JDBCCidadeDAO.getInstance().search(cidadeId);
+        hospede.setCidade(cidade);
+        Estado estado = JDBCEstadoDAO.getInstance().search(cidade.getFk_estado());
+        hospede.setEstado(estado);
         hospede.setDataCriado(dataCriado);
         hospede.setDataAlterado(dataAlterado);
 
@@ -134,7 +139,7 @@ public class JDBCHospedeDAO implements HospedeDAO {
         statement.setString(3, h.getRg());
         statement.setDate(4, h.getDataNasc());
         statement.setString(5, h.getTelefone());
-        statement.setInt(6, h.getIdCidade());
+        statement.setInt(6, h.getCidade().getId());
         statement.setDate(7, dataAtual);
         statement.setInt(8, hospede.getId());
 

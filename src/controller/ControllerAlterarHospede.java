@@ -23,8 +23,11 @@ import model.JDBCHospedeDAO;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
 
-public class ControllerCadastroHospede {
+public class ControllerAlterarHospede {
 
     @FXML
     public Parent mainWindow;
@@ -56,7 +59,24 @@ public class ControllerCadastroHospede {
 
     private ObservableList<Cidade> listaCidadeFiltro;
 
+    private Hospede hospede1;
+
     public void initialize() throws Exception {
+
+        this.hospede1 = JDBCHospedeDAO.h1;
+
+        tfNome.setText(hospede1.getNome());
+        tfCpf.setText(hospede1.getCpf());
+        tfTelefone.setText(hospede1.getTelefone());
+        tfRg.setText(hospede1.getRg());
+
+        Date dataNasc = hospede1.getDataNasc();
+        LocalDate d1 = Instant.ofEpochMilli(dataNasc.getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
+        tfDataNasc.setValue(d1);
+
+        tfCidade.getSelectionModel().select(hospede1.getCidade());
+        tfEstado.getSelectionModel().select(hospede1.getEstado());
+
         listaEstado = FXCollections.observableArrayList(JDBCEstadoDAO.getInstance().list());
         tfEstado.setItems(listaEstado);
 
@@ -71,7 +91,6 @@ public class ControllerCadastroHospede {
 
         MaskFormatter formatter3 = new MaskFormatter(tfTelefone);
         formatter3.setMask(MaskFormatter.TEL_9DIG);
-
     }
 
     @FXML
@@ -120,9 +139,8 @@ public class ControllerCadastroHospede {
                     hospede.setEstado(estado);
 
                     try {
-                        JDBCHospedeDAO.getInstance().create(hospede);
-                        message(Alert.AlertType.INFORMATION, "Cadastrado!");
-
+                        JDBCHospedeDAO.getInstance().update(hospede1, hospede);
+                        message(Alert.AlertType.INFORMATION, "Hóspede alterado!");
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

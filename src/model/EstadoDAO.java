@@ -7,4 +7,5 @@ public interface EstadoDAO {
     ObservableList<Estado> list() throws Exception;
     void delete(Estado estado) throws Exception;
     void update(Estado estado, Estado e) throws Exception;
+    Estado search(int id) throws Exception;
 }

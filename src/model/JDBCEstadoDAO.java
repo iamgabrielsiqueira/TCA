@@ -2,6 +2,7 @@ package model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -111,6 +112,24 @@ public class JDBCEstadoDAO implements EstadoDAO {
         statement.close();
         c.close();
 
+    }
+
+    @Override
+    public Estado search(int id) throws Exception {
+        Connection connection = FabricaConexao.getConnection();
+        String sql = "select * from tca_estado where id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1, id);
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        resultSet.next();
+        Estado estado = carregarEstado(resultSet);
+
+        resultSet.close();
+        preparedStatement.close();
+        connection.close();
+
+        return estado;
     }
 
 }

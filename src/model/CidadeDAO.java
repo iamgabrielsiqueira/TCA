@@ -7,4 +7,5 @@ public interface CidadeDAO {
     ObservableList<Cidade> list() throws Exception;
     void delete(Cidade cidade) throws Exception;
     void update(Cidade cidade, Cidade c) throws Exception;
+    Cidade search(int id) throws Exception;
 }

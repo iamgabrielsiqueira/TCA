@@ -5,45 +5,53 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import model.JDBCTipoQuartoDAO;
-import model.TipoQuarto;
-import view.TextFieldMoney;
+import model.Hospede;
+import model.JDBCHospedeDAO;
 import java.io.IOException;
 
-public class ControllerCadastroTipo {
+public class ControllerVisualizarHospede {
 
     @FXML
     public Parent mainWindow;
 
     @FXML
-    private TextField tfNome;
+    private Label lbNome;
 
     @FXML
-    private TextFieldMoney tfValor;
+    private Label lbCPF;
 
     @FXML
-    private TextField tfDescricao;
+    private Label lbRG;
 
     @FXML
-    public void salvarTipo() throws Exception {
-        String nome = tfNome.getText();
-        Double valor = Double.valueOf(tfValor.getCleanValue());
-        String descricao = tfDescricao.getText();
-        System.out.println(valor);
+    private Label lbTelefone;
 
-        TipoQuarto tipoQuarto = new TipoQuarto();
-        tipoQuarto.setNome(nome);
-        tipoQuarto.setValor(valor);
-        tipoQuarto.setDescricao(descricao);
+    @FXML
+    private Label lbDataNasc;
 
-        JDBCTipoQuartoDAO.getInstance().create(tipoQuarto);
+    @FXML
+    private Label lbEstado;
+
+    @FXML
+    private Label lbCidade;
+
+    public void initialize() {
+        Hospede hospede = JDBCHospedeDAO.h1;
+
+        lbNome.setText("Nome: " + hospede.getNome());
+        lbCPF.setText("CPF: " + hospede.getCpf());
+        lbRG.setText("RG: " + hospede.getRg());
+        lbTelefone.setText("Telefone: " + hospede.getTelefone());
+        lbDataNasc.setText("Data de Nascimento: " + hospede.getDataNasc());
+        lbEstado.setText("Estado: " + hospede.getEstado().getNome());
+        lbCidade.setText("Cidade: " + hospede.getCidade().getNome());
     }
 
     @FXML
     public void voltar() {
-        switchWindow("../view/janelaTipoQuarto.fxml");
+        switchWindow("../view/janelaHospede.fxml");
     }
 
     public void switchWindow(String address){
@@ -69,4 +77,5 @@ public class ControllerCadastroTipo {
         });
 
     }
+
 }

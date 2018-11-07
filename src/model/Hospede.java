@@ -1,7 +1,9 @@
 package model;
 
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
+import model.Cidade;
+import model.Estado;
+
 import java.sql.Date;
 
 public class Hospede {
@@ -12,7 +14,8 @@ public class Hospede {
     private SimpleStringProperty rg;
     private SimpleStringProperty telefone;
     private Date dataNasc;
-    private SimpleIntegerProperty idCidade;
+    private Cidade cidade;
+    private Estado estado;
     private Date dataCriado;
     private Date dataAlterado;
 
@@ -21,7 +24,6 @@ public class Hospede {
         cpf=  new SimpleStringProperty();
         rg = new SimpleStringProperty();
         telefone = new SimpleStringProperty();
-        idCidade = new SimpleIntegerProperty();
     }
 
     public int getId() {
@@ -80,18 +82,6 @@ public class Hospede {
         this.telefone.set(telefone);
     }
 
-    public int getIdCidade() {
-        return idCidade.get();
-    }
-
-    public SimpleIntegerProperty idCidadeProperty() {
-        return idCidade;
-    }
-
-    public void setIdCidade(int idCidade) {
-        this.idCidade.set(idCidade);
-    }
-
     public Date getDataNasc() {
         return dataNasc;
     }
@@ -114,5 +104,26 @@ public class Hospede {
 
     public void setDataAlterado(Date dataAlterado) {
         this.dataAlterado = dataAlterado;
+    }
+
+    @Override
+    public String toString() {
+        return this.nome.getValue() + " - [" + this.cpf.getValue() + "]";
+    }
+
+    public Cidade getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(Cidade cidade) {
+        this.cidade = cidade;
+    }
+
+    public Estado getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Estado estado) {
+        this.estado = estado;
     }
 }

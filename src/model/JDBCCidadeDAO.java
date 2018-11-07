@@ -2,6 +2,7 @@ package model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -146,5 +147,24 @@ public class JDBCCidadeDAO implements CidadeDAO {
         c.close();
 
     }
+
+    @Override
+    public Cidade search(int id) throws Exception {
+        Connection connection = FabricaConexao.getConnection();
+        String sql = "select * from tca_cidade where id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1, id);
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        resultSet.next();
+        Cidade cidade = carregarCidade(resultSet);
+
+        resultSet.close();
+        preparedStatement.close();
+        connection.close();
+
+        return cidade;
+    }
+
 
 }

@@ -10,7 +10,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.JDBCTipoQuartoDAO;
-
 import java.io.IOException;
 
 public class ControllerJanelaTipoQuarto {

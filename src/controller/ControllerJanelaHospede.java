@@ -10,7 +10,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.Hospede;
 import model.JDBCHospedeDAO;
-
 import java.io.IOException;
 import java.util.Optional;
 
@@ -90,16 +89,27 @@ public class ControllerJanelaHospede {
 
             if(result.isPresent() && result.get()==ButtonType.OK){
 
-                Hospede hospede = controle.processResult();
+                Hospede h = controle.processResult();
 
-                try {
-                    switch(id) {
-                        case 1:
-                            switchWindow("../view/janelaCadastrarHospede.fxml");
-                            break;
+                JDBCHospedeDAO.h1 = h;
+
+                if(h!=null) {
+                    try {
+                        switch (id) {
+                            case 1:
+                                switchWindow("../view/janelaAlterarHospede.fxml");
+                                break;
+                            case 2:
+                                switchWindow("../view/janelaVisualizarHospede.fxml");
+                                break;
+                            case 3:
+                                switchWindow("../view/janelaRemoverHospede.fxml");
+                                break;
+                        }
+                    } catch (Exception e) {
+                        message(Alert.AlertType.ERROR, e.getMessage());
+                        System.out.printf(e.getMessage());
                     }
-                } catch (Exception e){
-                    message(Alert.AlertType.ERROR,e.getMessage());
                 }
             }
         }catch (IOException e){
@@ -142,7 +152,7 @@ public class ControllerJanelaHospede {
 
     protected void message(Alert.AlertType type, String message) {
         Alert alert = new Alert(type);
-        alert.setTitle("Message!");
+        alert.setTitle("Mensagem!");
         alert.setContentText(message);
         alert.showAndWait();
     }

@@ -9,6 +9,7 @@ public class JDBCTipoQuartoDAO implements TipoQuartoDAO {
 
     private static JDBCTipoQuartoDAO instance;
     private ObservableList<TipoQuarto> list;
+    public static TipoQuarto t1;
 
     private JDBCTipoQuartoDAO(){
         list = FXCollections.observableArrayList();
@@ -113,7 +114,7 @@ public class JDBCTipoQuartoDAO implements TipoQuartoDAO {
 
         Date dataAtual = new Date(System.currentTimeMillis());
 
-        String sql = "update tca_tipo_quarto set nome=?, valor=?, descricao=? data_alterado=? where id=?";
+        String sql = "update tca_tipo_quarto set nome=?, valor=?, descricao=?, data_alterado=? where id=?";
 
         Connection c = FabricaConexao.getConnection();
         PreparedStatement statement = c.prepareStatement(sql);

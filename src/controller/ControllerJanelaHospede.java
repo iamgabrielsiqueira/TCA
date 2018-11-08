@@ -80,7 +80,7 @@ public class ControllerJanelaHospede {
             fxmlLoader.setLocation(getClass().getResource("../view/janelaRedirecionamento.fxml"));
             dialog.getDialogPane().setContent(fxmlLoader.load());
 
-            ControllerJanelaRedirecionamento controle = fxmlLoader.getController();
+            ControllerJanelaRedirecionamentoHospede controle = fxmlLoader.getController();
 
             dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
             dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);

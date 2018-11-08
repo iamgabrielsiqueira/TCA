@@ -77,4 +77,9 @@ public class TipoQuarto {
     public void setDataAlterado(Date dataAlterado) {
         this.dataAlterado = dataAlterado;
     }
+
+    @Override
+    public String toString() {
+        return this.nome.getValue();
+    }
 }

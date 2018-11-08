@@ -122,7 +122,6 @@ public class ControllerCadastroHospede {
                     try {
                         JDBCHospedeDAO.getInstance().create(hospede);
                         message(Alert.AlertType.INFORMATION, "Cadastrado!");
-
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

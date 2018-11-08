@@ -6,49 +6,49 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.Hospede;
+import model.JDBCHospedeDAO;
 import model.JDBCTipoQuartoDAO;
 import model.TipoQuarto;
 import view.TextFieldMoney;
 import java.io.IOException;
 
-public class ControllerCadastroTipo {
+public class ControllerRemoverTipo {
 
     @FXML
     public Parent mainWindow;
 
     @FXML
-    private TextField tfNome;
+    private Label lbNome;
 
     @FXML
-    private TextFieldMoney tfValor;
+    private Label lbValor;
 
     @FXML
-    private TextField tfDescricao;
+    private Label lbDescricao;
 
-    @FXML
-    public void salvarTipo() {
-        String nome = tfNome.getText();
-        Double valor = Double.valueOf(tfValor.getCleanValue());
-        String descricao = tfDescricao.getText();
+    private TipoQuarto tipoQuarto;
 
-        TipoQuarto tipoQuarto = new TipoQuarto();
-        tipoQuarto.setNome(nome);
-        tipoQuarto.setValor(valor);
-        tipoQuarto.setDescricao(descricao);
-
-        try {
-            JDBCTipoQuartoDAO.getInstance().create(tipoQuarto);
-            message(Alert.AlertType.INFORMATION, "Cadastrado!");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void initialize() {
+        this.tipoQuarto = JDBCTipoQuartoDAO.t1;
+        lbNome.setText("Nome: " + tipoQuarto.getNome());
+        lbDescricao.setText("Descrição: " + tipoQuarto.getDescricao());
+        lbValor.setText("Valor: " + tipoQuarto.getValor());
     }
 
     @FXML
     public void voltar() {
         switchWindow("../view/janelaTipoQuarto.fxml");
+    }
+
+    @FXML
+    public void removerTipo() throws Exception {
+        JDBCTipoQuartoDAO.getInstance().delete(tipoQuarto);
+        message(Alert.AlertType.INFORMATION, "Removido!");
+        voltar();
     }
 
     public void switchWindow(String address){
@@ -72,6 +72,7 @@ public class ControllerCadastroTipo {
                 }
             }
         });
+
     }
 
     protected void message(Alert.AlertType type, String message) {

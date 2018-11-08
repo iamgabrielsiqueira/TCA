@@ -8,12 +8,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.JDBCHospedeDAO;
 import model.JDBCTipoQuartoDAO;
 import model.TipoQuarto;
 import view.TextFieldMoney;
 import java.io.IOException;
 
-public class ControllerCadastroTipo {
+public class ControllerAlterarTipo {
 
     @FXML
     public Parent mainWindow;
@@ -27,11 +28,21 @@ public class ControllerCadastroTipo {
     @FXML
     private TextField tfDescricao;
 
+    private TipoQuarto tipoQuarto1;
+
+    public void initialize() {
+        this.tipoQuarto1 = JDBCTipoQuartoDAO.t1;
+        tfNome.setText(tipoQuarto1.getNome());
+        tfDescricao.setText(tipoQuarto1.getDescricao());
+        tfValor.setText(String.valueOf(tipoQuarto1.getValor()));
+    }
+
     @FXML
     public void salvarTipo() {
         String nome = tfNome.getText();
         Double valor = Double.valueOf(tfValor.getCleanValue());
         String descricao = tfDescricao.getText();
+        System.out.println(valor);
 
         TipoQuarto tipoQuarto = new TipoQuarto();
         tipoQuarto.setNome(nome);
@@ -39,8 +50,8 @@ public class ControllerCadastroTipo {
         tipoQuarto.setDescricao(descricao);
 
         try {
-            JDBCTipoQuartoDAO.getInstance().create(tipoQuarto);
-            message(Alert.AlertType.INFORMATION, "Cadastrado!");
+            JDBCTipoQuartoDAO.getInstance().update(tipoQuarto1, tipoQuarto);
+            message(Alert.AlertType.INFORMATION, "Tipo de Quarto alterado!");
         } catch (Exception e) {
             e.printStackTrace();
         }

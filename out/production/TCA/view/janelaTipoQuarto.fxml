@@ -59,15 +59,23 @@
             <Button onAction="#cadastrar" prefHeight="26.0" prefWidth="147.0" style="-fx-background-color: #b2bec3; -fx-border-color: none;" text="Cadastrar" textFill="#2d3436">
                 <font>
                     <Font name="NanumBarunGothic" size="13.0" />
-                </font></Button>
-            <Button prefHeight="26.0" prefWidth="147.0" style="-fx-background-color: #b2bec3; -fx-border-color: none;" text="Visualizar por CPF" textFill="#2d3436">
+                </font>
+            </Button>
+            <Button onAction="#alterar" prefHeight="26.0" prefWidth="147.0" style="-fx-background-color: #b2bec3; -fx-border-color: none;" text="Alterar" textFill="#2d3436">
                 <font>
                     <Font name="NanumBarunGothic" size="13.0" />
-                </font></Button>
-            <Button prefHeight="26.0" prefWidth="147.0" style="-fx-background-color: #b2bec3; -fx-border-color: none;" text="Remover por CPF" textFill="#2d3436">
+                </font>
+            </Button>
+            <Button onAction="#visualizar" prefHeight="26.0" prefWidth="147.0" style="-fx-background-color: #b2bec3; -fx-border-color: none;" text="Visualizar" textFill="#2d3436">
                 <font>
                     <Font name="NanumBarunGothic" size="13.0" />
-                </font></Button>
+                </font>
+            </Button>
+            <Button onAction="#remover" prefHeight="26.0" prefWidth="147.0" style="-fx-background-color: #b2bec3; -fx-border-color: none;" text="Remover" textFill="#2d3436">
+                <font>
+                    <Font name="NanumBarunGothic" size="13.0" />
+                </font>
+            </Button>
         </VBox>
     </left>
 </BorderPane>

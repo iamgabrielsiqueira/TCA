@@ -7,4 +7,5 @@ public interface TipoQuartoDAO {
     ObservableList<TipoQuarto> list() throws Exception;
     void delete(TipoQuarto tipoQuarto) throws Exception;
     void update(TipoQuarto tipoQuarto, TipoQuarto t) throws Exception;
+    TipoQuarto search(int id) throws Exception;
 }

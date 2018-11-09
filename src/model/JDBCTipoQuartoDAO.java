@@ -131,4 +131,22 @@ public class JDBCTipoQuartoDAO implements TipoQuartoDAO {
 
     }
 
+    @Override
+    public TipoQuarto search(int id) throws Exception {
+        Connection connection = FabricaConexao.getConnection();
+        String sql = "select * from tca_tipo_quarto where id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1, id);
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        resultSet.next();
+        TipoQuarto tipoQuarto = carregarTipoQuarto(resultSet);
+
+        resultSet.close();
+        preparedStatement.close();
+        connection.close();
+
+        return tipoQuarto;
+    }
+
 }

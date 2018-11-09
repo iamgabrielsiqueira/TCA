@@ -23,6 +23,12 @@ public class ControllerMainWindow {
         switchWindow("../view/janelaTipoQuarto.fxml");
     }
 
+    @FXML
+    public void carregarQuartos() {
+        switchWindow("../view/janelaQuarto.fxml");
+    }
+
+
     public void switchWindow(String address){
 
         Platform.runLater(new Runnable() {

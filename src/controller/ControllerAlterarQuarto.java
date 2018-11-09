@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 import model.*;
 import java.io.IOException;
 
-public class ControllerCadastroQuarto {
+public class ControllerAlterarQuarto {
 
     @FXML
     public Parent mainWindow;
@@ -30,7 +30,18 @@ public class ControllerCadastroQuarto {
 
     private ObservableList<TipoQuarto> listaTipos;
 
+    private Quarto q1;
+
     public void initialize() throws Exception {
+        this.q1 = JDBCQuartoDAO.q1;
+
+        listaTipos = FXCollections.observableArrayList(JDBCTipoQuartoDAO.getInstance().list());
+        tfTipo.setItems(listaTipos);
+
+        tfNumero.setText(String.valueOf(q1.getNumero()));
+        tfDescricao.setText(q1.getDescricao());
+
+        tfTipo.getSelectionModel().select(q1.getTipoQuarto());
         listaTipos = FXCollections.observableArrayList(JDBCTipoQuartoDAO.getInstance().list());
         tfTipo.setItems(listaTipos);
     }
@@ -58,8 +69,8 @@ public class ControllerCadastroQuarto {
                 quarto.setTipoQuarto(tipoQuarto);
 
                 try {
-                    JDBCQuartoDAO.getInstance().create(quarto);
-                    mensagem(Alert.AlertType.INFORMATION, "Cadastrado!");
+                    JDBCQuartoDAO.getInstance().update(q1, quarto);
+                    mensagem(Alert.AlertType.INFORMATION, "Atualizado!");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

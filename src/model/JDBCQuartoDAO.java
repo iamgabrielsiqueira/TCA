@@ -123,7 +123,7 @@ public class JDBCQuartoDAO implements QuartoDAO {
         statement.setString(2, q.getDescricao());
         statement.setInt(3, q.getTipoQuarto().getId());
         statement.setDate(4, dataAtual);
-        statement.setInt(5, q.getId());
+        statement.setInt(5, quarto.getId());
 
         statement.execute();
         statement.close();

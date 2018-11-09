@@ -9,6 +9,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.JDBCQuartoDAO;
+import model.Quarto;
+
 import java.io.IOException;
 import java.util.Optional;
 
@@ -40,7 +42,7 @@ public class ControllerJanelaQuarto {
 
     @FXML
     public void cadastrar() {
-        switchWindow("../view/janelaCadastrarTipo.fxml");
+        switchWindow("../view/janelaCadastrarQuarto.fxml");
     }
 
     @FXML
@@ -76,10 +78,10 @@ public class ControllerJanelaQuarto {
 
         try{
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("../view/janelaRedirecionamentoTipo.fxml"));
+            fxmlLoader.setLocation(getClass().getResource("../view/janelaRedirecionamentoQuarto.fxml"));
             dialog.getDialogPane().setContent(fxmlLoader.load());
 
-            ControllerJanelaRedirecionamentoTipo controle = fxmlLoader.getController();
+            ControllerJanelaRedirecionamentoQuarto controle = fxmlLoader.getController();
 
             dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
             dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
@@ -88,28 +90,28 @@ public class ControllerJanelaQuarto {
 
             if(result.isPresent() && result.get()==ButtonType.OK){
 
-//                TipoQuarto t = controle.processResult();
-//
-//                JDBCTipoQuartoDAO.t1 = t;
-//
-//                if(t!=null) {
-//                    try {
-//                        switch (id) {
-//                            case 1:
-//                                switchWindow("../view/janelaAlterarTipo.fxml");
-//                                break;
-//                            case 2:
-//                                switchWindow("../view/janelaVisualizarTipo.fxml");
-//                                break;
-//                            case 3:
-//                                switchWindow("../view/janelaRemoverTipo.fxml");
-//                                break;
-//                        }
-//                    } catch (Exception e) {
-//                        message(Alert.AlertType.ERROR, e.getMessage());
-//                        System.out.printf(e.getMessage());
-//                    }
-//                }
+                Quarto q = controle.processResult();
+
+                JDBCQuartoDAO.q1 = q;
+
+                if(q!=null) {
+                    try {
+                        switch (id) {
+                            case 1:
+                                switchWindow("../view/janelaAlterarQuarto.fxml");
+                                break;
+                            case 2:
+                                switchWindow("../view/janelaVisualizarQuarto.fxml");
+                                break;
+                            case 3:
+                                switchWindow("../view/janelaRemoverQuarto.fxml");
+                                break;
+                        }
+                    } catch (Exception e) {
+                        mensagem(Alert.AlertType.ERROR, e.getMessage());
+                        System.out.printf(e.getMessage());
+                    }
+                }
             }
         }catch (IOException e){
             e.printStackTrace();
@@ -149,10 +151,11 @@ public class ControllerJanelaQuarto {
         tbQuartos.setItems(JDBCQuartoDAO.getInstance().list());
     }
 
-    protected void message(Alert.AlertType type, String message) {
+    protected void mensagem(Alert.AlertType type, String message) {
         Alert alert = new Alert(type);
         alert.setTitle("Mensagem!");
         alert.setContentText(message);
         alert.showAndWait();
     }
+
 }

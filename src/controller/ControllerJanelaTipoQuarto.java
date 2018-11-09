@@ -108,7 +108,7 @@ public class ControllerJanelaTipoQuarto {
                                 break;
                         }
                     } catch (Exception e) {
-                        message(Alert.AlertType.ERROR, e.getMessage());
+                        mensagem(Alert.AlertType.ERROR, e.getMessage());
                         System.out.printf(e.getMessage());
                     }
                 }
@@ -151,7 +151,7 @@ public class ControllerJanelaTipoQuarto {
         tbTipos.setItems(JDBCTipoQuartoDAO.getInstance().list());
     }
 
-    protected void message(Alert.AlertType type, String message) {
+    protected void mensagem(Alert.AlertType type, String message) {
         Alert alert = new Alert(type);
         alert.setTitle("Mensagem!");
         alert.setContentText(message);

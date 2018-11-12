@@ -15,22 +15,22 @@ public class ControllerJanelaPrincipal {
 
     @FXML
     public void carregarHospedes() {
-        switchWindow("../view/janelaHospede.fxml");
+        switchWindow("../view/hospede/janelaHospede.fxml");
     }
 
     @FXML
     public void carregarTiposQuartos() {
-        switchWindow("../view/janelaTipoQuarto.fxml");
+        switchWindow("../view/tipo/janelaTipoQuarto.fxml");
     }
 
     @FXML
     public void carregarQuartos() {
-        switchWindow("../view/janelaQuarto.fxml");
+        switchWindow("../view/quarto/janelaQuarto.fxml");
     }
 
     @FXML
     public void carregarServicos() {
-        switchWindow("../view/janelaServico.fxml");
+        switchWindow("../view/servico/janelaServico.fxml");
     }
 
     public void switchWindow(String address){

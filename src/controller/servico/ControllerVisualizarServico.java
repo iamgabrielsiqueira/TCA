@@ -37,7 +37,7 @@ public class ControllerVisualizarServico {
 
     @FXML
     public void voltar() {
-        switchWindow("../../view/janelaServico.fxml");
+        switchWindow("../../view/servico/janelaServico.fxml");
     }
 
     public void switchWindow(String address){

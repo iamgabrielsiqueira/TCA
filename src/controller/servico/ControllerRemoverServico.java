@@ -37,7 +37,7 @@ public class ControllerRemoverServico {
 
     @FXML
     public void voltar() {
-        switchWindow("../../view/janelaServico.fxml");
+        switchWindow("../../view/servico/janelaServico.fxml");
     }
 
     @FXML

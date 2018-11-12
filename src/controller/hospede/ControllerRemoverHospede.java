@@ -60,7 +60,7 @@ public class ControllerRemoverHospede {
 
     @FXML
     public void voltar() {
-        switchWindow("../../view/janelaHospede.fxml");
+        switchWindow("../../view/hospede/janelaHospede.fxml");
     }
 
     public void switchWindow(String address){

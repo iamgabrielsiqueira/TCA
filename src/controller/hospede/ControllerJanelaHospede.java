@@ -36,12 +36,12 @@ public class ControllerJanelaHospede {
 
     @FXML
     public void voltar() {
-        switchWindow("../../view/mainWindow.fxml");
+        switchWindow("../../view/janelaPrincipal.fxml");
     }
 
     @FXML
     public void cadastrar() {
-        switchWindow("../../view/janelaCadastrarHospede.fxml");
+        switchWindow("../../view/hospede/janelaCadastrarHospede.fxml");
     }
 
     @FXML
@@ -77,10 +77,10 @@ public class ControllerJanelaHospede {
 
         try{
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("../../view/janelaRedirecionamento.fxml"));
+            fxmlLoader.setLocation(getClass().getResource("../../view/hospede/janelaRedirecionamento.fxml"));
             dialog.getDialogPane().setContent(fxmlLoader.load());
 
-            ControllerJanelaRedirecionamentoHospede controle = fxmlLoader.getController();
+            ControllerRedirecionamentoHospede controle = fxmlLoader.getController();
 
             dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
             dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
@@ -97,13 +97,13 @@ public class ControllerJanelaHospede {
                     try {
                         switch (id) {
                             case 1:
-                                switchWindow("../../view/janelaAlterarHospede.fxml");
+                                switchWindow("../../view/hospede/janelaAlterarHospede.fxml");
                                 break;
                             case 2:
-                                switchWindow("../../view/janelaVisualizarHospede.fxml");
+                                switchWindow("../../view/hospede/janelaVisualizarHospede.fxml");
                                 break;
                             case 3:
-                                switchWindow("../../view/janelaRemoverHospede.fxml");
+                                switchWindow("../../view/hospede/janelaRemoverHospede.fxml");
                                 break;
                         }
                     } catch (Exception e) {

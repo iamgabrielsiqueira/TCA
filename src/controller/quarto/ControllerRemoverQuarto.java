@@ -38,7 +38,7 @@ public class ControllerRemoverQuarto {
 
     @FXML
     public void voltar() {
-        switchWindow("../../view/janelaQuarto.fxml");
+        switchWindow("../../view/quarto/janelaQuarto.fxml");
     }
 
     @FXML

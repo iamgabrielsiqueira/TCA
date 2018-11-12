@@ -8,7 +8,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("view/mainWindow.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("view/janelaPrincipal.fxml"));
         primaryStage.setTitle("System");
         primaryStage.setScene(new Scene(root, 800, 600));
         //primaryStage.getScene().getStylesheets().add("skin.css");

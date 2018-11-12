@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import view.TextFieldMoney?>
+
+<BorderPane fx:id="mainWindow" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #dfe6e9;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.servico.ControllerRemoverServico">
+    <center>
+        <VBox alignment="TOP_RIGHT" spacing="10">
+            <Label />
+            <Button alignment="CENTER" onAction="#voltar" prefHeight="28.0" prefWidth="170.0" style="-fx-background-color: #2d3436; -fx-border-radius: 0;" text="&lt; Voltar" textFill="WHITE">
+                <font>
+                    <Font name="NanumBarunGothic" size="13.0" />
+                </font>
+                <VBox.margin>
+                    <Insets right="25.0" />
+                </VBox.margin></Button>
+            <Label />
+            <Label />
+            <Label />
+            <Label />
+            <VBox alignment="CENTER" spacing="10">
+                <HBox alignment="CENTER" prefHeight="268.0" prefWidth="500.0">
+                    <VBox maxWidth="170" minWidth="170" spacing="21">
+                        <Label text="Nome" fx:id="lbNome"/>
+                        <Label text="Valor" fx:id="lbValor"/>
+                        <Label text="Descrição" fx:id="lbDescricao"/>
+                    </VBox>
+                </HBox>
+                <HBox alignment="CENTER">
+                    <Button onAction="#removerServico" prefHeight="26.0" prefWidth="350.0" style="-fx-background-color: #74b9ff;" text="Remover" textFill="#2d3436">
+                        <font>
+                            <Font name="NanumBarunGothic" size="13.0" />
+                        </font></Button>
+                </HBox>
+            </VBox>
+        </VBox>
+    </center>
+    <left>
+        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0" spacing="10" style="-fx-background-color: #636e72;" BorderPane.alignment="CENTER">
+            <Label />
+            <ImageView fx:id="img01">
+                <image>
+                    <Image url="/imagens/tipo-branco.png" />
+                </image>
+            </ImageView>
+            <Label lineSpacing="10.0" text="Servicos" textFill="WHITE">
+                <font>
+                    <Font name="NanumBarunGothic" size="20.0" />
+                </font>
+                <effect>
+                    <DropShadow color="TRANSPARENT" />
+                </effect></Label>
+        </VBox>
+    </left>
+</BorderPane>

@@ -73,7 +73,7 @@ public class ControllerCadastroQuarto {
 
     @FXML
     public void voltar() {
-        switchWindow("../../view/janelaQuarto.fxml");
+        switchWindow("../../view/quarto/janelaQuarto.fxml");
     }
 
     public void switchWindow(String address){

@@ -48,7 +48,7 @@ public class ControllerCadastroTipo {
 
     @FXML
     public void voltar() {
-        switchWindow("../../view/janelaTipoQuarto.fxml");
+        switchWindow("../../view/tipo/janelaTipoQuarto.fxml");
     }
 
     public void switchWindow(String address){

@@ -41,7 +41,7 @@ public class ControllerRemoverTipo {
 
     @FXML
     public void voltar() {
-        switchWindow("../../view/janelaTipoQuarto.fxml");
+        switchWindow("../../view/tipo/janelaTipoQuarto.fxml");
     }
 
     @FXML

@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="mainWindow" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #dfe6e9;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.hospede.ControllerJanelaHospede">
+<BorderPane fx:id="mainWindow" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #dfe6e9;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.hospede.ControllerJanelaHospede">
     <center>
         <VBox alignment="TOP_RIGHT" spacing="10">
             <Label />
@@ -39,7 +39,7 @@
         </VBox>
     </center>
    <left>
-       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0" spacing="10" style="-fx-background-color: #636e72;" BorderPane.alignment="CENTER">
+       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0" spacing="10" style="-fx-background-color: #fdcb6e;" BorderPane.alignment="CENTER">
            <Label />
            <ImageView fx:id="img01">
                <image>
@@ -56,22 +56,22 @@
            <Label />
            <Label />
            <Label />
-           <Button onAction="#cadastrar" prefHeight="26.0" prefWidth="147.0" style="-fx-background-color: #b2bec3; -fx-border-color: none;" text="Cadastrar" textFill="#2d3436">
+           <Button onAction="#cadastrar" prefHeight="26.0" prefWidth="147.0" style="-fx-background-color: #ffeaa7; -fx-border-color: none;" text="Cadastrar" textFill="#2d3436">
             <font>
                <Font name="NanumBarunGothic" size="13.0" />
             </font>
            </Button>
-           <Button onAction="#alterar" prefHeight="26.0" prefWidth="147.0" style="-fx-background-color: #b2bec3; -fx-border-color: none;" text="Alterar" textFill="#2d3436">
+           <Button onAction="#alterar" prefHeight="26.0" prefWidth="147.0" style="-fx-background-color: #ffeaa7; -fx-border-color: none;" text="Alterar" textFill="#2d3436">
                <font>
                    <Font name="NanumBarunGothic" size="13.0" />
                </font>
            </Button>
-           <Button onAction="#visualizar" prefHeight="26.0" prefWidth="147.0" style="-fx-background-color: #b2bec3; -fx-border-color: none;" text="Visualizar" textFill="#2d3436">
+           <Button onAction="#visualizar" prefHeight="26.0" prefWidth="147.0" style="-fx-background-color: #ffeaa7; -fx-border-color: none;" text="Visualizar" textFill="#2d3436">
                <font>
                    <Font name="NanumBarunGothic" size="13.0" />
                </font>
            </Button>
-           <Button onAction="#remover" prefHeight="26.0" prefWidth="147.0" style="-fx-background-color: #b2bec3; -fx-border-color: none;" text="Remover" textFill="#2d3436">
+           <Button onAction="#remover" prefHeight="26.0" prefWidth="147.0" style="-fx-background-color: #ffeaa7; -fx-border-color: none;" text="Remover" textFill="#2d3436">
                <font>
                    <Font name="NanumBarunGothic" size="13.0" />
                </font>

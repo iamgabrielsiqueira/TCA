@@ -29,6 +29,34 @@ public class ControllerAlterarServico {
 
     private Servico servico1;
 
+    @FXML
+    public void salvarTipo() {
+        if(tfNome.getText().isEmpty() || tfValor.getCleanValue().isEmpty()) {
+            mensagem(Alert.AlertType.ERROR, "Erro!");
+        } else {
+            String nome = tfNome.getText();
+            Double valor = Double.valueOf(tfValor.getCleanValue());
+            String descricao = tfDescricao.getText();
+
+            Servico servico = new Servico();
+            servico.setNome(nome);
+            servico.setValor(valor);
+            servico.setDescricao(descricao);
+
+            try {
+                JDBCServicoDAO.getInstance().update(servico1, servico);
+                mensagem(Alert.AlertType.INFORMATION, "Servico alterado!");
+            } catch (Exception e) {
+                mensagem(Alert.AlertType.ERROR, "Erro!");
+            }
+        }
+    }
+
+    @FXML
+    public void voltar() {
+        trocarJanela("../../view/servico/janelaServico.fxml");
+    }
+
     public void initialize() {
         this.servico1 = JDBCServicoDAO.s1;
         tfNome.setText(servico1.getNome());
@@ -36,31 +64,7 @@ public class ControllerAlterarServico {
         tfValor.setText(String.valueOf(servico1.getValor()));
     }
 
-    @FXML
-    public void salvarTipo() {
-        String nome = tfNome.getText();
-        Double valor = Double.valueOf(tfValor.getCleanValue());
-        String descricao = tfDescricao.getText();
-
-        Servico servico = new Servico();
-        servico.setNome(nome);
-        servico.setValor(valor);
-        servico.setDescricao(descricao);
-
-        try {
-            JDBCServicoDAO.getInstance().update(servico1, servico);
-            message(Alert.AlertType.INFORMATION, "Servico alterado!");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    public void voltar() {
-        switchWindow("../../view/servico/janelaServico.fxml");
-    }
-
-    public void switchWindow(String address){
+    public void trocarJanela(String address){
 
         Platform.runLater(new Runnable() {
             @Override
@@ -77,13 +81,13 @@ public class ControllerAlterarServico {
                     stage.setResizable(false);
 
                 }catch (IOException e){
-                    e.printStackTrace();
+                    mensagem(Alert.AlertType.ERROR, "Erro!");
                 }
             }
         });
     }
 
-    protected void message(Alert.AlertType type, String message) {
+    protected void mensagem(Alert.AlertType type, String message) {
         Alert alert = new Alert(type);
         alert.setTitle("Mensagem!");
         alert.setContentText(message);

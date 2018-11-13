@@ -54,8 +54,13 @@ public class ControllerJanelaQuarto {
     public void remover() {
         redirecionar(3);
     }
-    public void initialize() throws Exception {
-        carregarLista();
+
+    public void initialize() {
+        try {
+            carregarLista();
+        } catch (Exception e) {
+            mensagem(Alert.AlertType.ERROR, "Erro!");
+        }
     }
 
     public void redirecionar(int id) {
@@ -106,14 +111,12 @@ public class ControllerJanelaQuarto {
                                 break;
                         }
                     } catch (Exception e) {
-                        mensagem(Alert.AlertType.ERROR, e.getMessage());
-                        System.out.printf(e.getMessage());
+                        mensagem(Alert.AlertType.ERROR, "Erro!");
                     }
                 }
             }
         }catch (IOException e){
-            e.printStackTrace();
-            System.out.println(e.getMessage());
+            mensagem(Alert.AlertType.ERROR, "Erro!");
         }
 
     }
@@ -135,7 +138,7 @@ public class ControllerJanelaQuarto {
                     stage.setResizable(false);
 
                 }catch (IOException e){
-                    e.printStackTrace();
+                    mensagem(Alert.AlertType.ERROR, "Erro!");
                 }
             }
         });

@@ -10,7 +10,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.jdbc.JDBCTipoQuartoDAO;
 import model.classes.TipoQuarto;
-
 import java.io.IOException;
 import java.util.Optional;
 
@@ -31,18 +30,14 @@ public class ControllerJanelaTipoQuarto {
     @FXML
     private TableColumn tcDescricao;
 
-    public void initialize() throws Exception {
-        carregarLista();
-    }
-
     @FXML
     public void voltar() {
-        switchWindow("../../view/janelaPrincipal.fxml");
+        trocarJanela("../../view/janelaPrincipal.fxml");
     }
 
     @FXML
     public void cadastrar() {
-        switchWindow("../../view/tipo/janelaCadastrarTipo.fxml");
+        trocarJanela("../../view/tipo/janelaCadastrarTipo.fxml");
     }
 
     @FXML
@@ -58,6 +53,14 @@ public class ControllerJanelaTipoQuarto {
     @FXML
     public void remover() {
         redirecionar(3);
+    }
+
+    public void initialize() {
+        try {
+            carregarLista();
+        } catch (Exception e) {
+            mensagem(Alert.AlertType.ERROR, "Erro!");
+        }
     }
 
     public void redirecionar(int id) {
@@ -98,29 +101,27 @@ public class ControllerJanelaTipoQuarto {
                     try {
                         switch (id) {
                             case 1:
-                                switchWindow("../../view/tipo/janelaAlterarTipo.fxml");
+                                trocarJanela("../../view/tipo/janelaAlterarTipo.fxml");
                                 break;
                             case 2:
-                                switchWindow("../../view/tipo/janelaVisualizarTipo.fxml");
+                                trocarJanela("../../view/tipo/janelaVisualizarTipo.fxml");
                                 break;
                             case 3:
-                                switchWindow("../../view/tipo/janelaRemoverTipo.fxml");
+                                trocarJanela("../../view/tipo/janelaRemoverTipo.fxml");
                                 break;
                         }
                     } catch (Exception e) {
-                        mensagem(Alert.AlertType.ERROR, e.getMessage());
-                        System.out.printf(e.getMessage());
+                        mensagem(Alert.AlertType.ERROR, "Erro!");
                     }
                 }
             }
         }catch (IOException e){
-            e.printStackTrace();
-            System.out.println(e.getMessage());
+            mensagem(Alert.AlertType.ERROR, "Erro!");
         }
 
     }
 
-    public void switchWindow(String address){
+    public void trocarJanela(String address){
 
         Platform.runLater(new Runnable() {
             @Override
@@ -137,7 +138,7 @@ public class ControllerJanelaTipoQuarto {
                     stage.setResizable(false);
 
                 }catch (IOException e){
-                    e.printStackTrace();
+                    mensagem(Alert.AlertType.ERROR, "Erro!");
                 }
             }
         });

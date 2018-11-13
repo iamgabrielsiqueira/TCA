@@ -29,6 +29,35 @@ public class ControllerAlterarTipo {
 
     private TipoQuarto tipoQuarto1;
 
+    @FXML
+    public void salvarTipo() {
+        if (tfNome.getText().isEmpty() || tfValor.getCleanValue().isEmpty()) {
+            mensagem(Alert.AlertType.ERROR, "Erro!");
+        } else {
+            String nome = tfNome.getText();
+            Double valor = Double.valueOf(tfValor.getCleanValue());
+            String descricao = tfDescricao.getText();
+            System.out.println(valor);
+
+            TipoQuarto tipoQuarto = new TipoQuarto();
+            tipoQuarto.setNome(nome);
+            tipoQuarto.setValor(valor);
+            tipoQuarto.setDescricao(descricao);
+
+            try {
+                JDBCTipoQuartoDAO.getInstance().update(tipoQuarto1, tipoQuarto);
+                mensagem(Alert.AlertType.INFORMATION, "Tipo de Quarto alterado!");
+            } catch (Exception e) {
+                mensagem(Alert.AlertType.ERROR, "Erro!");
+            }
+        }
+    }
+
+    @FXML
+    public void voltar() {
+        trocarJanela("../../view/tipo/janelaTipoQuarto.fxml");
+    }
+
     public void initialize() {
         this.tipoQuarto1 = JDBCTipoQuartoDAO.t1;
         tfNome.setText(tipoQuarto1.getNome());
@@ -36,32 +65,7 @@ public class ControllerAlterarTipo {
         tfValor.setText(String.valueOf(tipoQuarto1.getValor()));
     }
 
-    @FXML
-    public void salvarTipo() {
-        String nome = tfNome.getText();
-        Double valor = Double.valueOf(tfValor.getCleanValue());
-        String descricao = tfDescricao.getText();
-        System.out.println(valor);
-
-        TipoQuarto tipoQuarto = new TipoQuarto();
-        tipoQuarto.setNome(nome);
-        tipoQuarto.setValor(valor);
-        tipoQuarto.setDescricao(descricao);
-
-        try {
-            JDBCTipoQuartoDAO.getInstance().update(tipoQuarto1, tipoQuarto);
-            message(Alert.AlertType.INFORMATION, "Tipo de Quarto alterado!");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    public void voltar() {
-        switchWindow("../../view/tipo/janelaTipoQuarto.fxml");
-    }
-
-    public void switchWindow(String address){
+    public void trocarJanela(String address){
 
         Platform.runLater(new Runnable() {
             @Override
@@ -78,13 +82,13 @@ public class ControllerAlterarTipo {
                     stage.setResizable(false);
 
                 }catch (IOException e){
-                    e.printStackTrace();
+                    mensagem(Alert.AlertType.ERROR, "Erro!");
                 }
             }
         });
     }
 
-    protected void message(Alert.AlertType type, String message) {
+    protected void mensagem(Alert.AlertType type, String message) {
         Alert alert = new Alert(type);
         alert.setTitle("Mensagem!");
         alert.setContentText(message);

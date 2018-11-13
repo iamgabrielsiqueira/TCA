@@ -30,18 +30,14 @@ public class ControllerJanelaServico {
     @FXML
     private TableColumn tcDescricao;
 
-    public void initialize() throws Exception {
-        carregarLista();
-    }
-
     @FXML
     public void voltar() {
-        switchWindow("../../view/janelaPrincipal.fxml");
+        trocarJanela("../../view/janelaPrincipal.fxml");
     }
 
     @FXML
     public void cadastrar() {
-        switchWindow("../../view/servico/janelaCadastrarServico.fxml");
+        trocarJanela("../../view/servico/janelaCadastrarServico.fxml");
     }
 
     @FXML
@@ -57,6 +53,14 @@ public class ControllerJanelaServico {
     @FXML
     public void remover() {
         redirecionar(3);
+    }
+
+    public void initialize() {
+        try {
+            carregarLista();
+        } catch (Exception e) {
+            mensagem(Alert.AlertType.ERROR, "Erro!");
+        }
     }
 
     public void redirecionar(int id) {
@@ -97,29 +101,27 @@ public class ControllerJanelaServico {
                     try {
                         switch (id) {
                             case 1:
-                                switchWindow("../../view/servico/janelaAlterarServico.fxml");
+                                trocarJanela("../../view/servico/janelaAlterarServico.fxml");
                                 break;
                             case 2:
-                                switchWindow("../../view/servico/janelaVisualizarServico.fxml");
+                                trocarJanela("../../view/servico/janelaVisualizarServico.fxml");
                                 break;
                             case 3:
-                                switchWindow("../../view/servico/janelaRemoverServico.fxml");
+                                trocarJanela("../../view/servico/janelaRemoverServico.fxml");
                                 break;
                         }
                     } catch (Exception e) {
-                        mensagem(Alert.AlertType.ERROR, e.getMessage());
-                        System.out.printf(e.getMessage());
+                        mensagem(Alert.AlertType.ERROR, "Erro!");
                     }
                 }
             }
         }catch (IOException e){
-            e.printStackTrace();
-            System.out.println(e.getMessage());
+            mensagem(Alert.AlertType.ERROR, "Erro!");
         }
 
     }
 
-    public void switchWindow(String address){
+    public void trocarJanela(String address){
 
         Platform.runLater(new Runnable() {
             @Override
@@ -136,7 +138,7 @@ public class ControllerJanelaServico {
                     stage.setResizable(false);
 
                 }catch (IOException e){
-                    e.printStackTrace();
+                    mensagem(Alert.AlertType.ERROR, "Erro!");
                 }
             }
         });

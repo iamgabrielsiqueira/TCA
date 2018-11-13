@@ -29,29 +29,33 @@ public class ControllerCadastroServico {
 
     @FXML
     public void salvarServico() {
-        String nome = tfNome.getText();
-        Double valor = Double.valueOf(tfValor.getCleanValue());
-        String descricao = tfDescricao.getText();
+        if(tfNome.getText().isEmpty() || tfValor.getCleanValue().isEmpty()) {
+            mensagem(Alert.AlertType.ERROR, "Erro!");
+        } else {
+            String nome = tfNome.getText();
+            Double valor = Double.valueOf(tfValor.getCleanValue());
+            String descricao = tfDescricao.getText();
 
-        Servico servico = new Servico();
-        servico.setNome(nome);
-        servico.setValor(valor);
-        servico.setDescricao(descricao);
+            Servico servico = new Servico();
+            servico.setNome(nome);
+            servico.setValor(valor);
+            servico.setDescricao(descricao);
 
-        try {
-            JDBCServicoDAO.getInstance().create(servico);
-            message(Alert.AlertType.INFORMATION, "Cadastrado!");
-        } catch (Exception e) {
-            e.printStackTrace();
+            try {
+                JDBCServicoDAO.getInstance().create(servico);
+                mensagem(Alert.AlertType.INFORMATION, "Serviço cadastrado!");
+            } catch (Exception e) {
+                mensagem(Alert.AlertType.ERROR, "Erro!");
+            }
         }
     }
 
     @FXML
     public void voltar() {
-        switchWindow("../../view/servico/janelaServico.fxml");
+        trocarJanela("../../view/servico/janelaServico.fxml");
     }
 
-    public void switchWindow(String address){
+    public void trocarJanela(String address){
 
         Platform.runLater(new Runnable() {
             @Override
@@ -68,13 +72,13 @@ public class ControllerCadastroServico {
                     stage.setResizable(false);
 
                 }catch (IOException e){
-                    e.printStackTrace();
+                    mensagem(Alert.AlertType.ERROR, "Erro!");
                 }
             }
         });
     }
 
-    protected void message(Alert.AlertType type, String message) {
+    protected void mensagem(Alert.AlertType type, String message) {
         Alert alert = new Alert(type);
         alert.setTitle("Mensagem!");
         alert.setContentText(message);

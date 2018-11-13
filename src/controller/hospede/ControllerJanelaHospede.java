@@ -59,7 +59,7 @@ public class ControllerJanelaHospede {
         try {
             carregarLista();
         } catch (Exception e) {
-            e.printStackTrace();
+            mensagem(Alert.AlertType.ERROR, "Erro!");
         }
     }
 
@@ -111,14 +111,12 @@ public class ControllerJanelaHospede {
                                 break;
                         }
                     } catch (Exception e) {
-                        mensagem(Alert.AlertType.ERROR, e.getMessage());
-                        System.out.printf(e.getMessage());
+                        mensagem(Alert.AlertType.ERROR, "Erro!");
                     }
                 }
             }
         }catch (IOException e){
-            e.printStackTrace();
-            System.out.println(e.getMessage());
+            mensagem(Alert.AlertType.ERROR, "Erro!");
         }
 
     }
@@ -140,7 +138,7 @@ public class ControllerJanelaHospede {
                     stage.setResizable(false);
 
                 }catch (IOException e){
-                    e.printStackTrace();
+                    mensagem(Alert.AlertType.ERROR, "Erro!");
                 }
             }
         });

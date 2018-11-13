@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import java.io.IOException;
 
@@ -15,25 +16,25 @@ public class ControllerJanelaPrincipal {
 
     @FXML
     public void carregarHospedes() {
-        switchWindow("../view/hospede/janelaHospede.fxml");
+        trocarJanela("../view/hospede/janelaHospede.fxml");
     }
 
     @FXML
     public void carregarTiposQuartos() {
-        switchWindow("../view/tipo/janelaTipoQuarto.fxml");
+        trocarJanela("../view/tipo/janelaTipoQuarto.fxml");
     }
 
     @FXML
     public void carregarQuartos() {
-        switchWindow("../view/quarto/janelaQuarto.fxml");
+        trocarJanela("../view/quarto/janelaQuarto.fxml");
     }
 
     @FXML
     public void carregarServicos() {
-        switchWindow("../view/servico/janelaServico.fxml");
+        trocarJanela("../view/servico/janelaServico.fxml");
     }
 
-    public void switchWindow(String address){
+    public void trocarJanela(String address){
 
         Platform.runLater(new Runnable() {
             @Override
@@ -50,11 +51,17 @@ public class ControllerJanelaPrincipal {
                     stage.setResizable(false);
 
                 }catch (IOException e){
-                    e.printStackTrace();
+                    mensagem(Alert.AlertType.ERROR, "Erro!");
                 }
             }
         });
+    }
 
+    protected void mensagem(Alert.AlertType type, String message) {
+        Alert alert = new Alert(type);
+        alert.setTitle("Mensagem!");
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
 }

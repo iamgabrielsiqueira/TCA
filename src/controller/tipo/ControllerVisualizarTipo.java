@@ -5,11 +5,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import model.jdbc.JDBCTipoQuartoDAO;
 import model.classes.TipoQuarto;
-
 import java.io.IOException;
 
 public class ControllerVisualizarTipo {
@@ -28,16 +28,16 @@ public class ControllerVisualizarTipo {
 
     private TipoQuarto tipoQuarto;
 
+    @FXML
+    public void voltar() {
+        switchWindow("../../view/tipo/janelaTipoQuarto.fxml");
+    }
+
     public void initialize() {
         this.tipoQuarto = JDBCTipoQuartoDAO.t1;
         lbNome.setText("Nome: " + tipoQuarto.getNome());
         lbDescricao.setText("Descrição: " + tipoQuarto.getDescricao());
         lbValor.setText("Valor: " + tipoQuarto.getValor());
-    }
-
-    @FXML
-    public void voltar() {
-        switchWindow("../../view/tipo/janelaTipoQuarto.fxml");
     }
 
     public void switchWindow(String address){
@@ -57,10 +57,16 @@ public class ControllerVisualizarTipo {
                     stage.setResizable(false);
 
                 }catch (IOException e){
-                    e.printStackTrace();
+                    mensagem(Alert.AlertType.ERROR, "Erro!");
                 }
             }
         });
+    }
 
+    protected void mensagem(Alert.AlertType type, String message) {
+        Alert alert = new Alert(type);
+        alert.setTitle("Mensagem!");
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }

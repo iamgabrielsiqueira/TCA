@@ -15,7 +15,6 @@ import model.classes.Quarto;
 import model.classes.TipoQuarto;
 import model.jdbc.JDBCQuartoDAO;
 import model.jdbc.JDBCTipoQuartoDAO;
-
 import java.io.IOException;
 
 public class ControllerAlterarQuarto {
@@ -36,6 +35,46 @@ public class ControllerAlterarQuarto {
 
     private Quarto q1;
 
+    @FXML
+    public void salvarQuarto() {
+        if(tfNumero.getText().isEmpty() || tfTipo.getSelectionModel().isEmpty()) {
+            mensagem(Alert.AlertType.ERROR, "Dados faltando!");
+        } else {
+            try {
+                int num = Integer.parseInt(tfNumero.getText());
+
+                TipoQuarto tipoQuarto = tfTipo.getSelectionModel().getSelectedItem();
+
+                Quarto quarto = new Quarto();
+                quarto.setNumero(num);
+
+                if(tfDescricao.getText().isEmpty()) {
+                    String descricao = "Sem descrição";
+                    quarto.setDescricao(descricao);
+                } else {
+                    String descricao = tfDescricao.getText();
+                    quarto.setDescricao(descricao);
+                }
+
+                quarto.setTipoQuarto(tipoQuarto);
+
+                try {
+                    JDBCQuartoDAO.getInstance().update(q1, quarto);
+                    mensagem(Alert.AlertType.INFORMATION, "Quarto alterado!");
+                } catch (Exception e) {
+                    mensagem(Alert.AlertType.ERROR, "Erro!");
+                }
+            } catch (NullPointerException e) {
+                mensagem(Alert.AlertType.ERROR, "Erro!");
+            }
+        }
+    }
+
+    @FXML
+    public void voltar() {
+        trocarJanela("../../view/quarto/janelaQuarto.fxml");
+    }
+
     public void initialize() throws Exception {
         this.q1 = JDBCQuartoDAO.q1;
 
@@ -50,48 +89,9 @@ public class ControllerAlterarQuarto {
         tfTipo.setItems(listaTipos);
     }
 
-    @FXML
-    public void salvarQuarto() {
 
-        try {
-            int numero = Integer.parseInt(tfNumero.getText());
 
-            TipoQuarto tipoQuarto = tfTipo.getSelectionModel().getSelectedItem();
-
-            if(tfNumero.getText() != null && tipoQuarto!=null) {
-                Quarto quarto = new Quarto();
-                quarto.setNumero(numero);
-
-                if(tfDescricao.getText().isEmpty()) {
-                    String descricao = "Sem descrição";
-                    quarto.setDescricao(descricao);
-                } else {
-                    String descricao = tfDescricao.getText();
-                    quarto.setDescricao(descricao);
-                }
-
-                quarto.setTipoQuarto(tipoQuarto);
-
-                try {
-                    JDBCQuartoDAO.getInstance().update(q1, quarto);
-                    mensagem(Alert.AlertType.INFORMATION, "Atualizado!");
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            } else {
-                mensagem(Alert.AlertType.ERROR, "Dados faltando!");
-            }
-        } catch (NullPointerException e) {
-            mensagem(Alert.AlertType.ERROR, e.getMessage());
-        }
-    }
-
-    @FXML
-    public void voltar() {
-        switchWindow("../../view/quarto/janelaQuarto.fxml");
-    }
-
-    public void switchWindow(String address){
+    public void trocarJanela(String address){
 
         Platform.runLater(new Runnable() {
             @Override

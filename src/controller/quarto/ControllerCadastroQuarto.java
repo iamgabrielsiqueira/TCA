@@ -15,7 +15,6 @@ import model.classes.Quarto;
 import model.classes.TipoQuarto;
 import model.jdbc.JDBCQuartoDAO;
 import model.jdbc.JDBCTipoQuartoDAO;
-
 import java.io.IOException;
 
 public class ControllerCadastroQuarto {
@@ -34,22 +33,19 @@ public class ControllerCadastroQuarto {
 
     private ObservableList<TipoQuarto> listaTipos;
 
-    public void initialize() throws Exception {
-        listaTipos = FXCollections.observableArrayList(JDBCTipoQuartoDAO.getInstance().list());
-        tfTipo.setItems(listaTipos);
-    }
-
     @FXML
     public void salvarQuarto() {
 
-        try {
-            int numero = Integer.parseInt(tfNumero.getText());
+        if(tfNumero.getText().isEmpty() || tfTipo.getSelectionModel().isEmpty()) {
+            mensagem(Alert.AlertType.ERROR, "Dados faltando!");
+        } else {
+            try {
+                int num = Integer.parseInt(tfNumero.getText());
 
-            TipoQuarto tipoQuarto = tfTipo.getSelectionModel().getSelectedItem();
+                TipoQuarto tipoQuarto = tfTipo.getSelectionModel().getSelectedItem();
 
-            if(tfNumero.getText() != null && tipoQuarto!=null) {
                 Quarto quarto = new Quarto();
-                quarto.setNumero(numero);
+                quarto.setNumero(num);
 
                 if(tfDescricao.getText().isEmpty()) {
                     String descricao = "Sem descrição";
@@ -63,24 +59,27 @@ public class ControllerCadastroQuarto {
 
                 try {
                     JDBCQuartoDAO.getInstance().create(quarto);
-                    mensagem(Alert.AlertType.INFORMATION, "Cadastrado!");
+                    mensagem(Alert.AlertType.INFORMATION, "Quarto cadastrado!");
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    mensagem(Alert.AlertType.ERROR, "Erro!");
                 }
-            } else {
-                mensagem(Alert.AlertType.ERROR, "Dados faltando!");
+            } catch (NullPointerException e) {
+                mensagem(Alert.AlertType.ERROR, "Erro!");
             }
-        } catch (NullPointerException e) {
-            mensagem(Alert.AlertType.ERROR, e.getMessage());
         }
     }
 
     @FXML
     public void voltar() {
-        switchWindow("../../view/quarto/janelaQuarto.fxml");
+        trocarJanela("../../view/quarto/janelaQuarto.fxml");
     }
 
-    public void switchWindow(String address){
+    public void initialize() throws Exception {
+        listaTipos = FXCollections.observableArrayList(JDBCTipoQuartoDAO.getInstance().list());
+        tfTipo.setItems(listaTipos);
+    }
+
+    public void trocarJanela(String address){
 
         Platform.runLater(new Runnable() {
             @Override

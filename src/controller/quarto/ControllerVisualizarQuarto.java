@@ -9,7 +9,6 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import model.jdbc.JDBCQuartoDAO;
 import model.classes.Quarto;
-
 import java.io.IOException;
 
 public class ControllerVisualizarQuarto {
@@ -28,6 +27,11 @@ public class ControllerVisualizarQuarto {
 
     private Quarto quarto;
 
+    @FXML
+    public void voltar() {
+        trocarJanela("../../view/quarto/janelaQuarto.fxml");
+    }
+
     public void initialize() {
         this.quarto = JDBCQuartoDAO.q1;
         lbNumero.setText("Numero: " + quarto.getNumero());
@@ -35,12 +39,7 @@ public class ControllerVisualizarQuarto {
         lbTipo.setText("Tipo: " + quarto.getTipoQuarto().getNome());
     }
 
-    @FXML
-    public void voltar() {
-        switchWindow("../../view/quarto/janelaQuarto.fxml");
-    }
-
-    public void switchWindow(String address){
+    public void trocarJanela(String address){
 
         Platform.runLater(new Runnable() {
             @Override

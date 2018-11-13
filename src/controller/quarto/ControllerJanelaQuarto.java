@@ -10,7 +10,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.jdbc.JDBCQuartoDAO;
 import model.classes.Quarto;
-
 import java.io.IOException;
 import java.util.Optional;
 
@@ -31,18 +30,14 @@ public class ControllerJanelaQuarto {
     @FXML
     private TableColumn tcTipo;
 
-    public void initialize() throws Exception {
-        carregarLista();
-    }
-
     @FXML
     public void voltar() {
-        switchWindow("../../view/janelaPrincipal.fxml");
+        trocarJanela("../../view/janelaPrincipal.fxml");
     }
 
     @FXML
     public void cadastrar() {
-        switchWindow("../../view/quarto/janelaCadastrarQuarto.fxml");
+        trocarJanela("../../view/quarto/janelaCadastrarQuarto.fxml");
     }
 
     @FXML
@@ -58,6 +53,9 @@ public class ControllerJanelaQuarto {
     @FXML
     public void remover() {
         redirecionar(3);
+    }
+    public void initialize() throws Exception {
+        carregarLista();
     }
 
     public void redirecionar(int id) {
@@ -98,13 +96,13 @@ public class ControllerJanelaQuarto {
                     try {
                         switch (id) {
                             case 1:
-                                switchWindow("../../view/quarto/janelaAlterarQuarto.fxml");
+                                trocarJanela("../../view/quarto/janelaAlterarQuarto.fxml");
                                 break;
                             case 2:
-                                switchWindow("../../view/quarto/janelaVisualizarQuarto.fxml");
+                                trocarJanela("../../view/quarto/janelaVisualizarQuarto.fxml");
                                 break;
                             case 3:
-                                switchWindow("../../view/quarto/janelaRemoverQuarto.fxml");
+                                trocarJanela("../../view/quarto/janelaRemoverQuarto.fxml");
                                 break;
                         }
                     } catch (Exception e) {
@@ -120,7 +118,7 @@ public class ControllerJanelaQuarto {
 
     }
 
-    public void switchWindow(String address){
+    public void trocarJanela(String address){
 
         Platform.runLater(new Runnable() {
             @Override

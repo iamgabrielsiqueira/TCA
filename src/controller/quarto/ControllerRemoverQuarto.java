@@ -10,7 +10,6 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import model.classes.Quarto;
 import model.jdbc.JDBCQuartoDAO;
-
 import java.io.IOException;
 
 public class ControllerRemoverQuarto {
@@ -29,6 +28,22 @@ public class ControllerRemoverQuarto {
 
     private Quarto quarto;
 
+    @FXML
+    public void voltar() {
+        trocarJanela("../../view/quarto/janelaQuarto.fxml");
+    }
+
+    @FXML
+    public void removerQuarto() {
+        try {
+            JDBCQuartoDAO.getInstance().delete(quarto);
+            mensagem(Alert.AlertType.INFORMATION, "Removido!");
+            voltar();
+        } catch (Exception e) {
+            mensagem(Alert.AlertType.ERROR, "Erro!");
+        }
+    }
+
     public void initialize() {
         this.quarto = JDBCQuartoDAO.q1;
         lbNumero.setText("Numero: " + quarto.getNumero());
@@ -36,19 +51,7 @@ public class ControllerRemoverQuarto {
         lbTipo.setText("Tipo: " + quarto.getTipoQuarto().getNome());
     }
 
-    @FXML
-    public void voltar() {
-        switchWindow("../../view/quarto/janelaQuarto.fxml");
-    }
-
-    @FXML
-    public void removerQuarto() throws Exception {
-        JDBCQuartoDAO.getInstance().delete(quarto);
-        mensagem(Alert.AlertType.INFORMATION, "Removido!");
-        voltar();
-    }
-
-    public void switchWindow(String address){
+    public void trocarJanela(String address){
 
         Platform.runLater(new Runnable() {
             @Override

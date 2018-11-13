@@ -11,7 +11,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import model.*;
+import model.classes.Quarto;
+import model.classes.TipoQuarto;
+import model.jdbc.JDBCQuartoDAO;
+import model.jdbc.JDBCTipoQuartoDAO;
+
 import java.io.IOException;
 
 public class ControllerCadastroQuarto {

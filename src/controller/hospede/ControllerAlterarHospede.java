@@ -14,13 +14,12 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import jeanderson.br.util.MaskFormatter;
-import model.Cidade;
-import model.JDBCCidadeDAO;
-import model.Estado;
-import model.JDBCEstadoDAO;
-import model.Hospede;
-import model.JDBCHospedeDAO;
-
+import model.classes.Cidade;
+import model.jdbc.JDBCCidadeDAO;
+import model.classes.Estado;
+import model.jdbc.JDBCEstadoDAO;
+import model.classes.Hospede;
+import model.jdbc.JDBCHospedeDAO;
 import java.io.IOException;
 import java.sql.Date;
 import java.time.Instant;
@@ -61,6 +60,74 @@ public class ControllerAlterarHospede {
 
     private Hospede hospede1;
 
+    @FXML
+    public void carregarCidade() {
+        Estado estadoSelecionado = tfEstado.getSelectionModel().getSelectedItem();
+
+        tfCidade.getItems().clear();
+
+        try {
+            listaCidadeFiltro = JDBCCidadeDAO.getInstance().listaPorEstado(estadoSelecionado);
+            tfCidade.setItems(listaCidadeFiltro);
+        } catch (Exception e) {
+            mensagem(Alert.AlertType.ERROR, "Erro!");
+        }
+
+    }
+
+    @FXML
+    public void salvarHospede() {
+        try {
+            if(tfNome.getText().isEmpty() || tfCpf.getText().isEmpty()
+                    || tfRg.getText().isEmpty() || tfTelefone.getText().isEmpty()
+                    || tfDataNasc.getValue().toString().isEmpty()) {
+                mensagem(Alert.AlertType.ERROR, "Dados faltando!");
+            } else {
+                String nome = tfNome.getText();
+                String cpf = tfCpf.getText();
+                String rg = tfRg.getText();
+                String telefone = tfTelefone.getText();
+                Date dataNasc = Date.valueOf(tfDataNasc.getValue());
+
+                String cpfValidar = cpf;
+
+                cpfValidar = cpfValidar.replace( "." , "");
+                cpfValidar = cpfValidar.replace( "-" , "");
+
+                if(ValidaCPF.isCPF(cpfValidar)) {
+                    Hospede hospede = new Hospede();
+                    hospede.setNome(nome);
+                    hospede.setCpf(cpf);
+                    hospede.setRg(rg);
+                    hospede.setTelefone(telefone);
+                    hospede.setDataNasc(dataNasc);
+
+                    Cidade cidade = tfCidade.getSelectionModel().getSelectedItem();
+                    hospede.setCidade(cidade);
+
+                    Estado estado = tfEstado.getSelectionModel().getSelectedItem();
+                    hospede.setEstado(estado);
+
+                    try {
+                        JDBCHospedeDAO.getInstance().update(hospede1, hospede);
+                        mensagem(Alert.AlertType.INFORMATION, "Hóspede alterado!");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    mensagem(Alert.AlertType.ERROR, "CPF inválido!");
+                }
+            }
+        } catch (NullPointerException e) {
+            mensagem(Alert.AlertType.ERROR, "Erro!");
+        }
+    }
+
+    @FXML
+    public void voltar() {
+        trocarJanela("../../view/hospede/janelaHospede.fxml");
+    }
+
     public void initialize() throws Exception {
 
         this.hospede1 = JDBCHospedeDAO.h1;
@@ -93,76 +160,7 @@ public class ControllerAlterarHospede {
         formatter3.setMask(MaskFormatter.TEL_9DIG);
     }
 
-    @FXML
-    public void carregarCidade() {
-        Estado estadoSelecionado = tfEstado.getSelectionModel().getSelectedItem();
-
-        tfCidade.getItems().clear();
-
-        try {
-            listaCidadeFiltro = JDBCCidadeDAO.getInstance().listaPorEstado(estadoSelecionado);
-            tfCidade.setItems(listaCidadeFiltro);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    @FXML
-    public void salvarHospede() {
-
-        try {
-            String nome = tfNome.getText();
-            String cpf = tfCpf.getText();
-            String rg = tfRg.getText();
-            String telefone = tfTelefone.getText();
-            Date dataNasc = Date.valueOf(tfDataNasc.getValue());
-
-            if(nome!=null && cpf!=null && rg!=null && telefone!=null && dataNasc!=null) {
-                String cpfValidar = cpf;
-
-                cpfValidar = cpfValidar.replace( "." , "");
-                cpfValidar = cpfValidar.replace( "-" , "");
-
-                if(ValidaCPF.isCPF(cpfValidar)) {
-                    Hospede hospede = new Hospede();
-                    hospede.setNome(nome);
-                    hospede.setCpf(cpf);
-                    hospede.setRg(rg);
-                    hospede.setTelefone(telefone);
-                    hospede.setDataNasc(dataNasc);
-
-                    Cidade cidade = tfCidade.getSelectionModel().getSelectedItem();
-                    hospede.setCidade(cidade);
-
-                    Estado estado = tfEstado.getSelectionModel().getSelectedItem();
-                    hospede.setEstado(estado);
-
-                    try {
-                        JDBCHospedeDAO.getInstance().update(hospede1, hospede);
-                        message(Alert.AlertType.INFORMATION, "Hóspede alterado!");
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                } else {
-                    message(Alert.AlertType.ERROR, "CPF inválido!");
-                }
-            } else {
-                message(Alert.AlertType.ERROR, "Dados faltando!");
-            }
-        } catch (NullPointerException e) {
-            message(Alert.AlertType.ERROR, e.getMessage());
-        }
-
-
-    }
-
-    @FXML
-    public void voltar() {
-        switchWindow("../../view/hospede/janelaHospede.fxml");
-    }
-
-    public void switchWindow(String address){
+    public void trocarJanela(String address){
 
         Platform.runLater(new Runnable() {
             @Override
@@ -186,7 +184,7 @@ public class ControllerAlterarHospede {
 
     }
 
-    protected void message(Alert.AlertType type, String message) {
+    protected void mensagem(Alert.AlertType type, String message) {
         Alert alert = new Alert(type);
         alert.setTitle("Mensagem!");
         alert.setContentText(message);

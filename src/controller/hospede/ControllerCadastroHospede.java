@@ -14,13 +14,12 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import jeanderson.br.util.MaskFormatter;
-import model.Cidade;
-import model.JDBCCidadeDAO;
-import model.Estado;
-import model.JDBCEstadoDAO;
-import model.Hospede;
-import model.JDBCHospedeDAO;
-
+import model.classes.Cidade;
+import model.jdbc.JDBCCidadeDAO;
+import model.classes.Estado;
+import model.jdbc.JDBCEstadoDAO;
+import model.classes.Hospede;
+import model.jdbc.JDBCHospedeDAO;
 import java.io.IOException;
 import java.sql.Date;
 
@@ -56,24 +55,6 @@ public class ControllerCadastroHospede {
 
     private ObservableList<Cidade> listaCidadeFiltro;
 
-    public void initialize() throws Exception {
-        listaEstado = FXCollections.observableArrayList(JDBCEstadoDAO.getInstance().list());
-        tfEstado.setItems(listaEstado);
-
-        listaCidade = FXCollections.observableArrayList(JDBCCidadeDAO.getInstance().list());
-        tfCidade.setItems(listaCidade);
-
-        MaskFormatter formatter = new MaskFormatter(tfCpf);
-        formatter.setMask(MaskFormatter.CPF);
-
-        MaskFormatter formatter2 = new MaskFormatter(tfRg);
-        formatter2.setMask(MaskFormatter.RG);
-
-        MaskFormatter formatter3 = new MaskFormatter(tfTelefone);
-        formatter3.setMask(MaskFormatter.TEL_9DIG);
-
-    }
-
     @FXML
     public void carregarCidade() {
         Estado estadoSelecionado = tfEstado.getSelectionModel().getSelectedItem();
@@ -86,20 +67,23 @@ public class ControllerCadastroHospede {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     @FXML
     public void salvarHospede() {
 
         try {
-            String nome = tfNome.getText();
-            String cpf = tfCpf.getText();
-            String rg = tfRg.getText();
-            String telefone = tfTelefone.getText();
-            Date dataNasc = Date.valueOf(tfDataNasc.getValue());
+            if(tfNome.getText().isEmpty() || tfCpf.getText().isEmpty()
+                    || tfRg.getText().isEmpty() || tfTelefone.getText().isEmpty()
+                    || tfDataNasc.getValue().toString().isEmpty()) {
+                mensagem(Alert.AlertType.ERROR, "Dados faltando!");
+            } else {
+                String nome = tfNome.getText();
+                String cpf = tfCpf.getText();
+                String rg = tfRg.getText();
+                String telefone = tfTelefone.getText();
+                Date dataNasc = Date.valueOf(tfDataNasc.getValue());
 
-            if(nome!=null && cpf!=null && rg!=null && telefone!=null && dataNasc!=null) {
                 String cpfValidar = cpf;
 
                 cpfValidar = cpfValidar.replace( "." , "");
@@ -121,29 +105,43 @@ public class ControllerCadastroHospede {
 
                     try {
                         JDBCHospedeDAO.getInstance().create(hospede);
-                        message(Alert.AlertType.INFORMATION, "Cadastrado!");
+                        mensagem(Alert.AlertType.INFORMATION, "Hóspede cadastrado!");
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                 } else {
-                    message(Alert.AlertType.ERROR, "CPF inválido!");
+                    mensagem(Alert.AlertType.ERROR, "CPF inválido!");
                 }
-            } else {
-                message(Alert.AlertType.ERROR, "Dados faltando!");
             }
         } catch (NullPointerException e) {
-            message(Alert.AlertType.ERROR, e.getMessage());
+            mensagem(Alert.AlertType.ERROR, "Erro!");
         }
-
-
     }
 
     @FXML
     public void voltar() {
-        switchWindow("../../view/hospede/janelaHospede.fxml");
+        trocarJanela("../../view/hospede/janelaHospede.fxml");
     }
 
-    public void switchWindow(String address){
+    public void initialize() throws Exception {
+        listaEstado = FXCollections.observableArrayList(JDBCEstadoDAO.getInstance().list());
+        tfEstado.setItems(listaEstado);
+
+        listaCidade = FXCollections.observableArrayList(JDBCCidadeDAO.getInstance().list());
+        tfCidade.setItems(listaCidade);
+
+        MaskFormatter formatter = new MaskFormatter(tfCpf);
+        formatter.setMask(MaskFormatter.CPF);
+
+        MaskFormatter formatter2 = new MaskFormatter(tfRg);
+        formatter2.setMask(MaskFormatter.RG);
+
+        MaskFormatter formatter3 = new MaskFormatter(tfTelefone);
+        formatter3.setMask(MaskFormatter.TEL_9DIG);
+
+    }
+
+    public void trocarJanela(String address){
 
         Platform.runLater(new Runnable() {
             @Override
@@ -167,7 +165,7 @@ public class ControllerCadastroHospede {
 
     }
 
-    protected void message(Alert.AlertType type, String message) {
+    protected void mensagem(Alert.AlertType type, String message) {
         Alert alert = new Alert(type);
         alert.setTitle("Mensagem!");
         alert.setContentText(message);

@@ -8,8 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import model.Hospede;
-import model.JDBCHospedeDAO;
+import model.classes.Hospede;
+import model.jdbc.JDBCHospedeDAO;
 import java.io.IOException;
 
 public class ControllerRemoverHospede {
@@ -54,16 +54,16 @@ public class ControllerRemoverHospede {
     public void removerHospede() throws Exception {
         Hospede hospede = JDBCHospedeDAO.h1;
         JDBCHospedeDAO.getInstance().delete(hospede);
-        message(Alert.AlertType.INFORMATION, "Removido!");
+        mensagem(Alert.AlertType.INFORMATION, "Removido!");
         voltar();
     }
 
     @FXML
     public void voltar() {
-        switchWindow("../../view/hospede/janelaHospede.fxml");
+        trocarJanela("../../view/hospede/janelaHospede.fxml");
     }
 
-    public void switchWindow(String address){
+    public void trocarJanela(String address){
 
         Platform.runLater(new Runnable() {
             @Override
@@ -87,7 +87,7 @@ public class ControllerRemoverHospede {
 
     }
 
-    protected void message(Alert.AlertType type, String message) {
+    protected void mensagem(Alert.AlertType type, String message) {
         Alert alert = new Alert(type);
         alert.setTitle("Mensagem!");
         alert.setContentText(message);

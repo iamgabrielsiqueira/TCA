@@ -6,11 +6,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import model.JDBCTipoQuartoDAO;
-import model.TipoQuarto;
-import view.TextFieldMoney;
+import model.jdbc.JDBCTipoQuartoDAO;
+import model.classes.TipoQuarto;
+
 import java.io.IOException;
 
 public class ControllerVisualizarTipo {

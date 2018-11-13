@@ -8,8 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import model.JDBCServicoDAO;
-import model.Servico;
+import model.jdbc.JDBCServicoDAO;
+import model.classes.Servico;
 import view.TextFieldMoney;
 import java.io.IOException;
 

@@ -4,8 +4,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
-import model.JDBCQuartoDAO;
-import model.Quarto;
+import model.jdbc.JDBCQuartoDAO;
+import model.classes.Quarto;
 
 public class ControllerRedirecionamentoQuarto {
 

@@ -8,8 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import model.JDBCTipoQuartoDAO;
-import model.TipoQuarto;
+import model.jdbc.JDBCTipoQuartoDAO;
+import model.classes.TipoQuarto;
 import view.TextFieldMoney;
 import java.io.IOException;
 

@@ -8,7 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import model.*;
+import model.classes.Servico;
+import model.jdbc.JDBCServicoDAO;
 
 import java.io.IOException;
 

@@ -7,8 +7,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import model.Hospede;
-import model.JDBCHospedeDAO;
+import model.classes.Hospede;
+import model.jdbc.JDBCHospedeDAO;
 import java.io.IOException;
 
 public class ControllerVisualizarHospede {
@@ -51,10 +51,10 @@ public class ControllerVisualizarHospede {
 
     @FXML
     public void voltar() {
-        switchWindow("../../view/hospede/janelaHospede.fxml");
+        trocarJanela("../../view/hospede/janelaHospede.fxml");
     }
 
-    public void switchWindow(String address){
+    public void trocarJanela(String address){
 
         Platform.runLater(new Runnable() {
             @Override
@@ -75,7 +75,6 @@ public class ControllerVisualizarHospede {
                 }
             }
         });
-
     }
 
 }

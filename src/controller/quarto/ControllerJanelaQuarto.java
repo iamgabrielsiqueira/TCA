@@ -8,8 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import model.JDBCQuartoDAO;
-import model.Quarto;
+import model.jdbc.JDBCQuartoDAO;
+import model.classes.Quarto;
 
 import java.io.IOException;
 import java.util.Optional;

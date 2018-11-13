@@ -4,8 +4,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
-import model.JDBCServicoDAO;
-import model.Servico;
+import model.jdbc.JDBCServicoDAO;
+import model.classes.Servico;
 
 public class ControllerRedirecionamentoServico {
 

@@ -8,8 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import model.Hospede;
-import model.JDBCHospedeDAO;
+import model.classes.Hospede;
+import model.jdbc.JDBCHospedeDAO;
 import java.io.IOException;
 import java.util.Optional;
 
@@ -30,18 +30,14 @@ public class ControllerJanelaHospede {
     @FXML
     private TableColumn tcData;
 
-    public void initialize() throws Exception {
-        carregarLista();
-    }
-
     @FXML
     public void voltar() {
-        switchWindow("../../view/janelaPrincipal.fxml");
+        trocarJanela("../../view/janelaPrincipal.fxml");
     }
 
     @FXML
     public void cadastrar() {
-        switchWindow("../../view/hospede/janelaCadastrarHospede.fxml");
+        trocarJanela("../../view/hospede/janelaCadastrarHospede.fxml");
     }
 
     @FXML
@@ -57,6 +53,14 @@ public class ControllerJanelaHospede {
     @FXML
     public void remover() {
         redirecionar(3);
+    }
+
+    public void initialize() {
+        try {
+            carregarLista();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void redirecionar(int id) {
@@ -97,17 +101,17 @@ public class ControllerJanelaHospede {
                     try {
                         switch (id) {
                             case 1:
-                                switchWindow("../../view/hospede/janelaAlterarHospede.fxml");
+                                trocarJanela("../../view/hospede/janelaAlterarHospede.fxml");
                                 break;
                             case 2:
-                                switchWindow("../../view/hospede/janelaVisualizarHospede.fxml");
+                                trocarJanela("../../view/hospede/janelaVisualizarHospede.fxml");
                                 break;
                             case 3:
-                                switchWindow("../../view/hospede/janelaRemoverHospede.fxml");
+                                trocarJanela("../../view/hospede/janelaRemoverHospede.fxml");
                                 break;
                         }
                     } catch (Exception e) {
-                        message(Alert.AlertType.ERROR, e.getMessage());
+                        mensagem(Alert.AlertType.ERROR, e.getMessage());
                         System.out.printf(e.getMessage());
                     }
                 }
@@ -119,7 +123,7 @@ public class ControllerJanelaHospede {
 
     }
 
-    public void switchWindow(String address){
+    public void trocarJanela(String address){
 
         Platform.runLater(new Runnable() {
             @Override
@@ -150,7 +154,7 @@ public class ControllerJanelaHospede {
         tbHospedes.setItems(JDBCHospedeDAO.getInstance().list());
     }
 
-    protected void message(Alert.AlertType type, String message) {
+    protected void mensagem(Alert.AlertType type, String message) {
         Alert alert = new Alert(type);
         alert.setTitle("Mensagem!");
         alert.setContentText(message);

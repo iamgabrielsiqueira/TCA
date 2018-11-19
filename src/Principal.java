@@ -8,7 +8,7 @@ public class Principal extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("view/janelaPrincipal.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("view/janelaMain.fxml"));
         primaryStage.setTitle("Sistema de Gerenciamento de Hotéis");
         primaryStage.setScene(new Scene(root, 800, 600));
         //primaryStage.getScene().getStylesheets().add("skin.css");

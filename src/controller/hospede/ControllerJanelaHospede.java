@@ -31,8 +31,11 @@ public class ControllerJanelaHospede {
     private TableColumn tcData;
 
     @FXML
+    private TextField tfBuscar;
+
+    @FXML
     public void voltar() {
-        trocarJanela("../../view/janelaPrincipal.fxml");
+        trocarJanela("../../view/janelaMain.fxml");
     }
 
     @FXML
@@ -61,6 +64,7 @@ public class ControllerJanelaHospede {
         } catch (Exception e) {
             mensagem(Alert.AlertType.ERROR, "Erro!");
         }
+        tfBuscar.setPromptText("Buscar...");
     }
 
     public void redirecionar(int id) {

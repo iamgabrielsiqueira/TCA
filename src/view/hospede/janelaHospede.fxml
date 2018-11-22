@@ -75,7 +75,7 @@
                         </font></Label>
                 </VBox>
             </HBox>
-            <HBox style="-fx-padding: 0 0 0 155;">
+            <HBox style="-fx-padding: 0 0 0 162;">
                 <ImageView>
                     <image>
                         <Image url="/imagens/arrow-navigate-close (1).png" />

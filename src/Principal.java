@@ -11,7 +11,6 @@ public class Principal extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("view/janelaMain.fxml"));
         primaryStage.setTitle("Sistema de Gerenciamento de Hotéis");
         primaryStage.setScene(new Scene(root, 800, 600));
-        //primaryStage.getScene().getStylesheets().add("skin.css");
         primaryStage.show();
     }
 

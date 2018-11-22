@@ -55,6 +55,9 @@ public class JDBCServicoDAO implements ServicoDAO {
         String nome = resultSet.getString("nome");
         Double valor = resultSet.getDouble("valor");
         String descricao = resultSet.getString("descricao");
+        if(descricao.isEmpty()) {
+            descricao = "Sem descrição";
+        }
         Date dataCriado = resultSet.getDate("data_criado");
         Date dataAlterado = resultSet.getDate("data_alterado");
 

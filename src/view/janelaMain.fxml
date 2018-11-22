@@ -10,7 +10,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="mainWindow" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2C3A47;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerJanelaPrincipal">
+<BorderPane fx:id="mainWindow" prefHeight="400.0" prefWidth="600.0"
+            style="-fx-background-color: #2C3A47;" xmlns="http://javafx.com/javafx/8.0.121"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerJanelaPrincipal">
     <top>
         <VBox>
             <HBox>
@@ -39,7 +41,7 @@
                             <Font name="Khmer OS System" size="14.0" />
                         </font></Label>
                 </VBox>
-                <VBox alignment="CENTER" spacing="10">
+                <VBox alignment="CENTER" spacing="10" onMouseClicked="#carregarQuartos">
                     <ImageView>
                         <image>
                             <Image url="/imagens/bed.png" />
@@ -50,7 +52,7 @@
                             <Font name="Khmer OS System" size="14.0" />
                         </font></Label>
                 </VBox>
-                <VBox alignment="CENTER" spacing="10">
+                <VBox alignment="CENTER" spacing="10" onMouseClicked="#carregarTiposQuartos">
                     <ImageView>
                         <image>
                             <Image url="/imagens/room-key (1).png" />
@@ -61,7 +63,7 @@
                             <Font name="Khmer OS System" size="14.0" />
                         </font></Label>
                 </VBox>
-                <VBox alignment="CENTER" spacing="10">
+                <VBox alignment="CENTER" spacing="10" onMouseClicked="#carregarServicos">
                     <ImageView>
                         <image>
                             <Image url="/imagens/maid (1).png" />

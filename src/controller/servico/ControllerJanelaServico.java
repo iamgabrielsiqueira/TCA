@@ -32,28 +32,13 @@ public class ControllerJanelaServico {
 
     @FXML
     public void voltar() {
-        trocarJanela("../../view/janelaPrincipal.fxml");
+        trocarJanela("../../view/janelaMain.fxml");
     }
-
-    @FXML
-    public void cadastrar() {
-        trocarJanela("../../view/servico/janelaCadastrarServico.fxml");
-    }
-
-    @FXML
-    public void alterar() {
-        redirecionar(1);
-    }
-
-    @FXML
-    public void visualizar() {
-        redirecionar(2);
-    }
-
-    @FXML
-    public void remover() {
-        redirecionar(3);
-    }
+//
+//    @FXML
+//    public void cadastrar() {
+//        trocarJanela("../../view/servico/janelaCadastrarServico.fxml");
+//    }
 
     public void initialize() {
         try {

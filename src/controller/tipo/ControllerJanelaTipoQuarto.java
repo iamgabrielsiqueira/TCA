@@ -32,28 +32,13 @@ public class ControllerJanelaTipoQuarto {
 
     @FXML
     public void voltar() {
-        trocarJanela("../../view/janelaPrincipal.fxml");
+        trocarJanela("../../view/janelaMain.fxml");
     }
 
-    @FXML
-    public void cadastrar() {
-        trocarJanela("../../view/tipo/janelaCadastrarTipo.fxml");
-    }
-
-    @FXML
-    public void alterar() {
-        redirecionar(1);
-    }
-
-    @FXML
-    public void visualizar() {
-        redirecionar(2);
-    }
-
-    @FXML
-    public void remover() {
-        redirecionar(3);
-    }
+//    @FXML
+//    public void cadastrar() {
+//        trocarJanela("../../view/tipo/janelaCadastrarTipo.fxml");
+//    }
 
     public void initialize() {
         try {

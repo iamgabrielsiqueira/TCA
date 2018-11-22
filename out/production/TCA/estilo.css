@@ -5,6 +5,7 @@
 .text-field {
     -fx-prompt-text-fill: #34495e;
 }
+
 .text-field > .text {
         -fx-effect: dropshadow( two-pass-box , #34495e , .5, 10 , 1 , 1);
 }

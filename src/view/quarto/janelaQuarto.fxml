@@ -107,6 +107,7 @@
                         <TableColumn fx:id="tcNumero" style="-fx-background-color:  #dfe6e9; -fx-alignment: CENTER;" text="Quarto" />
                         <TableColumn fx:id="tcDescricao" minWidth="50" style="-fx-background-color:  #dfe6e9; -fx-alignment: CENTER;" text="Descrição" />
                         <TableColumn fx:id="tcTipo" minWidth="50" style="-fx-background-color:  #dfe6e9; -fx-alignment: CENTER;" text="Tipo" />
+                        <TableColumn fx:id="tcOpcao" minWidth="50" style="-fx-background-color:  #dfe6e9; -fx-alignment: CENTER;" text="Opções" />
                     </columns>
                 </TableView>
             </VBox>

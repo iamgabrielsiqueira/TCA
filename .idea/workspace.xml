@@ -2,32 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="050d38ab-a1f5-4012-abfe-8949b0b6d5f7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/aluno.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TCA.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TCA.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TCA/Principal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TCA/Principal.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TCA/controller/quarto/ControllerJanelaQuarto$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TCA/controller/quarto/ControllerJanelaQuarto$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TCA/controller/quarto/ControllerJanelaQuarto.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TCA/controller/quarto/ControllerJanelaQuarto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TCA/estilo.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TCA/estilo.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TCA/view/DSTVjanelaPrincipal.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TCA/view/janelaMain.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TCA/view/janelaMain.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TCA/view/quarto/janelaQuarto.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TCA/view/quarto/janelaQuarto.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Principal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/quarto/ControllerJanelaQuarto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/quarto/ControllerJanelaQuarto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/servico/ControllerJanelaServico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/servico/ControllerJanelaServico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/tipo/ControllerJanelaTipoQuarto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/tipo/ControllerJanelaTipoQuarto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/imagens/Thumbs.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/imagens/Thumbs.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/jdbc/JDBCServicoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/jdbc/JDBCServicoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/jdbc/JDBCTipoQuartoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/jdbc/JDBCTipoQuartoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/DSTVjanelaPrincipal.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/hospede/janelaHospede.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/hospede/janelaHospede.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/janelaMain.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/janelaMain.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/quarto/janelaQuarto.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/quarto/janelaQuarto.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/servico/janelaServico.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/servico/janelaServico.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/tipo/janelaTipoQuarto.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/tipo/janelaTipoQuarto.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,18 +18,45 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/view/servico/janelaServico.fxml">
+        <entry file="file://$PROJECT_DIR$/src/controller/quarto/ControllerJanelaQuarto.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="191" column="32" selection-start-line="191" selection-start-column="32" selection-end-line="191" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/quarto/janelaQuarto.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="80" column="47" selection-start-line="80" selection-start-column="47" selection-end-line="80" selection-end-column="47" />
+            <state relative-caret-position="287">
+              <caret line="109" column="142" selection-start-line="109" selection-start-column="142" selection-end-line="109" selection-end-column="142" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/janelaMain.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="219">
+              <caret line="70" column="32" lean-forward="true" selection-start-line="70" selection-start-column="32" selection-end-line="70" selection-end-column="32" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>colBtn</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -57,16 +65,16 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/Principal.java" />
-        <option value="$PROJECT_DIR$/src/controller/quarto/ControllerJanelaQuarto.java" />
         <option value="$PROJECT_DIR$/src/controller/tipo/ControllerJanelaTipoQuarto.java" />
         <option value="$PROJECT_DIR$/src/model/jdbc/JDBCTipoQuartoDAO.java" />
         <option value="$PROJECT_DIR$/src/view/janelaMain.fxml" />
         <option value="$PROJECT_DIR$/src/controller/servico/ControllerJanelaServico.java" />
         <option value="$PROJECT_DIR$/src/model/jdbc/JDBCServicoDAO.java" />
         <option value="$PROJECT_DIR$/src/view/hospede/janelaHospede.fxml" />
-        <option value="$PROJECT_DIR$/src/view/quarto/janelaQuarto.fxml" />
         <option value="$PROJECT_DIR$/src/view/tipo/janelaTipoQuarto.fxml" />
         <option value="$PROJECT_DIR$/src/view/servico/janelaServico.fxml" />
+        <option value="$PROJECT_DIR$/src/view/quarto/janelaQuarto.fxml" />
+        <option value="$PROJECT_DIR$/src/controller/quarto/ControllerJanelaQuarto.java" />
       </list>
     </option>
   </component>
@@ -81,6 +89,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -93,41 +103,14 @@
               <item name="tca" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="tca" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tca" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tca" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tca" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tca" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tca" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tca" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tca" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="servico" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542916059765" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542938384919" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -176,15 +159,15 @@
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.24962178" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.25340393" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" />
-      <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="2" />
+      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.50075644" side_tool="true" weight="0.32843137" />
+      <window_info anchor="bottom" id="Messages" order="2" weight="0.32843137" />
       <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" />
-      <window_info anchor="bottom" id="Run" order="6" weight="0.32843137" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49924356" weight="0.32843137" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.39869282" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
@@ -218,16 +201,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/quarto/ControllerJanelaQuarto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="557">
-          <caret line="40" column="7" selection-start-line="40" selection-start-column="7" selection-end-line="40" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/jdbc/JDBCTipoQuartoDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -242,14 +215,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/janelaMain.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="65" column="87" selection-start-line="65" selection-start-column="87" selection-end-line="65" selection-end-column="87" />
         </state>
       </provider>
     </entry>
@@ -285,14 +250,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/quarto/janelaQuarto.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="79" column="47" selection-start-line="79" selection-start-column="47" selection-end-line="79" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/view/tipo/janelaTipoQuarto.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
@@ -304,8 +261,34 @@
     <entry file="file://$PROJECT_DIR$/src/view/servico/janelaServico.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="80" column="47" selection-start-line="80" selection-start-column="47" selection-end-line="80" selection-end-column="47" />
+        <state relative-caret-position="295">
+          <caret line="109" column="153" lean-forward="true" selection-start-line="109" selection-start-column="153" selection-end-line="109" selection-end-column="153" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/janelaMain.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="70" column="32" lean-forward="true" selection-start-line="70" selection-start-column="32" selection-end-line="70" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/quarto/janelaQuarto.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="109" column="142" selection-start-line="109" selection-start-column="142" selection-end-line="109" selection-end-column="142" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/quarto/ControllerJanelaQuarto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="191" column="32" selection-start-line="191" selection-start-column="32" selection-end-line="191" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

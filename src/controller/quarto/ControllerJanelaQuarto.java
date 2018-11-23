@@ -1,13 +1,20 @@
 package controller.quarto;
 
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import model.jdbc.JDBCQuartoDAO;
 import model.classes.Quarto;
 import java.io.IOException;
@@ -29,6 +36,16 @@ public class ControllerJanelaQuarto {
 
     @FXML
     private TableColumn tcTipo;
+
+    @FXML
+    private TableColumn tcOpcao;
+
+    @FXML
+    private TableColumn tcAlterar;
+
+    @FXML
+    private TableColumn tcRemover;
+
 
     @FXML
     public void voltar() {
@@ -134,7 +151,64 @@ public class ControllerJanelaQuarto {
         tcNumero.setCellValueFactory(new PropertyValueFactory<>("numero"));
         tcDescricao.setCellValueFactory(new PropertyValueFactory<>("descricao"));
         tcTipo.setCellValueFactory(new PropertyValueFactory<>("tipoQuarto"));
+        addButtonToTable();
         tbQuartos.setItems(JDBCQuartoDAO.getInstance().list());
+    }
+
+    private void addButtonToTable() {
+
+        Callback<TableColumn<Quarto, Void>, TableCell<Quarto, Void>> cellFactory = new Callback<TableColumn<Quarto, Void>, TableCell<Quarto, Void>>() {
+            @Override
+            public TableCell<Quarto, Void> call(final TableColumn<Quarto, Void> param) {
+                final TableCell<Quarto, Void> cell = new TableCell<Quarto, Void>() {
+
+                    private Button btn = new Button("");
+                    private Button btn2 = new Button("");
+                    private final HBox pane = new HBox(btn, btn2);
+                    private Image imagem = new Image(getClass().getResourceAsStream("../../imagens/editar.png"));
+                    private Image imagem2 = new Image(getClass().getResourceAsStream("../../imagens/remover.png"));
+                    private ImageView imgview = new ImageView(imagem);
+                    private ImageView imgview2 = new ImageView(imagem2);
+
+                    {
+                        //Image image = new Image("../../imagens/maid (1).png");
+                        //btn.setGraphic(new ImageView(image));
+                        pane.alignmentProperty().set(Pos.CENTER);
+                        pane.spacingProperty().setValue(5);
+
+                        btn.setGraphic(imgview);
+                        btn2.setGraphic(imgview2);
+                        btn2.setStyle("-fx-background-color: transparent");
+                        btn.setStyle("-fx-background-color: transparent");
+
+
+                        btn.setOnAction((ActionEvent event) -> {
+                            Quarto quarto = getTableView().getItems().get(getIndex());
+                            //System.out.println("Quarto: " + quarto.getTipoQuarto().getNome());
+                        });
+
+                        btn2.setOnAction((ActionEvent event) -> {
+                            Quarto quarto = getTableView().getItems().get(getIndex());
+                            //System.out.println("Quarto: " + quarto.getTipoQuarto().getNome());
+                        });
+                    }
+
+                    @Override
+                    public void updateItem(Void item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (empty) {
+                            setGraphic(null);
+                        } else {
+                            setGraphic(pane);
+                        }
+                    }
+                };
+                return cell;
+            }
+        };
+
+        tcOpcao.setCellFactory(cellFactory);
+
     }
 
     protected void mensagem(Alert.AlertType type, String message) {

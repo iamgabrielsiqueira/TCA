@@ -1,6 +1,11 @@
 package controller.hospede;
 
+import controller.Mensagem;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -42,6 +47,8 @@ public class ControllerJanelaHospede {
     @FXML
     private TableColumn tcOpcao;
 
+    private ObservableList<Hospede> masterData = FXCollections.observableArrayList();
+
     @FXML
     public void voltar() {
         trocarJanela("../../view/janelaMain.fxml");
@@ -73,13 +80,42 @@ public class ControllerJanelaHospede {
     }
 
     public void initialize() {
+
+        tcNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        tcCPF.setCellValueFactory(new PropertyValueFactory<>("cpf"));
+        tcData.setCellValueFactory(new PropertyValueFactory<>("dataNasc"));
+        addButtonToTable();
         try {
-            carregarLista();
+            masterData.addAll(JDBCHospedeDAO.getInstance().list());
         } catch (Exception e) {
-            mensagem(Alert.AlertType.ERROR, "Erro!");
+            e.printStackTrace();
         }
+        tbHospedes.setItems(masterData);
 
         tfBuscar.setPromptText("Buscar...");
+
+        FilteredList<Hospede> filteredData = new FilteredList<>(masterData, p -> true);
+
+        tfBuscar.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(hospede -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if (hospede.getNome().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                } else if (hospede.getCpf().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                }
+                return false;
+            });
+        });
+
+        SortedList<Hospede> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(tbHospedes.comparatorProperty());
+        tbHospedes.setItems(sortedData);
     }
 
     public void remover(Hospede hospede) throws Exception {
@@ -148,11 +184,14 @@ public class ControllerJanelaHospede {
 
                     private Button btn = new Button("");
                     private Button btn2 = new Button("");
-                    private final HBox pane = new HBox(btn, btn2);
+                    private Button btn3 = new Button("");
+                    private final HBox pane = new HBox(btn, btn2, btn3);
                     private Image imagem = new Image(getClass().getResourceAsStream("../../imagens/editar.png"));
                     private Image imagem2 = new Image(getClass().getResourceAsStream("../../imagens/remover.png"));
                     private ImageView imgview = new ImageView(imagem);
                     private ImageView imgview2 = new ImageView(imagem2);
+                    private Image imagem3 = new Image(getClass().getResourceAsStream("../../imagens/visualizar.png"));
+                    private ImageView imgview3 = new ImageView(imagem3);
 
                     {
                         pane.alignmentProperty().set(Pos.CENTER);
@@ -160,6 +199,8 @@ public class ControllerJanelaHospede {
 
                         btn.setGraphic(imgview);
                         btn2.setGraphic(imgview2);
+                        btn3.setGraphic(imgview3);
+                        btn3.setStyle("-fx-background-color: transparent");
                         btn2.setStyle("-fx-background-color: transparent");
                         btn.setStyle("-fx-background-color: transparent");
 
@@ -178,6 +219,12 @@ public class ControllerJanelaHospede {
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
+                        });
+
+                        btn3.setOnAction((ActionEvent event) -> {
+                            Hospede hospede = getTableView().getItems().get(getIndex());
+                            JDBCHospedeDAO.h1 = hospede;
+                            trocarJanela("../../view/hospede/janelaVisualizarHospede.fxml");
                         });
                     }
 

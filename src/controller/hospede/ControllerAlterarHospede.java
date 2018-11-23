@@ -9,10 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import jeanderson.br.util.MaskFormatter;
 import model.classes.Cidade;
@@ -21,8 +18,11 @@ import model.classes.Estado;
 import model.jdbc.JDBCEstadoDAO;
 import model.classes.Hospede;
 import model.jdbc.JDBCHospedeDAO;
+import sun.java2d.loops.MaskFill;
+
+import java.awt.event.KeyEvent;
 import java.io.IOException;
-import java.sql.Date;
+import java.util.Optional;
 
 public class ControllerAlterarHospede {
 
@@ -105,7 +105,7 @@ public class ControllerAlterarHospede {
                 String cpf = tfCpf.getText();
                 String rg = tfRg.getText();
                 String telefone = tfTelefone.getText();
-                String dataNasc = tfTelefone.getText();
+                String dataNasc = tfDataNasc.getText();
 
                 String cpfValidar = cpf;
 
@@ -175,7 +175,7 @@ public class ControllerAlterarHospede {
         MaskFormatter formatter3 = new MaskFormatter(tfTelefone);
         formatter3.setMask(MaskFormatter.TEL_9DIG);
 
-        MaskFieldUtil.dateField(tfDataNasc);
+        //MaskFieldUtil.dateField(tfDataNasc);
     }
 
     public void trocarJanela(String address){
@@ -206,6 +206,8 @@ public class ControllerAlterarHospede {
         Alert alert = new Alert(type);
         alert.setTitle("Mensagem!");
         alert.setContentText(message);
+        alert.getDialogPane().getStylesheets().add(getClass().getResource("../../estilo.css").toExternalForm());
+        alert.getDialogPane().getStyleClass().add("myDialog");
         alert.showAndWait();
     }
 }

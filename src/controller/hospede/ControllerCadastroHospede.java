@@ -1,6 +1,7 @@
 package controller.hospede;
 
 import controller.MaskFieldUtil;
+import controller.Mensagem;
 import controller.ValidaCPF;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -9,9 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import jeanderson.br.util.MaskFormatter;
 import model.classes.Cidade;
@@ -21,6 +20,7 @@ import model.jdbc.JDBCEstadoDAO;
 import model.classes.Hospede;
 import model.jdbc.JDBCHospedeDAO;
 import java.io.IOException;
+import java.util.Optional;
 
 public class ControllerCadastroHospede {
 
@@ -95,7 +95,7 @@ public class ControllerCadastroHospede {
             if(tfNome.getText().isEmpty() || tfCpf.getText().isEmpty()
                     || tfRg.getText().isEmpty() || tfTelefone.getText().isEmpty()
                     || tfDataNasc.getText().isEmpty()) {
-                mensagem(Alert.AlertType.ERROR, "Dados faltando!");
+                mostrarMensagem("Dados faltando!");
             } else {
                 String nome = tfNome.getText();
                 String cpf = tfCpf.getText();
@@ -124,17 +124,17 @@ public class ControllerCadastroHospede {
 
                     try {
                         JDBCHospedeDAO.getInstance().create(hospede);
-                        mensagem(Alert.AlertType.INFORMATION, "Hóspede cadastrado!");
+                        mostrarMensagem("Hóspede cadastrado!");
                         voltar();
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                 } else {
-                    mensagem(Alert.AlertType.ERROR, "CPF inválido!");
+                    mostrarMensagem("CPF inválido!");
                 }
             }
         } catch (NullPointerException e) {
-            mensagem(Alert.AlertType.ERROR, "Erro!");
+            mostrarMensagem("Erro!");
         }
     }
 
@@ -187,10 +187,29 @@ public class ControllerCadastroHospede {
 
     }
 
-    protected void mensagem(Alert.AlertType type, String message) {
-        Alert alert = new Alert(type);
-        alert.setTitle("Mensagem!");
-        alert.setContentText(message);
-        alert.showAndWait();
+    protected void mostrarMensagem(String mensagem) {
+
+        Mensagem.mensagem = mensagem;
+
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.setTitle("Mensagem");
+
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("../../view/janelaMensagem.fxml"));
+            dialog.getDialogPane().setContent(fxmlLoader.load());
+            dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+            dialog.getDialogPane().getStylesheets().add(getClass().getResource("../../estilo.css").toExternalForm());
+            dialog.getDialogPane().getStyleClass().add("myDialog");
+
+            Optional<ButtonType> result = dialog.showAndWait();
+
+            if(result.isPresent() && result.get()==ButtonType.OK) {
+                System.out.println("1: " + mensagem);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
 }

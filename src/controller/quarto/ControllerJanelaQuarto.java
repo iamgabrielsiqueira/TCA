@@ -12,7 +12,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import model.jdbc.JDBCQuartoDAO;
@@ -41,13 +40,6 @@ public class ControllerJanelaQuarto {
     private TableColumn tcOpcao;
 
     @FXML
-    private TableColumn tcAlterar;
-
-    @FXML
-    private TableColumn tcRemover;
-
-
-    @FXML
     public void voltar() {
         trocarJanela("../../view/janelaMain.fxml");
     }
@@ -56,6 +48,26 @@ public class ControllerJanelaQuarto {
 //    public void cadastrar() {
 //        trocarJanela("../../view/quarto/janelaCadastrarQuarto.fxml");
 //    }
+
+    @FXML
+    public void carregarHospedes() {
+        trocarJanela("../../view/hospede/janelaHospede.fxml");
+    }
+
+    @FXML
+    public void carregarTiposQuartos() {
+        trocarJanela("../../view/tipo/janelaTipoQuarto.fxml");
+    }
+
+    @FXML
+    public void carregarQuartos() {
+        trocarJanela("../../view/quarto/janelaQuarto.fxml");
+    }
+
+    @FXML
+    public void carregarServicos() {
+        trocarJanela("../../view/servico/janelaServico.fxml");
+    }
 
     public void initialize() {
         try {
@@ -171,8 +183,6 @@ public class ControllerJanelaQuarto {
                     private ImageView imgview2 = new ImageView(imagem2);
 
                     {
-                        //Image image = new Image("../../imagens/maid (1).png");
-                        //btn.setGraphic(new ImageView(image));
                         pane.alignmentProperty().set(Pos.CENTER);
                         pane.spacingProperty().setValue(5);
 
@@ -184,12 +194,10 @@ public class ControllerJanelaQuarto {
 
                         btn.setOnAction((ActionEvent event) -> {
                             Quarto quarto = getTableView().getItems().get(getIndex());
-                            //System.out.println("Quarto: " + quarto.getTipoQuarto().getNome());
                         });
 
                         btn2.setOnAction((ActionEvent event) -> {
                             Quarto quarto = getTableView().getItems().get(getIndex());
-                            //System.out.println("Quarto: " + quarto.getTipoQuarto().getNome());
                         });
                     }
 

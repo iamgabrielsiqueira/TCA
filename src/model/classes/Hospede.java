@@ -11,7 +11,7 @@ public class Hospede {
     private SimpleStringProperty cpf;
     private SimpleStringProperty rg;
     private SimpleStringProperty telefone;
-    private Date dataNasc;
+    private SimpleStringProperty dataNasc;
     private Cidade cidade;
     private Estado estado;
     private Date dataCriado;
@@ -22,6 +22,7 @@ public class Hospede {
         cpf=  new SimpleStringProperty();
         rg = new SimpleStringProperty();
         telefone = new SimpleStringProperty();
+        dataNasc = new SimpleStringProperty();
     }
 
     public int getId() {
@@ -80,14 +81,6 @@ public class Hospede {
         this.telefone.set(telefone);
     }
 
-    public Date getDataNasc() {
-        return dataNasc;
-    }
-
-    public void setDataNasc(Date dataNasc) {
-        this.dataNasc = dataNasc;
-    }
-
     public Date getDataCriado() {
         return dataCriado;
     }
@@ -123,5 +116,17 @@ public class Hospede {
 
     public void setEstado(Estado estado) {
         this.estado = estado;
+    }
+
+    public String getDataNasc() {
+        return dataNasc.get();
+    }
+
+    public SimpleStringProperty dataNascProperty() {
+        return dataNasc;
+    }
+
+    public void setDataNasc(String dataNasc) {
+        this.dataNasc.set(dataNasc);
     }
 }

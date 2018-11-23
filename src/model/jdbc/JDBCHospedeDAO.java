@@ -43,7 +43,7 @@ public class JDBCHospedeDAO implements HospedeDAO {
         preparedStatement.setString(1, hospede.getNome());
         preparedStatement.setString(2, hospede.getCpf());
         preparedStatement.setString(3, hospede.getRg());
-        preparedStatement.setDate(4, hospede.getDataNasc());
+        preparedStatement.setString(4, hospede.getDataNasc());
         preparedStatement.setString(5, hospede.getTelefone());
         preparedStatement.setInt(6, hospede.getCidade().getId());
         preparedStatement.setDate(7, dataAtual);
@@ -61,7 +61,7 @@ public class JDBCHospedeDAO implements HospedeDAO {
         String nome = resultSet.getString("nome");
         String cpf = resultSet.getString("cpf");
         String rg = resultSet.getString("rg");
-        Date dataNasc = resultSet.getDate("data_nasc");
+        String dataNasc = resultSet.getString("data_nasc");
         String telefone = resultSet.getString("telefone");
         int cidadeId = resultSet.getInt("fk_cidade");
         Date dataCriado = resultSet.getDate("data_criado");
@@ -142,7 +142,7 @@ public class JDBCHospedeDAO implements HospedeDAO {
         statement.setString(1, h.getNome());
         statement.setString(2, h.getCpf());
         statement.setString(3, h.getRg());
-        statement.setDate(4, h.getDataNasc());
+        statement.setString(4, h.getDataNasc());
         statement.setString(5, h.getTelefone());
         statement.setInt(6, h.getCidade().getId());
         statement.setDate(7, dataAtual);

@@ -1,5 +1,6 @@
 package controller.hospede;
 
+import controller.MaskFieldUtil;
 import controller.ValidaCPF;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -10,7 +11,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import jeanderson.br.util.MaskFormatter;
@@ -21,7 +21,6 @@ import model.jdbc.JDBCEstadoDAO;
 import model.classes.Hospede;
 import model.jdbc.JDBCHospedeDAO;
 import java.io.IOException;
-import java.sql.Date;
 
 public class ControllerCadastroHospede {
 
@@ -41,7 +40,7 @@ public class ControllerCadastroHospede {
     private TextField tfTelefone;
 
     @FXML
-    private DatePicker tfDataNasc;
+    private TextField tfDataNasc;
 
     @FXML
     private ComboBox<Estado> tfEstado;
@@ -70,19 +69,39 @@ public class ControllerCadastroHospede {
     }
 
     @FXML
+    public void carregarHospedes() {
+        trocarJanela("../../view/hospede/janelaHospede.fxml");
+    }
+
+    @FXML
+    public void carregarTiposQuartos() {
+        trocarJanela("../../view/tipo/janelaTipoQuarto.fxml");
+    }
+
+    @FXML
+    public void carregarQuartos() {
+        trocarJanela("../../view/quarto/janelaQuarto.fxml");
+    }
+
+    @FXML
+    public void carregarServicos() {
+        trocarJanela("../../view/servico/janelaServico.fxml");
+    }
+
+    @FXML
     public void salvarHospede() {
 
         try {
             if(tfNome.getText().isEmpty() || tfCpf.getText().isEmpty()
                     || tfRg.getText().isEmpty() || tfTelefone.getText().isEmpty()
-                    || tfDataNasc.getValue().toString().isEmpty()) {
+                    || tfDataNasc.getText().isEmpty()) {
                 mensagem(Alert.AlertType.ERROR, "Dados faltando!");
             } else {
                 String nome = tfNome.getText();
                 String cpf = tfCpf.getText();
                 String rg = tfRg.getText();
                 String telefone = tfTelefone.getText();
-                Date dataNasc = Date.valueOf(tfDataNasc.getValue());
+                String dataNasc = tfDataNasc.getText();
 
                 String cpfValidar = cpf;
 
@@ -106,6 +125,7 @@ public class ControllerCadastroHospede {
                     try {
                         JDBCHospedeDAO.getInstance().create(hospede);
                         mensagem(Alert.AlertType.INFORMATION, "Hóspede cadastrado!");
+                        voltar();
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -138,6 +158,8 @@ public class ControllerCadastroHospede {
 
         MaskFormatter formatter3 = new MaskFormatter(tfTelefone);
         formatter3.setMask(MaskFormatter.TEL_9DIG);
+
+        MaskFieldUtil.dateField(tfDataNasc);
 
     }
 

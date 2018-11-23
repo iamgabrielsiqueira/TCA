@@ -22,9 +22,6 @@ import model.classes.Hospede;
 import model.jdbc.JDBCHospedeDAO;
 import java.io.IOException;
 import java.sql.Date;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.ZoneId;
 
 public class ControllerAlterarHospede {
 
@@ -44,7 +41,7 @@ public class ControllerAlterarHospede {
     private TextField tfTelefone;
 
     @FXML
-    private DatePicker tfDataNasc;
+    private TextField tfDataNasc;
 
     @FXML
     private ComboBox<Estado> tfEstado;
@@ -59,6 +56,26 @@ public class ControllerAlterarHospede {
     private ObservableList<Cidade> listaCidadeFiltro;
 
     private Hospede hospede1;
+
+    @FXML
+    public void carregarHospedes() {
+        trocarJanela("../../view/hospede/janelaHospede.fxml");
+    }
+
+    @FXML
+    public void carregarTiposQuartos() {
+        trocarJanela("../../view/tipo/janelaTipoQuarto.fxml");
+    }
+
+    @FXML
+    public void carregarQuartos() {
+        trocarJanela("../../view/quarto/janelaQuarto.fxml");
+    }
+
+    @FXML
+    public void carregarServicos() {
+        trocarJanela("../../view/servico/janelaServico.fxml");
+    }
 
     @FXML
     public void carregarCidade() {
@@ -80,14 +97,14 @@ public class ControllerAlterarHospede {
         try {
             if(tfNome.getText().isEmpty() || tfCpf.getText().isEmpty()
                     || tfRg.getText().isEmpty() || tfTelefone.getText().isEmpty()
-                    || tfDataNasc.getValue().toString().isEmpty()) {
+                    || tfDataNasc.getText().isEmpty()) {
                 mensagem(Alert.AlertType.ERROR, "Dados faltando!");
             } else {
                 String nome = tfNome.getText();
                 String cpf = tfCpf.getText();
                 String rg = tfRg.getText();
                 String telefone = tfTelefone.getText();
-                Date dataNasc = Date.valueOf(tfDataNasc.getValue());
+                String dataNasc = tfTelefone.getText();
 
                 String cpfValidar = cpf;
 
@@ -100,7 +117,7 @@ public class ControllerAlterarHospede {
                     hospede.setCpf(cpf);
                     hospede.setRg(rg);
                     hospede.setTelefone(telefone);
-                    hospede.setDataNasc(dataNasc);
+                    //hospede.setDataNasc(dataNasc);
 
                     Cidade cidade = tfCidade.getSelectionModel().getSelectedItem();
                     hospede.setCidade(cidade);
@@ -137,9 +154,9 @@ public class ControllerAlterarHospede {
         tfTelefone.setText(hospede1.getTelefone());
         tfRg.setText(hospede1.getRg());
 
-        Date dataNasc = hospede1.getDataNasc();
-        LocalDate d1 = Instant.ofEpochMilli(dataNasc.getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
-        tfDataNasc.setValue(d1);
+//        Date dataNasc = hospede1.getDataNasc();
+//        LocalDate d1 = Instant.ofEpochMilli(dataNasc.getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
+//        tfDataNasc.setValue(d1);
 
         tfCidade.getSelectionModel().select(hospede1.getCidade());
         tfEstado.getSelectionModel().select(hospede1.getEstado());

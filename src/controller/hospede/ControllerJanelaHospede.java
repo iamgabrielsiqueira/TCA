@@ -53,21 +53,6 @@ public class ControllerJanelaHospede {
     }
 
     @FXML
-    public void alterar() {
-        redirecionar(1);
-    }
-
-    @FXML
-    public void visualizar() {
-        redirecionar(2);
-    }
-
-    @FXML
-    public void remover() {
-        redirecionar(3);
-    }
-
-    @FXML
     public void carregarHospedes() {
         trocarJanela("../../view/hospede/janelaHospede.fxml");
     }
@@ -93,67 +78,43 @@ public class ControllerJanelaHospede {
         } catch (Exception e) {
             mensagem(Alert.AlertType.ERROR, "Erro!");
         }
+
         tfBuscar.setPromptText("Buscar...");
     }
 
-    public void redirecionar(int id) {
+    public void remover(Hospede hospede) throws Exception {
 
-        Dialog<ButtonType> dialog = new Dialog();
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.setTitle("Remover");
 
-        switch(id) {
-            case 1:
-                dialog.setTitle("Alterar");
-                break;
-            case 2:
-                dialog.setTitle("Visualizar");
-                break;
-            case 3:
-                dialog.setTitle("Remover");
-                break;
-        }
-
-        try{
+        try {
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("../../view/hospede/janelaRedirecionamento.fxml"));
+            fxmlLoader.setLocation(getClass().getResource("../../view/hospede/janelaRemoverHospede.fxml"));
             dialog.getDialogPane().setContent(fxmlLoader.load());
-
-            ControllerRedirecionamentoHospede controle = fxmlLoader.getController();
-
             dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
             dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+            dialog.getDialogPane().getStylesheets().add(getClass().getResource("../../estilo.css").toExternalForm());
+            dialog.getDialogPane().getStyleClass().add("myDialog");
 
             Optional<ButtonType> result = dialog.showAndWait();
 
-            if(result.isPresent() && result.get()==ButtonType.OK){
-
-                Hospede h = controle.processResult();
-
-                JDBCHospedeDAO.h1 = h;
-
-                if(h!=null) {
+            if(result.isPresent() && result.get()==ButtonType.OK) {
+                if(hospede!=null) {
                     try {
-                        switch (id) {
-                            case 1:
-                                trocarJanela("../../view/hospede/janelaAlterarHospede.fxml");
-                                break;
-                            case 2:
-                                trocarJanela("../../view/hospede/janelaVisualizarHospede.fxml");
-                                break;
-                            case 3:
-                                trocarJanela("../../view/hospede/janelaRemoverHospede.fxml");
-                                break;
-                        }
+                        JDBCHospedeDAO.getInstance().delete(hospede);
                     } catch (Exception e) {
-                        mensagem(Alert.AlertType.ERROR, "Erro!");
+                        mensagem(Alert.AlertType.ERROR, e.getMessage());
                     }
                 }
+
             }
-        }catch (IOException e){
-            mensagem(Alert.AlertType.ERROR, "Erro!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            carregarLista();
         }
 
     }
-
     public void trocarJanela(String address){
 
         Platform.runLater(new Runnable() {
@@ -211,6 +172,12 @@ public class ControllerJanelaHospede {
 
                         btn2.setOnAction((ActionEvent event) -> {
                             Hospede hospede = getTableView().getItems().get(getIndex());
+                            JDBCHospedeDAO.h1 = hospede;
+                            try {
+                                remover(hospede);
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
                         });
                     }
 

@@ -1,5 +1,6 @@
 package controller.hospede;
 
+import controller.MaskFieldUtil;
 import controller.ValidaCPF;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -117,7 +118,7 @@ public class ControllerAlterarHospede {
                     hospede.setCpf(cpf);
                     hospede.setRg(rg);
                     hospede.setTelefone(telefone);
-                    //hospede.setDataNasc(dataNasc);
+                    hospede.setDataNasc(dataNasc);
 
                     Cidade cidade = tfCidade.getSelectionModel().getSelectedItem();
                     hospede.setCidade(cidade);
@@ -128,6 +129,7 @@ public class ControllerAlterarHospede {
                     try {
                         JDBCHospedeDAO.getInstance().update(hospede1, hospede);
                         mensagem(Alert.AlertType.INFORMATION, "Hóspede alterado!");
+                        voltar();
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -153,10 +155,7 @@ public class ControllerAlterarHospede {
         tfCpf.setText(hospede1.getCpf());
         tfTelefone.setText(hospede1.getTelefone());
         tfRg.setText(hospede1.getRg());
-
-//        Date dataNasc = hospede1.getDataNasc();
-//        LocalDate d1 = Instant.ofEpochMilli(dataNasc.getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
-//        tfDataNasc.setValue(d1);
+        tfDataNasc.setText(hospede1.getDataNasc());
 
         tfCidade.getSelectionModel().select(hospede1.getCidade());
         tfEstado.getSelectionModel().select(hospede1.getEstado());
@@ -175,6 +174,8 @@ public class ControllerAlterarHospede {
 
         MaskFormatter formatter3 = new MaskFormatter(tfTelefone);
         formatter3.setMask(MaskFormatter.TEL_9DIG);
+
+        MaskFieldUtil.dateField(tfDataNasc);
     }
 
     public void trocarJanela(String address){

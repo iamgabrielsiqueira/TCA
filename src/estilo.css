@@ -9,3 +9,14 @@
 .text-field > .text {
         -fx-effect: dropshadow( two-pass-box , #34495e , .5, 10 , 1 , 1);
 }
+
+.myDialog > *.button-bar > *.container{
+    -fx-background-color: #95a5a6;
+}
+
+.dialog-pane .button {
+    -fx-border-color: #2c3e50;
+    -fx-background-color: #2c3e50;
+    -fx-border-radius: 5;
+    -fx-text-fill:white;
+}

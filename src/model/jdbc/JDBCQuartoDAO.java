@@ -26,7 +26,6 @@ public class JDBCQuartoDAO implements QuartoDAO {
         return instance;
     }
 
-
     @Override
     public void create(Quarto quarto) throws Exception {
 
@@ -136,4 +135,21 @@ public class JDBCQuartoDAO implements QuartoDAO {
 
     }
 
+    @Override
+    public Quarto search(int id) throws Exception {
+        Connection connection = FabricaConexao.getConnection();
+        String sql = "select * from tca_quarto where id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1, id);
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        resultSet.next();
+        Quarto quarto = carregarQuarto(resultSet);
+
+        resultSet.close();
+        preparedStatement.close();
+        connection.close();
+
+        return quarto;
+    }
 }

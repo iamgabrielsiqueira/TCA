@@ -8,4 +8,5 @@ public interface QuartoDAO {
     ObservableList<Quarto> list() throws Exception;
     void delete(Quarto quarto) throws Exception;
     void update(Quarto quarto, Quarto q) throws Exception;
+    Quarto search(int id) throws Exception;
 }

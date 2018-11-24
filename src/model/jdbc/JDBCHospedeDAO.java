@@ -3,6 +3,7 @@ package model.jdbc;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.FabricaConexao;
+import model.classes.Hospedagem;
 import model.dao.HospedeDAO;
 import model.classes.Cidade;
 import model.classes.Estado;
@@ -152,6 +153,24 @@ public class JDBCHospedeDAO implements HospedeDAO {
         statement.close();
         c.close();
 
+    }
+
+    @Override
+    public Hospede search(int id) throws Exception {
+        Connection connection = FabricaConexao.getConnection();
+        String sql = "select * from tca_hospede where id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1, id);
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        resultSet.next();
+        Hospede hospede = carregarHospede(resultSet);
+
+        resultSet.close();
+        preparedStatement.close();
+        connection.close();
+
+        return hospede;
     }
 
 }

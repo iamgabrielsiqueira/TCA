@@ -1,11 +1,9 @@
 package model.classes;
 
 import javafx.beans.property.SimpleStringProperty;
-
 import java.sql.Date;
 
 public class Hospede {
-
     private int id;
     private SimpleStringProperty nome;
     private SimpleStringProperty cpf;

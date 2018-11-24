@@ -2,13 +2,14 @@ package model.classes;
 
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleStringProperty;
+
 import java.sql.Date;
-import java.sql.Timestamp;
 
 public class Hospedagem {
     private int id;
-    private Timestamp dataCheckIn;
-    private Timestamp dataCheckOut;
+    private SimpleStringProperty dataCheckIn;
+    private SimpleStringProperty dataCheckOut;
     private SimpleBooleanProperty statusCheckIn;
     private SimpleBooleanProperty statusCheckOut;
     private SimpleDoubleProperty valor;
@@ -17,11 +18,12 @@ public class Hospedagem {
     private Hospede hospede02;
     private Hospede hospede03;
     private Quarto quarto;
-    private Servico servico;
     private Date dataCriado;
     private Date dataAlterado;
 
     public Hospedagem() {
+        dataCheckIn = new SimpleStringProperty();
+        dataCheckOut = new SimpleStringProperty();
         valor = new SimpleDoubleProperty();
         status = new SimpleBooleanProperty();
         statusCheckIn = new SimpleBooleanProperty();
@@ -34,22 +36,6 @@ public class Hospedagem {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public Timestamp getDataCheckIn() {
-        return dataCheckIn;
-    }
-
-    public void setDataCheckIn(Timestamp dataCheckIn) {
-        this.dataCheckIn = dataCheckIn;
-    }
-
-    public Timestamp getDataCheckOut() {
-        return dataCheckOut;
-    }
-
-    public void setDataCheckOut(Timestamp dataCheckOut) {
-        this.dataCheckOut = dataCheckOut;
     }
 
     public double getValor() {
@@ -108,14 +94,6 @@ public class Hospedagem {
         this.quarto = quarto;
     }
 
-    public Servico getServico() {
-        return servico;
-    }
-
-    public void setServico(Servico servico) {
-        this.servico = servico;
-    }
-
     public Date getDataCriado() {
         return dataCriado;
     }
@@ -159,5 +137,30 @@ public class Hospedagem {
 
     public void setStatusCheckOut(boolean statusCheckOut) {
         this.statusCheckOut.set(statusCheckOut);
+    }
+
+
+    public String getDataCheckIn() {
+        return dataCheckIn.get();
+    }
+
+    public SimpleStringProperty dataCheckInProperty() {
+        return dataCheckIn;
+    }
+
+    public void setDataCheckIn(String dataCheckIn) {
+        this.dataCheckIn.set(dataCheckIn);
+    }
+
+    public String getDataCheckOut() {
+        return dataCheckOut.get();
+    }
+
+    public SimpleStringProperty dataCheckOutProperty() {
+        return dataCheckOut;
+    }
+
+    public void setDataCheckOut(String dataCheckOut) {
+        this.dataCheckOut.set(dataCheckOut);
     }
 }

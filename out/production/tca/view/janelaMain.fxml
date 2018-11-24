@@ -30,7 +30,7 @@
                             <Font name="Khmer OS System" size="14.0" />
                         </font></Label>
                 </VBox>
-                <VBox alignment="CENTER" spacing="10">
+                <VBox alignment="CENTER" spacing="10" onMouseClicked="#carregarHospedagens">
                     <ImageView>
                         <image>
                             <Image url="/imagens/service.png" />
@@ -93,10 +93,11 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                     </columnResizePolicy>
                     <columns>
-                        <TableColumn fx:id="tcNome" style="-fx-background-color:  #dfe6e9; -fx-alignment: CENTER;" text="Hóspede" />
-                        <TableColumn fx:id="tcCPF" minWidth="50" style="-fx-background-color:  #dfe6e9; -fx-alignment: CENTER;" text="Quarto" />
-                        <TableColumn fx:id="tcData" minWidth="50" style="-fx-background-color:  #dfe6e9; -fx-alignment: CENTER;" text="Check In" />
-                        <TableColumn fx:id="tcData2" minWidth="50" style="-fx-background-color:  #dfe6e9; -fx-alignment: CENTER;" text="Check Out" />
+                        <TableColumn fx:id="tcHospede" style="-fx-background-color:  #dfe6e9; -fx-alignment: CENTER;" text="Hóspede" />
+                        <TableColumn fx:id="tcQuarto" minWidth="50" style="-fx-background-color:  #dfe6e9; -fx-alignment: CENTER;" text="Quarto" />
+                        <TableColumn fx:id="tcCheckIn" minWidth="50" style="-fx-background-color:  #dfe6e9; -fx-alignment: CENTER;" text="Check In" />
+                        <TableColumn fx:id="tcCheckOut" minWidth="50" style="-fx-background-color:  #dfe6e9; -fx-alignment: CENTER;" text="Check Out" />
+                        <TableColumn fx:id="tcOpcoes" minWidth="50" style="-fx-background-color:  #dfe6e9; -fx-alignment: CENTER;" text="Opções" />
                     </columns>
                 </TableView>
             </VBox>

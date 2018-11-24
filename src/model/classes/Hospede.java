@@ -97,7 +97,7 @@ public class Hospede {
 
     @Override
     public String toString() {
-        return this.nome.getValue() + " - [" + this.cpf.getValue() + "]";
+        return this.nome.getValue();
     }
 
     public Cidade getCidade() {

@@ -43,6 +43,11 @@ public class ControllerJanelaPrincipal {
         trocarJanela("../view/servico/janelaServico.fxml");
     }
 
+    @FXML
+    public void carregarHospedagens() {
+        trocarJanela("../view/hospedagem/janelaHospedagem.fxml");
+    }
+
     public void initialize() {
         Date date = new Date(System.currentTimeMillis());
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");

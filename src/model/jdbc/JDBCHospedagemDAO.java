@@ -37,8 +37,8 @@ public class JDBCHospedagemDAO implements HospedagemDAO {
 
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
-        preparedStatement.setTimestamp(1, hospedagem.getDataCheckIn());
-        preparedStatement.setTimestamp(2, hospedagem.getDataCheckOut());
+        preparedStatement.setString(1, hospedagem.getDataCheckIn());
+        preparedStatement.setString(2, hospedagem.getDataCheckOut());
         preparedStatement.setBoolean(3, hospedagem.isStatusCheckIn());
         preparedStatement.setBoolean(4, hospedagem.isStatusCheckOut());
         preparedStatement.setDouble(5, hospedagem.getValor());
@@ -59,8 +59,8 @@ public class JDBCHospedagemDAO implements HospedagemDAO {
     private Hospedagem carregarHospedagem(ResultSet resultSet) throws Exception {
 
         int id = resultSet.getInt("id");
-        Timestamp dataCheckIn = resultSet.getTimestamp("dataCheckIn");
-        Timestamp dataCheckOut = resultSet.getTimestamp("dataCheckOut");
+        String dataCheckIn = resultSet.getString("dataCheckIn");
+        String dataCheckOut = resultSet.getString("dataCheckOut");
         Boolean statusCheckIn = resultSet.getBoolean("statusCheckIn");
         Boolean statusCheckOut = resultSet.getBoolean("statusCheckOut");
         Double valor = resultSet.getDouble("valor");
@@ -82,12 +82,18 @@ public class JDBCHospedagemDAO implements HospedagemDAO {
         hospedagem.setStatus(status);
         Hospede hospede01 = JDBCHospedeDAO.getInstance().search(idHospede01);
         hospedagem.setHospede01(hospede01);
-        Hospede hospede02 = JDBCHospedeDAO.getInstance().search(idHospede02);
-        hospedagem.setHospede02(hospede02);
-        Hospede hospede03 = JDBCHospedeDAO.getInstance().search(idHospede03);
-        hospedagem.setHospede02(hospede03);
+
+        if(idHospede02 != 0 && idHospede03 != 0) {
+            Hospede hospede02 = JDBCHospedeDAO.getInstance().search(idHospede02);
+            hospedagem.setHospede02(hospede02);
+
+            Hospede hospede03 = JDBCHospedeDAO.getInstance().search(idHospede03);
+            hospedagem.setHospede02(hospede03);
+        }
+
         Quarto quarto = JDBCQuartoDAO.getInstance().search(idQuarto);
         hospedagem.setQuarto(quarto);
+
         hospedagem.setDataCriado(dataCriado);
         hospedagem.setDataAlterado(dataAlterado);
 
@@ -108,6 +114,7 @@ public class JDBCHospedagemDAO implements HospedagemDAO {
 
             while (resultSet.next()){
                 Hospedagem hospedagem = carregarHospedagem(resultSet);
+                //System.out.println(hospedagem.getHospede01().getId());
                 list.add(hospedagem);
             }
 
@@ -150,8 +157,8 @@ public class JDBCHospedagemDAO implements HospedagemDAO {
         Connection c = FabricaConexao.getConnection();
         PreparedStatement statement = c.prepareStatement(sql);
 
-        statement.setTimestamp(1, h.getDataCheckIn());
-        statement.setTimestamp(2, h.getDataCheckOut());
+        statement.setString(1, h.getDataCheckIn());
+        statement.setString(2, h.getDataCheckOut());
         statement.setBoolean(3, h.isStatusCheckIn());
         statement.setBoolean(4, h.isStatusCheckOut());
         statement.setDouble(5, h.getValor());

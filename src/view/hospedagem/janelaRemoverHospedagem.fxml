@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.text.Font?>
+
+<DialogPane fx:id="mainWindow" prefHeight="300.0" prefWidth="400.0"
+            style="-fx-background-color: #95a5a6;"
+            xmlns="http://javafx.com/javafx/8.0.60"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.hospedagem.ControllerRemoverHospedagem">
+    <content>
+        <GridPane alignment="CENTER" hgap="10" vgap="10">
+            <Label text="Deseja remover esta hospedagem?" textFill="#ecf0f1" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                <font>
+                    <Font name="Noto Sans CJK KR Bold" size="14.0" />
+                </font>
+            </Label>
+
+            <Label text="" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+
+            <Label fx:id="lbHospede" text="Hóspede:" textFill="#ecf0f1" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                <font>
+                    <Font name="Noto Sans CJK JP Medium" size="14.0" />
+                </font>
+            </Label>
+
+            <Label fx:id="lbCheckIn" text="Check In:" textFill="#ecf0f1" GridPane.columnIndex="0" GridPane.rowIndex="4">
+                <font>
+                    <Font name="Noto Sans CJK JP Medium" size="14.0" />
+                </font>
+            </Label>
+
+            <Label fx:id="lbCheckOut" text="Check Out:" textFill="#ecf0f1" GridPane.columnIndex="0" GridPane.rowIndex="5">
+                <font>
+                    <Font name="Noto Sans CJK JP Medium" size="14.0" />
+                </font>
+            </Label>
+
+        </GridPane>
+    </content>
+</DialogPane>

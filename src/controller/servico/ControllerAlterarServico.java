@@ -1,17 +1,20 @@
 package controller.servico;
 
+import controller.Mensagem;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.jdbc.JDBCServicoDAO;
 import model.classes.Servico;
 import view.TextFieldMoney;
 import java.io.IOException;
+import java.util.Optional;
 
 public class ControllerAlterarServico {
 
@@ -27,12 +30,32 @@ public class ControllerAlterarServico {
     @FXML
     private TextField tfDescricao;
 
-    private Servico servico1;
+    @FXML
+    public void carregarHospedes() {
+        trocarJanela("../../view/hospede/janelaHospede.fxml");
+    }
 
     @FXML
-    public void salvarTipo() {
+    public void carregarTiposQuartos() {
+        trocarJanela("../../view/tipo/janelaTipoQuarto.fxml");
+    }
+
+    @FXML
+    public void carregarQuartos() {
+        trocarJanela("../../view/quarto/janelaQuarto.fxml");
+    }
+
+    @FXML
+    public void carregarServicos() {
+        trocarJanela("../../view/servico/janelaServico.fxml");
+    }
+
+    @FXML
+    public void salvarServico() {
+        Servico servico1 = JDBCServicoDAO.s1;
+
         if(tfNome.getText().isEmpty() || tfValor.getCleanValue().isEmpty()) {
-            mensagem(Alert.AlertType.ERROR, "Erro!");
+            mostrarMensagem("Faltam dados!");
         } else {
             String nome = tfNome.getText();
             Double valor = Double.valueOf(tfValor.getCleanValue());
@@ -45,9 +68,10 @@ public class ControllerAlterarServico {
 
             try {
                 JDBCServicoDAO.getInstance().update(servico1, servico);
-                mensagem(Alert.AlertType.INFORMATION, "Servico alterado!");
+                mostrarMensagem("Serviço alterado!");
+                voltar();
             } catch (Exception e) {
-                mensagem(Alert.AlertType.ERROR, "Erro!");
+                mostrarMensagem("Erro!");
             }
         }
     }
@@ -58,10 +82,11 @@ public class ControllerAlterarServico {
     }
 
     public void initialize() {
-        this.servico1 = JDBCServicoDAO.s1;
-        tfNome.setText(servico1.getNome());
-        tfDescricao.setText(servico1.getDescricao());
-        tfValor.setText(String.valueOf(servico1.getValor()));
+        Servico servico = JDBCServicoDAO.s1;
+
+        tfNome.setText(servico.getNome());
+        tfDescricao.setText(servico.getDescricao());
+        tfValor.setText(String.valueOf(servico.getValor()));
     }
 
     public void trocarJanela(String address){
@@ -79,18 +104,36 @@ public class ControllerAlterarServico {
 
                     stage.setScene(new Scene(layoutWindow,800, 600));
                     stage.setResizable(false);
-
                 }catch (IOException e){
-                    mensagem(Alert.AlertType.ERROR, "Erro!");
+                    mostrarMensagem("Erro!");
                 }
             }
         });
     }
 
-    protected void mensagem(Alert.AlertType type, String message) {
-        Alert alert = new Alert(type);
-        alert.setTitle("Mensagem!");
-        alert.setContentText(message);
-        alert.showAndWait();
+    protected void mostrarMensagem(String mensagem) {
+
+        Mensagem.mensagem = mensagem;
+
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.setTitle("Mensagem");
+
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("../../view/janelaMensagem.fxml"));
+            dialog.getDialogPane().setContent(fxmlLoader.load());
+            dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+            dialog.getDialogPane().getStylesheets().add(getClass().getResource("../../estilo.css").toExternalForm());
+            dialog.getDialogPane().getStyleClass().add("myDialog");
+
+            Optional<ButtonType> result = dialog.showAndWait();
+
+            if(result.isPresent() && result.get()==ButtonType.OK) {
+                //System.out.println("1: " + mensagem);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
 }

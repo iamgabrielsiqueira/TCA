@@ -127,7 +127,7 @@ public class ControllerCadastroHospede {
                         mostrarMensagem("Hóspede cadastrado!");
                         voltar();
                     } catch (Exception e) {
-                        e.printStackTrace();
+                        mostrarMensagem("Erro!");
                     }
                 } else {
                     mostrarMensagem("CPF inválido!");
@@ -180,7 +180,7 @@ public class ControllerCadastroHospede {
                     stage.setResizable(false);
 
                 }catch (IOException e){
-                    e.printStackTrace();
+                    mostrarMensagem("Erro!");
                 }
             }
         });

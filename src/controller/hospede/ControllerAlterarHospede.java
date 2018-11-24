@@ -1,6 +1,6 @@
 package controller.hospede;
 
-import controller.MaskFieldUtil;
+import controller.Mensagem;
 import controller.ValidaCPF;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -18,9 +18,6 @@ import model.classes.Estado;
 import model.jdbc.JDBCEstadoDAO;
 import model.classes.Hospede;
 import model.jdbc.JDBCHospedeDAO;
-import sun.java2d.loops.MaskFill;
-
-import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.util.Optional;
 
@@ -88,7 +85,7 @@ public class ControllerAlterarHospede {
             listaCidadeFiltro = JDBCCidadeDAO.getInstance().listaPorEstado(estadoSelecionado);
             tfCidade.setItems(listaCidadeFiltro);
         } catch (Exception e) {
-            mensagem(Alert.AlertType.ERROR, "Erro!");
+            mostrarMensagem("Erro!");
         }
 
     }
@@ -99,7 +96,7 @@ public class ControllerAlterarHospede {
             if(tfNome.getText().isEmpty() || tfCpf.getText().isEmpty()
                     || tfRg.getText().isEmpty() || tfTelefone.getText().isEmpty()
                     || tfDataNasc.getText().isEmpty()) {
-                mensagem(Alert.AlertType.ERROR, "Dados faltando!");
+                mostrarMensagem("Dados faltando!");
             } else {
                 String nome = tfNome.getText();
                 String cpf = tfCpf.getText();
@@ -128,17 +125,17 @@ public class ControllerAlterarHospede {
 
                     try {
                         JDBCHospedeDAO.getInstance().update(hospede1, hospede);
-                        mensagem(Alert.AlertType.INFORMATION, "Hóspede alterado!");
+                        mostrarMensagem("Hóspede alterado!");
                         voltar();
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                 } else {
-                    mensagem(Alert.AlertType.ERROR, "CPF inválido!");
+                    mostrarMensagem("CPF inválido!");
                 }
             }
         } catch (NullPointerException e) {
-            mensagem(Alert.AlertType.ERROR, "Erro!");
+            mostrarMensagem("Erro!");
         }
     }
 
@@ -195,19 +192,36 @@ public class ControllerAlterarHospede {
                     stage.setResizable(false);
 
                 }catch (IOException e){
-                    e.printStackTrace();
+                    mostrarMensagem("Erro!");
                 }
             }
         });
 
     }
 
-    protected void mensagem(Alert.AlertType type, String message) {
-        Alert alert = new Alert(type);
-        alert.setTitle("Mensagem!");
-        alert.setContentText(message);
-        alert.getDialogPane().getStylesheets().add(getClass().getResource("../../estilo.css").toExternalForm());
-        alert.getDialogPane().getStyleClass().add("myDialog");
-        alert.showAndWait();
+    protected void mostrarMensagem(String mensagem) {
+
+        Mensagem.mensagem = mensagem;
+
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.setTitle("Mensagem");
+
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("../../view/janelaMensagem.fxml"));
+            dialog.getDialogPane().setContent(fxmlLoader.load());
+            dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+            dialog.getDialogPane().getStylesheets().add(getClass().getResource("../../estilo.css").toExternalForm());
+            dialog.getDialogPane().getStyleClass().add("myDialog");
+
+            Optional<ButtonType> result = dialog.showAndWait();
+
+            if(result.isPresent() && result.get()==ButtonType.OK) {
+                System.out.println("1: " + mensagem);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
 }

@@ -1,27 +1,19 @@
 package controller.hospede;
 
-import controller.MaskFieldUtil;
-import controller.ValidaCPF;
+import controller.Mensagem;
 import javafx.application.Platform;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import jeanderson.br.util.MaskFormatter;
-import model.classes.Cidade;
-import model.jdbc.JDBCCidadeDAO;
-import model.classes.Estado;
-import model.jdbc.JDBCEstadoDAO;
 import model.classes.Hospede;
 import model.jdbc.JDBCHospedeDAO;
 import java.io.IOException;
+import java.util.Optional;
 
 public class ControllerVisualizarHospede {
 
@@ -74,7 +66,7 @@ public class ControllerVisualizarHospede {
         trocarJanela("../../view/hospede/janelaHospede.fxml");
     }
 
-    public void initialize() throws Exception {
+    public void initialize() {
 
         Hospede hospede = JDBCHospedeDAO.h1;
 
@@ -104,17 +96,36 @@ public class ControllerVisualizarHospede {
                     stage.setResizable(false);
 
                 }catch (IOException e){
-                    e.printStackTrace();
+                    mostrarMensagem("Erro!");
                 }
             }
         });
 
     }
 
-    protected void mensagem(Alert.AlertType type, String message) {
-        Alert alert = new Alert(type);
-        alert.setTitle("Mensagem!");
-        alert.setContentText(message);
-        alert.showAndWait();
+    protected void mostrarMensagem(String mensagem) {
+
+        Mensagem.mensagem = mensagem;
+
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.setTitle("Mensagem");
+
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("../../view/janelaMensagem.fxml"));
+            dialog.getDialogPane().setContent(fxmlLoader.load());
+            dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+            dialog.getDialogPane().getStylesheets().add(getClass().getResource("../../estilo.css").toExternalForm());
+            dialog.getDialogPane().getStyleClass().add("myDialog");
+
+            Optional<ButtonType> result = dialog.showAndWait();
+
+            if(result.isPresent() && result.get()==ButtonType.OK) {
+                System.out.println("1: " + mensagem);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
 }

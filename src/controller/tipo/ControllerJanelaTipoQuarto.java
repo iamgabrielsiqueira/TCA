@@ -1,6 +1,11 @@
 package controller.tipo;
 
+import controller.Mensagem;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -34,20 +39,25 @@ public class ControllerJanelaTipoQuarto {
     private TableColumn tcValor;
 
     @FXML
+    private TextField tfBuscar;
+
+    @FXML
     private TableColumn tcDescricao;
 
     @FXML
     private TableColumn tcOpcao;
+
+    private ObservableList<TipoQuarto> masterData = FXCollections.observableArrayList();
 
     @FXML
     public void voltar() {
         trocarJanela("../../view/janelaMain.fxml");
     }
 
-//    @FXML
-//    public void cadastrar() {
-//        trocarJanela("../../view/tipo/janelaCadastrarTipo.fxml");
-//    }
+    @FXML
+    public void cadastrar() {
+        trocarJanela("../../view/tipo/janelaCadastrarTipo.fxml");
+    }
 
     @FXML
     public void carregarHospedes() {
@@ -69,70 +79,46 @@ public class ControllerJanelaTipoQuarto {
         trocarJanela("../../view/servico/janelaServico.fxml");
     }
 
-    public void initialize() {
+    public void initialize() throws Exception {
+        tcNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        tcValor.setCellValueFactory(new PropertyValueFactory<>("valor"));
+        tcDescricao.setCellValueFactory(new PropertyValueFactory<>("descricao"));
+
+        addButtonToTable();
+
+        tbTipos.setItems(JDBCTipoQuartoDAO.getInstance().list());
+
         try {
-            carregarLista();
+            masterData.addAll(JDBCTipoQuartoDAO.getInstance().list());
         } catch (Exception e) {
-            mensagem(Alert.AlertType.ERROR, "Erro!");
-        }
-    }
-
-    public void redirecionar(int id) {
-
-        Dialog<ButtonType> dialog = new Dialog();
-
-        switch(id) {
-            case 1:
-                dialog.setTitle("Alterar");
-                break;
-            case 2:
-                dialog.setTitle("Visualizar");
-                break;
-            case 3:
-                dialog.setTitle("Remover");
-                break;
+            e.printStackTrace();
         }
 
-        try{
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("../../view/tipo/janelaRedirecionamentoTipo.fxml"));
-            dialog.getDialogPane().setContent(fxmlLoader.load());
+        tbTipos.setItems(masterData);
 
-            ControllerRedirecionamentoTipo controle = fxmlLoader.getController();
+        tfBuscar.setPromptText("Buscar...");
 
-            dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
-            dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+        FilteredList<TipoQuarto> filteredData = new FilteredList<>(masterData, p -> true);
 
-            Optional<ButtonType> result = dialog.showAndWait();
-
-            if(result.isPresent() && result.get()==ButtonType.OK){
-
-                TipoQuarto t = controle.processResult();
-
-                JDBCTipoQuartoDAO.t1 = t;
-
-                if(t!=null) {
-                    try {
-                        switch (id) {
-                            case 1:
-                                trocarJanela("../../view/tipo/janelaAlterarTipo.fxml");
-                                break;
-                            case 2:
-                                trocarJanela("../../view/tipo/janelaVisualizarTipo.fxml");
-                                break;
-                            case 3:
-                                trocarJanela("../../view/tipo/janelaRemoverTipo.fxml");
-                                break;
-                        }
-                    } catch (Exception e) {
-                        mensagem(Alert.AlertType.ERROR, "Erro!");
-                    }
+        tfBuscar.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(tipo -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
                 }
-            }
-        }catch (IOException e){
-            mensagem(Alert.AlertType.ERROR, "Erro!");
-        }
 
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if (tipo.getNome().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                }
+
+                return false;
+            });
+        });
+
+        SortedList<TipoQuarto> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(tbTipos.comparatorProperty());
+        tbTipos.setItems(sortedData);
     }
 
     public void trocarJanela(String address){
@@ -152,11 +138,44 @@ public class ControllerJanelaTipoQuarto {
                     stage.setResizable(false);
 
                 }catch (IOException e){
-                    mensagem(Alert.AlertType.ERROR, "Erro!");
+                    mostrarMensagem("Erro!");
                 }
             }
         });
 
+    }
+
+    public void remover(TipoQuarto tipoQuarto) throws Exception {
+
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.setTitle("Remover");
+
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("../../view/tipo/janelaRemoverTipo.fxml"));
+            dialog.getDialogPane().setContent(fxmlLoader.load());
+            dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+            dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+            dialog.getDialogPane().getStylesheets().add(getClass().getResource("../../estilo.css").toExternalForm());
+            dialog.getDialogPane().getStyleClass().add("myDialog");
+
+            Optional<ButtonType> result = dialog.showAndWait();
+
+            if(result.isPresent() && result.get()==ButtonType.OK) {
+                if(tipoQuarto!=null) {
+                    try {
+                        JDBCTipoQuartoDAO.getInstance().delete(tipoQuarto);
+                    } catch (Exception e) {
+                        mostrarMensagem("Erro!");
+                    }
+                }
+
+            }
+        } catch (IOException e) {
+            mostrarMensagem("Erro!");
+        } finally {
+            carregarLista();
+        }
     }
 
     private void addButtonToTable() {
@@ -168,11 +187,14 @@ public class ControllerJanelaTipoQuarto {
 
                     private Button btn = new Button("");
                     private Button btn2 = new Button("");
-                    private final HBox pane = new HBox(btn, btn2);
+                    private Button btn3 = new Button("");
+                    private final HBox pane = new HBox(btn, btn2, btn3);
                     private Image imagem = new Image(getClass().getResourceAsStream("../../imagens/editar.png"));
                     private Image imagem2 = new Image(getClass().getResourceAsStream("../../imagens/remover.png"));
                     private ImageView imgview = new ImageView(imagem);
                     private ImageView imgview2 = new ImageView(imagem2);
+                    private Image imagem3 = new Image(getClass().getResourceAsStream("../../imagens/visualizar.png"));
+                    private ImageView imgview3 = new ImageView(imagem3);
 
                     {
                         pane.alignmentProperty().set(Pos.CENTER);
@@ -182,14 +204,29 @@ public class ControllerJanelaTipoQuarto {
                         btn2.setGraphic(imgview2);
                         btn2.setStyle("-fx-background-color: transparent");
                         btn.setStyle("-fx-background-color: transparent");
-
+                        btn3.setGraphic(imgview3);
+                        btn3.setStyle("-fx-background-color: transparent");
 
                         btn.setOnAction((ActionEvent event) -> {
                             TipoQuarto tipoQuarto = getTableView().getItems().get(getIndex());
+                            JDBCTipoQuartoDAO.t1 = tipoQuarto;
+                            trocarJanela("../../view/tipo/janelaAlterarTipo.fxml");
                         });
 
                         btn2.setOnAction((ActionEvent event) -> {
                             TipoQuarto tipoQuarto = getTableView().getItems().get(getIndex());
+                            JDBCTipoQuartoDAO.t1 = tipoQuarto;
+                            try {
+                                remover(tipoQuarto);
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        });
+
+                        btn3.setOnAction((ActionEvent event) -> {
+                            TipoQuarto tipoQuarto = getTableView().getItems().get(getIndex());
+                            JDBCTipoQuartoDAO.t1 = tipoQuarto;
+                            trocarJanela("../../view/tipo/janelaVisualizarTipo.fxml");
                         });
                     }
 
@@ -219,11 +256,29 @@ public class ControllerJanelaTipoQuarto {
         tbTipos.setItems(JDBCTipoQuartoDAO.getInstance().list());
     }
 
-    protected void mensagem(Alert.AlertType type, String message) {
-        Alert alert = new Alert(type);
-        alert.setTitle("Mensagem!");
-        alert.setContentText(message);
-        alert.showAndWait();
+    protected void mostrarMensagem(String mensagem) {
+
+        Mensagem.mensagem = mensagem;
+
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.setTitle("Mensagem");
+
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("../../view/janelaMensagem.fxml"));
+            dialog.getDialogPane().setContent(fxmlLoader.load());
+            dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+            dialog.getDialogPane().getStylesheets().add(getClass().getResource("../../estilo.css").toExternalForm());
+            dialog.getDialogPane().getStyleClass().add("myDialog");
+
+            Optional<ButtonType> result = dialog.showAndWait();
+
+            if(result.isPresent() && result.get()==ButtonType.OK) {
+                //System.out.println("1: " + mensagem);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

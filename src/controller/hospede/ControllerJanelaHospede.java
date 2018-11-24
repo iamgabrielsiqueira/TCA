@@ -84,7 +84,9 @@ public class ControllerJanelaHospede {
         tcNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
         tcCPF.setCellValueFactory(new PropertyValueFactory<>("cpf"));
         tcData.setCellValueFactory(new PropertyValueFactory<>("dataNasc"));
+
         addButtonToTable();
+
         try {
             masterData.addAll(JDBCHospedeDAO.getInstance().list());
         } catch (Exception e) {
@@ -139,7 +141,7 @@ public class ControllerJanelaHospede {
                     try {
                         JDBCHospedeDAO.getInstance().delete(hospede);
                     } catch (Exception e) {
-                        mensagem(Alert.AlertType.ERROR, e.getMessage());
+                        mostrarMensagem("Erro!");
                     }
                 }
 
@@ -149,8 +151,8 @@ public class ControllerJanelaHospede {
         } finally {
             carregarLista();
         }
-
     }
+
     public void trocarJanela(String address){
 
         Platform.runLater(new Runnable() {
@@ -168,7 +170,7 @@ public class ControllerJanelaHospede {
                     stage.setResizable(false);
 
                 }catch (IOException e){
-                    mensagem(Alert.AlertType.ERROR, "Erro!");
+                    mostrarMensagem("Erro!");
                 }
             }
         });
@@ -254,10 +256,29 @@ public class ControllerJanelaHospede {
         tbHospedes.setItems(JDBCHospedeDAO.getInstance().list());
     }
 
-    protected void mensagem(Alert.AlertType type, String message) {
-        Alert alert = new Alert(type);
-        alert.setTitle("Mensagem!");
-        alert.setContentText(message);
-        alert.showAndWait();
+    protected void mostrarMensagem(String mensagem) {
+
+        Mensagem.mensagem = mensagem;
+
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.setTitle("Mensagem");
+
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("../../view/janelaMensagem.fxml"));
+            dialog.getDialogPane().setContent(fxmlLoader.load());
+            dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+            dialog.getDialogPane().getStylesheets().add(getClass().getResource("../../estilo.css").toExternalForm());
+            dialog.getDialogPane().getStyleClass().add("myDialog");
+
+            Optional<ButtonType> result = dialog.showAndWait();
+
+            if(result.isPresent() && result.get()==ButtonType.OK) {
+                //System.out.println("1: " + mensagem);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
 }

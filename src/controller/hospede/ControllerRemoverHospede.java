@@ -2,7 +2,6 @@ package controller.hospede;
 
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import model.classes.Hospede;
 import model.jdbc.JDBCHospedeDAO;
@@ -29,10 +28,4 @@ public class ControllerRemoverHospede {
         lbDataNasc.setText("Data de Nascimento: " + hospede.getDataNasc());
     }
 
-    protected void mensagem(Alert.AlertType type, String message) {
-        Alert alert = new Alert(type);
-        alert.setTitle("Mensagem!");
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
 }

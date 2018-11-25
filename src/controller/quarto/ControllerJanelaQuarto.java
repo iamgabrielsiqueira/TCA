@@ -79,6 +79,11 @@ public class ControllerJanelaQuarto {
         trocarJanela("../../view/servico/janelaServico.fxml");
     }
 
+    @FXML
+    public void carregarHospedagens() {
+        trocarJanela("../../view/hospedagem/janelaHospedagem.fxml");
+    }
+
     public void initialize() throws Exception {
         tcNumero.setCellValueFactory(new PropertyValueFactory<>("numero"));
         tcDescricao.setCellValueFactory(new PropertyValueFactory<>("descricao"));

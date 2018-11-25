@@ -89,6 +89,12 @@ public class ControllerCadastroHospede {
     }
 
     @FXML
+    public void carregarHospedagens() {
+        trocarJanela("../../view/hospedagem/janelaHospedagem.fxml");
+    }
+
+
+    @FXML
     public void salvarHospede() {
 
         try {

@@ -51,6 +51,11 @@ public class ControllerCadastroTipo {
     }
 
     @FXML
+    public void carregarHospedagens() {
+        trocarJanela("../../view/hospedagem/janelaHospedagem.fxml");
+    }
+
+    @FXML
     public void salvarTipo() {
         if(tfNome.getText().isEmpty() || tfValor.getCleanValue().isEmpty()) {
             mostrarMensagem("Dados faltando!");

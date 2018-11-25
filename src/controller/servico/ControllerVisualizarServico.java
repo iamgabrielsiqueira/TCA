@@ -56,6 +56,11 @@ public class ControllerVisualizarServico {
         trocarJanela("../../view/servico/janelaServico.fxml");
     }
 
+    @FXML
+    public void carregarHospedagens() {
+        trocarJanela("../../view/hospedagem/janelaHospedagem.fxml");
+    }
+
     public void initialize() {
         this.servico = JDBCServicoDAO.s1;
         lbNome.setText("Nome: " + servico.getNome());

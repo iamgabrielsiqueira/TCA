@@ -51,6 +51,11 @@ public class ControllerAlterarServico {
     }
 
     @FXML
+    public void carregarHospedagens() {
+        trocarJanela("../../view/hospedagem/janelaHospedagem.fxml");
+    }
+
+    @FXML
     public void salvarServico() {
         Servico servico1 = JDBCServicoDAO.s1;
 

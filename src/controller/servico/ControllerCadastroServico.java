@@ -51,6 +51,11 @@ public class ControllerCadastroServico {
     }
 
     @FXML
+    public void carregarHospedagens() {
+        trocarJanela("../../view/hospedagem/janelaHospedagem.fxml");
+    }
+
+    @FXML
     public void salvarServico() {
         if(tfNome.getText().isEmpty() || tfValor.getCleanValue().isEmpty()) {
             mostrarMensagem("Faltam dados!");

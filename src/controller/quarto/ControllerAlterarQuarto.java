@@ -56,6 +56,11 @@ public class ControllerAlterarQuarto {
     }
 
     @FXML
+    public void carregarHospedagens() {
+        trocarJanela("../../view/hospedagem/janelaHospedagem.fxml");
+    }
+
+    @FXML
     public void salvarQuarto() {
         if(tfNumero.getText().isEmpty()) {
             mostrarMensagem("Dados faltando!");

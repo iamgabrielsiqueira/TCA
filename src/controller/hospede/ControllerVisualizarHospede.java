@@ -62,6 +62,11 @@ public class ControllerVisualizarHospede {
     }
 
     @FXML
+    public void carregarHospedagens() {
+        trocarJanela("../../view/hospedagem/janelaHospedagem.fxml");
+    }
+
+    @FXML
     public void voltar() {
         trocarJanela("../../view/hospede/janelaHospede.fxml");
     }

@@ -24,7 +24,7 @@
                 <VBox alignment="CENTER" onMouseClicked="#carregarHospedes" spacing="10">
                     <ImageView>
                         <image>
-                            <Image url="/imagens/guest.png" />
+                            <Image url="/imagens/hospede-branco.png" />
                         </image>
                     </ImageView>
                     <Label alignment="CENTER" contentDisplay="CENTER" text="Hóspedes" textAlignment="CENTER" textFill="#cad3c8">
@@ -32,10 +32,10 @@
                             <Font name="Khmer OS System" size="14.0" />
                         </font></Label>
                 </VBox>
-                <VBox alignment="CENTER" spacing="10">
+                <VBox alignment="CENTER" spacing="10" onMouseClicked="#carregarHospedagens">
                     <ImageView>
                         <image>
-                            <Image url="/imagens/service.png" />
+                            <Image url="/imagens/hospedagem-cinza.png" />
                         </image>
                     </ImageView>
                     <Label alignment="CENTER" contentDisplay="CENTER" text="Hospedagens" textAlignment="CENTER" textFill="#cad3c8">
@@ -46,7 +46,7 @@
                 <VBox alignment="CENTER" onMouseClicked="#carregarQuartos" spacing="10">
                     <ImageView>
                         <image>
-                            <Image url="/imagens/bed.png" />
+                            <Image url="/imagens/quarto-cinza.png" />
                         </image>
                     </ImageView>
                     <Label alignment="CENTER" contentDisplay="CENTER" text="Quartos" textAlignment="CENTER" textFill="#cad3c8">
@@ -57,7 +57,7 @@
                 <VBox alignment="CENTER" onMouseClicked="#carregarTiposQuartos" spacing="10">
                     <ImageView>
                         <image>
-                            <Image url="/imagens/room-key (1).png" />
+                            <Image url="/imagens/tipo-quarto-cinza.png" />
                         </image>
                     </ImageView>
                     <Label alignment="CENTER" contentDisplay="CENTER" text="Tipos de Quartos" textAlignment="CENTER" textFill="#cad3c8">
@@ -68,7 +68,7 @@
                 <VBox alignment="CENTER" onMouseClicked="#carregarServicos" spacing="10">
                     <ImageView>
                         <image>
-                            <Image url="/imagens/maid (1).png" />
+                            <Image url="/imagens/servico-cinza.png" />
                         </image>
                     </ImageView>
                     <Label alignment="CENTER" contentDisplay="CENTER" text="Serviços" textAlignment="CENTER" textFill="#cad3c8">
@@ -80,7 +80,7 @@
             <HBox style="-fx-padding: 0 0 0 162;">
                 <ImageView>
                     <image>
-                        <Image url="/imagens/arrow-navigate-close (1).png" />
+                        <Image url="/imagens/seta-cima.png" />
                     </image>
                 </ImageView>
             </HBox>

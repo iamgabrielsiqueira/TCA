@@ -3,30 +3,127 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/ControllerJanelaPrincipal$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/ControllerJanelaPrincipal$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/ControllerJanelaPrincipal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/ControllerJanelaPrincipal.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/tca/controller/hospedagem/ControllerJanelaHospedagem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/hospedagem/ControllerJanelaHospedagem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/hospedagem/ControllerRedirecionamentoHospedagem.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tca/model/classes/Hospede.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/model/classes/Hospede.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tca/model/dao/HospedeDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/model/dao/HospedeDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tca/model/dao/QuartoDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/model/dao/QuartoDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tca/model/jdbc/JDBCHospedeDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/model/jdbc/JDBCHospedeDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tca/model/jdbc/JDBCQuartoDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/model/jdbc/JDBCQuartoDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/hospede/ControllerAlterarHospede$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/hospede/ControllerAlterarHospede$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/hospede/ControllerAlterarHospede.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/hospede/ControllerAlterarHospede.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/hospede/ControllerCadastroHospede$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/hospede/ControllerCadastroHospede$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/hospede/ControllerCadastroHospede.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/hospede/ControllerCadastroHospede.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/hospede/ControllerJanelaHospede$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/hospede/ControllerJanelaHospede$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/hospede/ControllerJanelaHospede$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/hospede/ControllerJanelaHospede$2$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/hospede/ControllerJanelaHospede$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/hospede/ControllerJanelaHospede$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/hospede/ControllerJanelaHospede.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/hospede/ControllerJanelaHospede.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/hospede/ControllerVisualizarHospede$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/hospede/ControllerVisualizarHospede$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/hospede/ControllerVisualizarHospede.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/hospede/ControllerVisualizarHospede.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/quarto/ControllerAlterarQuarto$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/quarto/ControllerAlterarQuarto$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/quarto/ControllerAlterarQuarto.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/quarto/ControllerAlterarQuarto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/quarto/ControllerCadastroQuarto$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/quarto/ControllerCadastroQuarto$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/quarto/ControllerCadastroQuarto.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/quarto/ControllerCadastroQuarto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/quarto/ControllerJanelaQuarto$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/quarto/ControllerJanelaQuarto$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/quarto/ControllerJanelaQuarto$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/quarto/ControllerJanelaQuarto$2$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/quarto/ControllerJanelaQuarto$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/quarto/ControllerJanelaQuarto$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/quarto/ControllerJanelaQuarto.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/quarto/ControllerJanelaQuarto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/quarto/ControllerVisualizarQuarto$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/quarto/ControllerVisualizarQuarto$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/quarto/ControllerVisualizarQuarto.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/quarto/ControllerVisualizarQuarto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/servico/ControllerAlterarServico$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/servico/ControllerAlterarServico$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/servico/ControllerAlterarServico.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/servico/ControllerAlterarServico.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/servico/ControllerCadastroServico$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/servico/ControllerCadastroServico$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/servico/ControllerCadastroServico.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/servico/ControllerCadastroServico.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/servico/ControllerJanelaServico$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/servico/ControllerJanelaServico$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/servico/ControllerJanelaServico$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/servico/ControllerJanelaServico$2$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/servico/ControllerJanelaServico$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/servico/ControllerJanelaServico$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/servico/ControllerJanelaServico.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/servico/ControllerJanelaServico.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/servico/ControllerVisualizarServico$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/servico/ControllerVisualizarServico$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/servico/ControllerVisualizarServico.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/servico/ControllerVisualizarServico.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/tipo/ControllerAlterarTipo$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/tipo/ControllerAlterarTipo$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/tipo/ControllerAlterarTipo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/tipo/ControllerAlterarTipo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/tipo/ControllerCadastroTipo$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/tipo/ControllerCadastroTipo$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/tipo/ControllerCadastroTipo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/tipo/ControllerCadastroTipo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/tipo/ControllerJanelaTipoQuarto$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/tipo/ControllerJanelaTipoQuarto$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/tipo/ControllerJanelaTipoQuarto$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/tipo/ControllerJanelaTipoQuarto$2$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/tipo/ControllerJanelaTipoQuarto$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/tipo/ControllerJanelaTipoQuarto$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/tipo/ControllerJanelaTipoQuarto.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/tipo/ControllerJanelaTipoQuarto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/tipo/ControllerVisualizarTipo$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/tipo/ControllerVisualizarTipo$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/controller/tipo/ControllerVisualizarTipo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/controller/tipo/ControllerVisualizarTipo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/view/hospedagem/janelaAlterarHospedagem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/view/hospedagem/janelaAlterarHospedagem.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/view/hospedagem/janelaCadastrarHospedagem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/view/hospedagem/janelaCadastrarHospedagem.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/tca/view/hospedagem/janelaHospedagem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/view/hospedagem/janelaHospedagem.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tca/view/janelaMain.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/view/janelaMain.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ControllerJanelaPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ControllerJanelaPrincipal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/hospedagem/ControllerAlterarHospedagem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/hospedagem/ControllerAlterarHospedagem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/hospedagem/ControllerCadastroHospedagem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/hospedagem/ControllerCadastroHospedagem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/view/hospedagem/janelaVisualizarHospedagem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/view/hospedagem/janelaVisualizarHospedagem.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/view/hospede/janelaAlterarHospede.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/view/hospede/janelaAlterarHospede.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/view/hospede/janelaCadastrarHospede.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/view/hospede/janelaCadastrarHospede.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/view/hospede/janelaHospede.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/view/hospede/janelaHospede.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/view/hospede/janelaVisualizarHospede.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/view/hospede/janelaVisualizarHospede.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/view/quarto/janelaAlterarQuarto.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/view/quarto/janelaAlterarQuarto.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/view/quarto/janelaCadastrarQuarto.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/view/quarto/janelaCadastrarQuarto.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/view/quarto/janelaQuarto.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/view/quarto/janelaQuarto.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/view/quarto/janelaVisualizarQuarto.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/view/quarto/janelaVisualizarQuarto.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/view/servico/janelaAlterarServico.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/view/servico/janelaAlterarServico.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/view/servico/janelaCadastrarServico.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/view/servico/janelaCadastrarServico.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/view/servico/janelaServico.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/view/servico/janelaServico.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/view/servico/janelaVisualizarServico.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/view/servico/janelaVisualizarServico.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/view/tipo/janelaAlterarTipo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/view/tipo/janelaAlterarTipo.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/view/tipo/janelaCadastrarTipo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/view/tipo/janelaCadastrarTipo.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/view/tipo/janelaTipoQuarto.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/view/tipo/janelaTipoQuarto.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tca/view/tipo/janelaVisualizarTipo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tca/view/tipo/janelaVisualizarTipo.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/hospedagem/ControllerJanelaHospedagem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/hospedagem/ControllerJanelaHospedagem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/hospedagem/ControllerRedirecionamentoHospedagem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/hospedagem/ControllerRemoverHospedagem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/hospedagem/ControllerRemoverHospedagem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/hospedagem/ControllerVisualizarHospedagem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/hospedagem/ControllerVisualizarHospedagem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/imagens/Thumbs.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/imagens/Thumbs.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/classes/Hospedagem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/classes/Hospedagem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/classes/Hospede.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/classes/Hospede.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/jdbc/JDBCHospedagemDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/jdbc/JDBCHospedagemDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/hospede/ControllerAlterarHospede.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/hospede/ControllerAlterarHospede.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/hospede/ControllerCadastroHospede.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/hospede/ControllerCadastroHospede.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/hospede/ControllerJanelaHospede.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/hospede/ControllerJanelaHospede.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/hospede/ControllerVisualizarHospede.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/hospede/ControllerVisualizarHospede.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/quarto/ControllerAlterarQuarto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/quarto/ControllerAlterarQuarto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/quarto/ControllerCadastroQuarto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/quarto/ControllerCadastroQuarto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/quarto/ControllerJanelaQuarto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/quarto/ControllerJanelaQuarto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/quarto/ControllerVisualizarQuarto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/quarto/ControllerVisualizarQuarto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/servico/ControllerAlterarServico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/servico/ControllerAlterarServico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/servico/ControllerCadastroServico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/servico/ControllerCadastroServico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/servico/ControllerJanelaServico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/servico/ControllerJanelaServico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/servico/ControllerVisualizarServico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/servico/ControllerVisualizarServico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/tipo/ControllerAlterarTipo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/tipo/ControllerAlterarTipo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/tipo/ControllerCadastroTipo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/tipo/ControllerCadastroTipo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/tipo/ControllerJanelaTipoQuarto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/tipo/ControllerJanelaTipoQuarto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/tipo/ControllerVisualizarTipo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/tipo/ControllerVisualizarTipo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/imagens/arrow-navigate-close (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/src/imagens/seta-cima.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/imagens/arrow-navigate-close.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/imagens/bed-cinza.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/imagens/bed.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/imagens/quarto-cinza.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/imagens/chave-branco.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/imagens/chave.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/imagens/guest-cinza.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/imagens/hospede-cinza.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/imagens/guest.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/imagens/hospede-branco.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/imagens/hospedagem-branco.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/imagens/hospedagem-branco.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/imagens/hospedagem.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/imagens/maid (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/src/imagens/servico-cinza.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/imagens/maid.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/imagens/servico-branco.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/imagens/quarto-branco.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/imagens/quarto-branco.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/imagens/quarto.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/imagens/room-key (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/src/imagens/tipo-quarto-cinza.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/imagens/room-key.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/imagens/tipo-quarto-branco.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/imagens/service-branco.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/imagens/service.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/imagens/hospedagem-cinza.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/imagens/tipo-branco.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/imagens/tipo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/imagens/users-branco.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/imagens/users.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/hospedagem/janelaAlterarHospedagem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/hospedagem/janelaAlterarHospedagem.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/hospedagem/janelaCadastrarHospedagem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/hospedagem/janelaCadastrarHospedagem.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/hospedagem/janelaHospedagem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/hospedagem/janelaHospedagem.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/hospedagem/janelaVisualizarHospedagem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/hospedagem/janelaVisualizarHospedagem.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/hospede/janelaAlterarHospede.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/hospede/janelaAlterarHospede.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/hospede/janelaCadastrarHospede.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/hospede/janelaCadastrarHospede.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/hospede/janelaHospede.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/hospede/janelaHospede.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/hospede/janelaVisualizarHospede.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/hospede/janelaVisualizarHospede.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/janelaMain.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/janelaMain.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/quarto/janelaAlterarQuarto.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/quarto/janelaAlterarQuarto.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/quarto/janelaCadastrarQuarto.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/quarto/janelaCadastrarQuarto.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/quarto/janelaQuarto.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/quarto/janelaQuarto.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/quarto/janelaVisualizarQuarto.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/quarto/janelaVisualizarQuarto.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/servico/janelaAlterarServico.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/servico/janelaAlterarServico.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/servico/janelaCadastrarServico.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/servico/janelaCadastrarServico.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/servico/janelaServico.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/servico/janelaServico.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/servico/janelaVisualizarServico.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/servico/janelaVisualizarServico.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/tipo/janelaAlterarTipo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/tipo/janelaAlterarTipo.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/tipo/janelaCadastrarTipo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/tipo/janelaCadastrarTipo.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/tipo/janelaTipoQuarto.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/tipo/janelaTipoQuarto.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/tipo/janelaVisualizarTipo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/tipo/janelaVisualizarTipo.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -82,34 +179,12 @@
     <favorites_list name="JavaFxApplication" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controller/hospedagem/ControllerVisualizarHospedagem.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="80" column="9" lean-forward="true" selection-start-line="80" selection-start-column="9" selection-end-line="80" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/view/hospedagem/janelaVisualizarHospedagem.fxml">
+        <entry file="file://$PROJECT_DIR$/src/view/quarto/janelaQuarto.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="111" column="43" selection-start-line="111" selection-start-column="43" selection-end-line="111" selection-end-column="43" />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/hospede/janelaVisualizarHospede.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-142">
-              <caret line="96" column="76" lean-forward="true" selection-start-line="96" selection-start-column="16" selection-end-line="96" selection-end-column="76" />
+            <state relative-caret-position="236">
+              <caret line="50" column="56" selection-start-line="50" selection-start-column="56" selection-end-line="50" selection-end-column="56" />
             </state>
           </provider>
           <provider editor-type-id="JavaFX-Scene-Builder" />
@@ -137,39 +212,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/controller/quarto/ControllerJanelaQuarto.java" />
-        <option value="$PROJECT_DIR$/src/controller/hospede/ControllerJanelaHospede.java" />
-        <option value="$PROJECT_DIR$/src/view/quarto/janelaRemoverQuarto.fxml" />
-        <option value="$PROJECT_DIR$/src/controller/quarto/ControllerVisualizarQuarto.java" />
-        <option value="$PROJECT_DIR$/src/view/hospede/janelaCadastrarHospede.fxml" />
-        <option value="$PROJECT_DIR$/src/view/hospede/janelaHospede.fxml" />
-        <option value="$PROJECT_DIR$/src/view/quarto/janelaVisualizarQuarto.fxml" />
-        <option value="$PROJECT_DIR$/src/controller/tipo/ControllerJanelaTipoQuarto.java" />
-        <option value="$PROJECT_DIR$/src/view/tipo/janelaTipoQuarto.fxml" />
-        <option value="$PROJECT_DIR$/src/controller/tipo/ControllerCadastroTipo.java" />
-        <option value="$PROJECT_DIR$/src/view/tipo/janelaRemoverTipo.fxml" />
-        <option value="$PROJECT_DIR$/src/controller/quarto/ControllerRemoverQuarto.java" />
-        <option value="$PROJECT_DIR$/src/controller/tipo/ControllerRemoverTipo.java" />
-        <option value="$PROJECT_DIR$/src/controller/quarto/ControllerAlterarQuarto.java" />
-        <option value="$PROJECT_DIR$/src/view/quarto/janelaAlterarQuarto.fxml" />
-        <option value="$PROJECT_DIR$/src/view/tipo/janelaVisualizarTipo.fxml" />
-        <option value="$PROJECT_DIR$/src/view/tipo/janelaAlterarTipo.fxml" />
-        <option value="$PROJECT_DIR$/src/view/tipo/janelaCadastrarTipo.fxml" />
-        <option value="$PROJECT_DIR$/src/controller/tipo/ControllerAlterarTipo.java" />
-        <option value="$PROJECT_DIR$/src/controller/tipo/ControllerVisualizarTipo.java" />
-        <option value="$PROJECT_DIR$/src/controller/servico/ControllerJanelaServico.java" />
-        <option value="$PROJECT_DIR$/src/view/servico/janelaCadastrarServico.fxml" />
-        <option value="$PROJECT_DIR$/src/view/servico/janelaServico.fxml" />
-        <option value="$PROJECT_DIR$/src/controller/quarto/ControllerCadastroQuarto.java" />
-        <option value="$PROJECT_DIR$/src/controller/servico/ControllerCadastroServico.java" />
-        <option value="$PROJECT_DIR$/src/view/servico/janelaAlterarServico.fxml" />
-        <option value="$PROJECT_DIR$/src/controller/servico/ControllerAlterarServico.java" />
-        <option value="$PROJECT_DIR$/src/view/servico/janelaRemoverServico.fxml" />
-        <option value="$PROJECT_DIR$/src/controller/servico/ControllerRemoverServico.java" />
-        <option value="$PROJECT_DIR$/src/view/servico/janelaVisualizarServico.fxml" />
-        <option value="$PROJECT_DIR$/src/controller/servico/ControllerVisualizarServico.java" />
-        <option value="$PROJECT_DIR$/src/model/dao/HospedagemDAO.java" />
-        <option value="$PROJECT_DIR$/src/model/jdbc/JDBCHospedeDAO.java" />
         <option value="$PROJECT_DIR$/src/model/dao/HospedeDAO.java" />
         <option value="$PROJECT_DIR$/src/model/dao/QuartoDAO.java" />
         <option value="$PROJECT_DIR$/src/model/jdbc/JDBCQuartoDAO.java" />
@@ -178,16 +220,49 @@
         <option value="$PROJECT_DIR$/src/model/classes/Hospede.java" />
         <option value="$PROJECT_DIR$/src/model/classes/Hospedagem.java" />
         <option value="$PROJECT_DIR$/src/model/jdbc/JDBCHospedagemDAO.java" />
-        <option value="$PROJECT_DIR$/src/view/hospedagem/janelaHospedagem.fxml" />
         <option value="$PROJECT_DIR$/src/view/hospedagem/janelaCadastrarHospedagem.fxml" />
         <option value="$PROJECT_DIR$/src/view/hospedagem/janelaAlterarHospedagem.fxml" />
         <option value="$PROJECT_DIR$/src/controller/hospedagem/ControllerCadastroHospedagem.java" />
-        <option value="$PROJECT_DIR$/src/controller/hospedagem/ControllerJanelaHospedagem.java" />
         <option value="$PROJECT_DIR$/src/controller/hospedagem/ControllerAlterarHospedagem.java" />
         <option value="$PROJECT_DIR$/src/view/hospedagem/janelaRemoverHospedagem.fxml" />
         <option value="$PROJECT_DIR$/src/controller/hospedagem/ControllerRemoverHospedagem.java" />
         <option value="$PROJECT_DIR$/src/controller/hospedagem/ControllerVisualizarHospedagem.java" />
+        <option value="$PROJECT_DIR$/src/controller/hospedagem/ControllerJanelaHospedagem.java" />
+        <option value="$PROJECT_DIR$/src/view/hospede/janelaAlterarHospede.fxml" />
+        <option value="$PROJECT_DIR$/src/view/hospede/janelaCadastrarHospede.fxml" />
+        <option value="$PROJECT_DIR$/src/view/hospede/janelaHospede.fxml" />
+        <option value="$PROJECT_DIR$/src/view/hospede/janelaVisualizarHospede.fxml" />
+        <option value="$PROJECT_DIR$/src/controller/hospede/ControllerAlterarHospede.java" />
+        <option value="$PROJECT_DIR$/src/controller/hospede/ControllerCadastroHospede.java" />
+        <option value="$PROJECT_DIR$/src/controller/hospede/ControllerJanelaHospede.java" />
+        <option value="$PROJECT_DIR$/src/controller/hospede/ControllerVisualizarHospede.java" />
+        <option value="$PROJECT_DIR$/src/controller/quarto/ControllerAlterarQuarto.java" />
+        <option value="$PROJECT_DIR$/src/controller/quarto/ControllerCadastroQuarto.java" />
+        <option value="$PROJECT_DIR$/src/controller/quarto/ControllerJanelaQuarto.java" />
+        <option value="$PROJECT_DIR$/src/controller/quarto/ControllerVisualizarQuarto.java" />
+        <option value="$PROJECT_DIR$/src/controller/servico/ControllerAlterarServico.java" />
+        <option value="$PROJECT_DIR$/src/controller/servico/ControllerCadastroServico.java" />
+        <option value="$PROJECT_DIR$/src/controller/servico/ControllerJanelaServico.java" />
+        <option value="$PROJECT_DIR$/src/controller/servico/ControllerVisualizarServico.java" />
+        <option value="$PROJECT_DIR$/src/controller/tipo/ControllerAlterarTipo.java" />
+        <option value="$PROJECT_DIR$/src/controller/tipo/ControllerCadastroTipo.java" />
+        <option value="$PROJECT_DIR$/src/controller/tipo/ControllerJanelaTipoQuarto.java" />
+        <option value="$PROJECT_DIR$/src/controller/tipo/ControllerVisualizarTipo.java" />
         <option value="$PROJECT_DIR$/src/view/hospedagem/janelaVisualizarHospedagem.fxml" />
+        <option value="$PROJECT_DIR$/src/view/quarto/janelaAlterarQuarto.fxml" />
+        <option value="$PROJECT_DIR$/src/view/quarto/janelaCadastrarQuarto.fxml" />
+        <option value="$PROJECT_DIR$/src/view/quarto/janelaVisualizarQuarto.fxml" />
+        <option value="$PROJECT_DIR$/src/view/servico/janelaAlterarServico.fxml" />
+        <option value="$PROJECT_DIR$/src/view/servico/janelaCadastrarServico.fxml" />
+        <option value="$PROJECT_DIR$/src/view/servico/janelaServico.fxml" />
+        <option value="$PROJECT_DIR$/src/view/servico/janelaVisualizarServico.fxml" />
+        <option value="$PROJECT_DIR$/src/view/tipo/janelaAlterarTipo.fxml" />
+        <option value="$PROJECT_DIR$/src/view/tipo/janelaCadastrarTipo.fxml" />
+        <option value="$PROJECT_DIR$/src/view/tipo/janelaTipoQuarto.fxml" />
+        <option value="$PROJECT_DIR$/src/view/tipo/janelaVisualizarTipo.fxml" />
+        <option value="$PROJECT_DIR$/src/Principal.java" />
+        <option value="$PROJECT_DIR$/src/view/hospedagem/janelaHospedagem.fxml" />
+        <option value="$PROJECT_DIR$/src/view/quarto/janelaQuarto.fxml" />
       </list>
     </option>
   </component>
@@ -231,46 +306,6 @@
               <item name="tca" type="b2602c69:ProjectViewProjectNode" />
               <item name="tca" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tca" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tca" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="hospedagem" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tca" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tca" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="hospede" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tca" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tca" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tca" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tca" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tca" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tca" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-              <item name="jdbc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tca" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tca" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -278,14 +313,7 @@
               <item name="tca" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="hospedagem" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tca" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tca" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="hospede" type="462c0819:PsiDirectoryNode" />
+              <item name="quarto" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -304,7 +332,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543098567837" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543117177148" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/mysql-connector-java-8.0.12.jar!/" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -445,9 +473,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.25945538" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.2632375" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -528,278 +555,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/view/quarto/janelaCadastrarQuarto.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="110" column="30" lean-forward="true" selection-end-line="140" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/quarto/ControllerJanelaQuarto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="79" column="5" lean-forward="true" selection-start-line="61" selection-start-column="4" selection-end-line="79" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/quarto/ControllerCadastroQuarto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="126" selection-start-line="126" selection-end-line="149" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/janelaMensagem.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="19" column="27" lean-forward="true" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/servico/janelaCadastrarServico.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="88" column="4" selection-end-line="140" selection-end-column="13" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/servico/janelaServico.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1343">
-          <caret line="79" column="23" lean-forward="true" selection-start-line="79" selection-start-column="23" selection-end-line="79" selection-end-column="23" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/servico/ControllerCadastroServico.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="83" column="42" lean-forward="true" selection-start-line="83" selection-start-column="42" selection-end-line="83" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/quarto/janelaRemoverQuarto.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" lean-forward="true" selection-end-line="43" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/servico/janelaRemoverServico.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="34" column="54" selection-start-line="34" selection-start-column="54" selection-end-line="34" selection-end-column="54" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/servico/ControllerAlterarServico.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-729">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/quarto/ControllerRemoverQuarto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-163">
-          <caret line="6" column="32" lean-forward="true" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/servico/ControllerRemoverServico.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-115">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/servico/janelaVisualizarServico.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1173">
-          <caret line="69" column="19" selection-start-line="69" selection-start-column="19" selection-end-line="69" selection-end-column="19" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/servico/ControllerJanelaServico.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4267">
-          <caret line="286" column="5" selection-start-line="263" selection-start-column="4" selection-end-line="286" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/quarto/janelaVisualizarQuarto.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1802">
-          <caret line="106" column="19" selection-start-line="88" selection-start-column="12" selection-end-line="106" selection-end-column="19" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/servico/janelaAlterarServico.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="21" selection-end-line="139" selection-end-column="13" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/servico/ControllerVisualizarServico.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="34" lean-forward="true" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/classes/Servico.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="12" column="30" lean-forward="true" selection-start-line="11" selection-start-column="4" selection-end-line="12" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/dao/EstadoDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="9" column="20" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/dao/HospedagemDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="47" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/dao/HospedeDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="44" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/dao/QuartoDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/jdbc/JDBCQuartoDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="144" lean-forward="true" selection-start-line="144" selection-end-line="144" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/jdbc/JDBCServicoDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Principal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/tipo/janelaTipoQuarto.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="13" column="30" selection-end-line="135" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/tipo/ControllerJanelaTipoQuarto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="145" column="5" lean-forward="true" selection-start-line="123" selection-start-column="4" selection-end-line="145" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/janelaMain.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="99" column="52" selection-start-line="99" selection-start-column="52" selection-end-line="99" selection-end-column="52" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/ControllerJanelaPrincipal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="65" selection-start-line="65" selection-end-line="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/hospede/ControllerJanelaHospede.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-895">
-          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/jdbc/JDBCHospedeDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="68" column="41" selection-start-line="68" selection-start-column="41" selection-end-line="68" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/hospede/janelaCadastrarHospede.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="14" selection-end-line="148" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/classes/Hospede.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -819,14 +574,6 @@
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/hospedagem/janelaHospedagem.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="125" column="54" selection-start-line="125" selection-start-column="54" selection-end-line="125" selection-end-column="54" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/classes/Hospedagem.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -850,48 +597,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/hospede/ControllerCadastroHospede.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="115" column="50" lean-forward="true" selection-start-line="115" selection-start-column="50" selection-end-line="115" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/hospedagem/ControllerCadastroHospedagem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="48" column="44" lean-forward="true" selection-start-line="48" selection-start-column="44" selection-end-line="48" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/hospede/ControllerAlterarHospede.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="89" lean-forward="true" selection-start-line="89" selection-end-line="89" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/hospedagem/ControllerJanelaHospedagem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="268" column="40" selection-start-line="268" selection-start-column="40" selection-end-line="268" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/hospede/janelaRemoverHospede.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="33" lean-forward="true" selection-end-line="43" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/view/hospedagem/janelaRemoverHospedagem.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -899,16 +604,6 @@
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/hospedagem/ControllerRemoverHospedagem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="29" column="75" selection-start-line="29" selection-start-column="75" selection-end-line="29" selection-end-column="75" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/hospede/ControllerRemoverHospede.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -920,26 +615,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/hospedagem/janelaCadastrarHospedagem.fxml">
+    <entry file="file://$PROJECT_DIR$/src/view/hospede/janelaRemoverHospede.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="94" column="19" selection-start-line="94" selection-start-column="19" selection-end-line="94" selection-end-column="19" />
+        <state relative-caret-position="17">
+          <caret line="7" column="67" lean-forward="true" selection-start-line="7" selection-start-column="67" selection-end-line="7" selection-end-column="67" />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/hospedagem/janelaAlterarHospedagem.fxml">
+    <entry file="file://$PROJECT_DIR$/src/controller/hospedagem/ControllerJanelaHospedagem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="125" column="32" selection-end-line="146" />
+        <state relative-caret-position="426">
+          <caret line="87" column="5" lean-forward="true" selection-start-line="84" selection-start-column="4" selection-end-line="87" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/hospede/ControllerVisualizarHospede.java">
+    <entry file="file://$PROJECT_DIR$/src/controller/hospedagem/ControllerCadastroHospedagem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        <state relative-caret-position="-417">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -948,36 +645,353 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/hospedagem/ControllerAlterarHospedagem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="210" column="5" lean-forward="true" selection-start-line="27" selection-start-column="4" selection-end-line="210" selection-end-column="5" />
+        <state relative-caret-position="-503">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/hospede/janelaVisualizarHospede.fxml">
+    <entry file="file://$PROJECT_DIR$/src/controller/hospedagem/ControllerRemoverHospedagem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-142">
-          <caret line="96" column="76" lean-forward="true" selection-start-line="96" selection-start-column="16" selection-end-line="96" selection-end-column="76" />
+        <state relative-caret-position="88">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/hospedagem/ControllerVisualizarHospedagem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-330">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/hospede/ControllerAlterarHospede.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="80" column="5" selection-start-line="80" selection-start-column="5" selection-end-line="80" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/hospede/ControllerCadastroHospede.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="94" column="4" selection-start-line="94" selection-start-column="4" selection-end-line="94" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/hospede/ControllerJanelaHospede.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="85" column="4" selection-start-line="85" selection-start-column="4" selection-end-line="85" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/hospede/ControllerVisualizarHospede.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="66" column="5" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/quarto/ControllerCadastroQuarto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="58" column="5" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/quarto/ControllerJanelaQuarto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="84" column="5" selection-start-line="84" selection-start-column="5" selection-end-line="84" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/quarto/ControllerRemoverQuarto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/quarto/ControllerVisualizarQuarto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/quarto/ControllerAlterarQuarto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="60" column="5" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/servico/ControllerAlterarServico.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="55" column="5" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/servico/ControllerCadastroServico.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="55" column="5" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/servico/ControllerJanelaServico.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="85" column="5" selection-start-line="85" selection-start-column="5" selection-end-line="85" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/servico/ControllerVisualizarServico.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="445">
+          <caret line="61" column="5" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/tipo/ControllerAlterarTipo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="57" column="5" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/tipo/ControllerCadastroTipo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="55" column="5" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/tipo/ControllerJanelaTipoQuarto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="84" column="5" selection-start-line="84" selection-start-column="5" selection-end-line="84" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/tipo/ControllerVisualizarTipo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="54" column="5" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/hospedagem/janelaAlterarHospedagem.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="34" column="91" selection-start-line="34" selection-start-column="54" selection-end-line="34" selection-end-column="91" />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/hospedagem/ControllerVisualizarHospedagem.java">
+    <entry file="file://$PROJECT_DIR$/src/view/hospedagem/janelaCadastrarHospedagem.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="80" column="9" lean-forward="true" selection-start-line="80" selection-start-column="9" selection-end-line="80" selection-end-column="9" />
+        <state relative-caret-position="1345">
+          <caret line="94" column="19" selection-start-line="94" selection-start-column="19" selection-end-line="94" selection-end-column="19" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/hospedagem/janelaVisualizarHospedagem.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/hospede/janelaAlterarHospede.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="33" column="23" lean-forward="true" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/hospede/janelaVisualizarHospede.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="32" column="91" selection-start-line="32" selection-start-column="91" selection-end-line="32" selection-end-column="91" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/hospede/janelaCadastrarHospede.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="34" column="91" selection-start-line="34" selection-start-column="91" selection-end-line="34" selection-end-column="91" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/quarto/janelaCadastrarQuarto.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="34" column="91" selection-start-line="34" selection-start-column="91" selection-end-line="34" selection-end-column="91" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/servico/janelaAlterarServico.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="471">
+          <caret line="34" column="91" selection-start-line="34" selection-start-column="91" selection-end-line="34" selection-end-column="91" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/quarto/janelaVisualizarQuarto.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="32" column="91" selection-start-line="32" selection-start-column="91" selection-end-line="32" selection-end-column="91" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/quarto/janelaAlterarQuarto.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="34" column="91" selection-start-line="34" selection-start-column="91" selection-end-line="34" selection-end-column="91" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/servico/janelaCadastrarServico.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="34" column="91" selection-start-line="34" selection-start-column="91" selection-end-line="34" selection-end-column="91" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/servico/janelaRemoverServico.fxml">
+      <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/servico/janelaVisualizarServico.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="34" column="91" selection-start-line="34" selection-start-column="91" selection-end-line="34" selection-end-column="91" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/tipo/janelaAlterarTipo.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="34" column="91" selection-start-line="34" selection-start-column="91" selection-end-line="34" selection-end-column="91" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/tipo/janelaVisualizarTipo.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="444">
+          <caret line="32" column="91" selection-start-line="32" selection-start-column="91" selection-end-line="32" selection-end-column="91" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/janelaMain.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-974" />
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/tipo/janelaCadastrarTipo.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-711">
+          <caret line="34" column="91" selection-start-line="34" selection-start-column="91" selection-end-line="34" selection-end-column="91" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Principal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/hospedagem/janelaVisualizarHospedagem.fxml">
+    <entry file="file://$PROJECT_DIR$/src/view/tipo/janelaTipoQuarto.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="111" column="43" selection-start-line="111" selection-start-column="43" selection-end-line="111" selection-end-column="43" />
+        <state relative-caret-position="17">
+          <caret line="37" column="91" selection-start-line="37" selection-start-column="91" selection-end-line="37" selection-end-column="91" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/servico/janelaServico.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="37" column="91" selection-start-line="37" selection-start-column="91" selection-end-line="37" selection-end-column="91" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/hospede/janelaHospede.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-105">
+          <caret line="35" column="91" selection-start-line="35" selection-start-column="91" selection-end-line="35" selection-end-column="91" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/hospedagem/janelaHospedagem.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1328">
+          <caret line="125" column="54" selection-start-line="125" selection-start-column="54" selection-end-line="125" selection-end-column="54" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/quarto/janelaQuarto.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="50" column="56" selection-start-line="50" selection-start-column="56" selection-end-line="50" selection-end-column="56" />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />

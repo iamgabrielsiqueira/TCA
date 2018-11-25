@@ -119,11 +119,11 @@ public class ControllerJanelaHospedagem {
 
                 if (hospedagem.getHospede01().getNome().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
+                } else if (hospedagem.getDataCheckIn().equals(lowerCaseFilter)) {
+                    return true;
+                } else if (hospedagem.getDataCheckOut().equals(lowerCaseFilter)) {
+                    return true;
                 }
-
-//                else if (hospedagem.getDataCheckIn().equals(lowerCaseFilter)) {
-//                    return true;
-//                }
                 return false;
             });
         });

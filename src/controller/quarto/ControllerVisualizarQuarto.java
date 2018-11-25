@@ -54,6 +54,11 @@ public class ControllerVisualizarQuarto {
         trocarJanela("../../view/servico/janelaServico.fxml");
     }
 
+    @FXML
+    public void carregarHospedagens() {
+        trocarJanela("../../view/hospedagem/janelaHospedagem.fxml");
+    }
+
     public void initialize() {
         Quarto quarto = JDBCQuartoDAO.q1;
 

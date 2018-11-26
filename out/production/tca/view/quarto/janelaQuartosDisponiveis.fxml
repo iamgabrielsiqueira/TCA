@@ -13,10 +13,11 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.TextField?>
 
+<?import javafx.scene.control.DatePicker?>
 <BorderPane fx:id="mainWindow" prefHeight="400.0" prefWidth="600.0"
             style="-fx-background-color: #2C3A47;" xmlns="http://javafx.com/javafx/8.0.60"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="controller.quarto.ControllerJanelaQuarto">
+            fx:controller="controller.quarto.ControllerQuartosDisponiveis">
     <top>
         <VBox>
             <HBox>
@@ -93,19 +94,9 @@
             <HBox style="-fx-padding: 0 0 20 0;" spacing="10">
                 <!--top right bottom left-->
                 <HBox spacing="20" alignment="TOP_RIGHT">
-                    <Button onAction="#cadastrar" prefHeight="23.0" prefWidth="40.0" style="-fx-border-color: #2c3e50; -fx-background-color: #2c3e50; -fx-border-radius: 5;" text="+" textAlignment="CENTER" textFill="WHITE">
-                        <font>
-                            <Font name="NanumBarunGothic Bold" size="12.0" />
-                        </font>
-                    </Button>
-                    <TextField fx:id="tfBuscar" maxWidth="230" prefWidth="171.0" stylesheets="@../../estilo.css">
-                        <font>
-                            <Font name="NanumBarunGothic" size="13.0" />
-                        </font>
-                    </TextField>
-                </HBox>
-                <HBox alignment="TOP_RIGHT" style="-fx-padding: 0 0 0 270;">
-                    <Button onAction="#quartosDisponiveis" prefHeight="23.0" prefWidth="140.0" style="-fx-border-color: white; -fx-background-color: white; -fx-border-radius: 5;" text="Quartos Disponiveis" textAlignment="CENTER" textFill="#2c3e50">
+                    <DatePicker fx:id="dataInicio"/>
+                    <DatePicker fx:id="dataFinal"/>
+                    <Button onAction="#filtrar" prefHeight="23.0" prefWidth="90.0" style="-fx-border-color: white; -fx-background-color: white; -fx-border-radius: 5;" text="Filtrar" textAlignment="CENTER" textFill="#2c3e50">
                         <font>
                             <Font name="NanumBarunGothic Bold" size="12.0" />
                         </font>
@@ -114,7 +105,8 @@
                         </HBox.margin>
                     </Button>
                 </HBox>
-                <HBox alignment="TOP_RIGHT">
+
+                <HBox alignment="TOP_RIGHT" style="-fx-padding: 0 0 0 150;">
                     <Button onAction="#voltar" prefHeight="23.0" prefWidth="90.0" style="-fx-border-color: #2c3e50; -fx-background-color: #2c3e50; -fx-border-radius: 5;" text="Voltar" textAlignment="CENTER" textFill="WHITE">
                         <font>
                             <Font name="NanumBarunGothic Bold" size="12.0" />
@@ -134,7 +126,6 @@
                         <TableColumn fx:id="tcNumero" style="-fx-background-color:  #dfe6e9; -fx-alignment: CENTER;" text="Quarto" />
                         <TableColumn fx:id="tcDescricao" minWidth="50" style="-fx-background-color:  #dfe6e9; -fx-alignment: CENTER;" text="Descrição" />
                         <TableColumn fx:id="tcTipo" minWidth="50" style="-fx-background-color:  #dfe6e9; -fx-alignment: CENTER;" text="Tipo" />
-                        <TableColumn fx:id="tcOpcao" minWidth="50" style="-fx-background-color:  #dfe6e9; -fx-alignment: CENTER;" text="Opções" />
                     </columns>
                 </TableView>
             </VBox>

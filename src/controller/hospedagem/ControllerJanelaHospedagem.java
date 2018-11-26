@@ -187,13 +187,19 @@ public class ControllerJanelaHospedagem {
                     private Button btn = new Button("");
                     private Button btn2 = new Button("");
                     private Button btn3 = new Button("");
-                    private final HBox pane = new HBox(btn, btn2, btn3);
+                    private Button btn4 = new Button("");
+
+                    private final HBox pane = new HBox(btn4, btn, btn3, btn2);
+
                     private Image imagem = new Image(getClass().getResourceAsStream("../../imagens/editar.png"));
                     private Image imagem2 = new Image(getClass().getResourceAsStream("../../imagens/remover.png"));
+                    private Image imagem3 = new Image(getClass().getResourceAsStream("../../imagens/visualizar.png"));
+                    private Image imagem4 = new Image(getClass().getResourceAsStream("../../imagens/add.png"));
+
                     private ImageView imgview = new ImageView(imagem);
                     private ImageView imgview2 = new ImageView(imagem2);
-                    private Image imagem3 = new Image(getClass().getResourceAsStream("../../imagens/visualizar.png"));
                     private ImageView imgview3 = new ImageView(imagem3);
+                    private ImageView imgview4 = new ImageView(imagem4);
 
                     {
                         pane.alignmentProperty().set(Pos.CENTER);
@@ -202,10 +208,12 @@ public class ControllerJanelaHospedagem {
                         btn.setGraphic(imgview);
                         btn2.setGraphic(imgview2);
                         btn3.setGraphic(imgview3);
-                        btn3.setStyle("-fx-background-color: transparent");
-                        btn2.setStyle("-fx-background-color: transparent");
-                        btn.setStyle("-fx-background-color: transparent");
+                        btn4.setGraphic(imgview4);
 
+                        btn.setStyle("-fx-background-color: transparent");
+                        btn2.setStyle("-fx-background-color: transparent");
+                        btn3.setStyle("-fx-background-color: transparent");
+                        btn4.setStyle("-fx-background-color: transparent");
 
                         btn.setOnAction((ActionEvent event) -> {
                             Hospedagem hospedagem = getTableView().getItems().get(getIndex());
@@ -227,6 +235,12 @@ public class ControllerJanelaHospedagem {
                             Hospedagem hospedagem = getTableView().getItems().get(getIndex());
                             JDBCHospedagemDAO.h1 = hospedagem;
                             trocarJanela("../../view/hospedagem/janelaVisualizarHospedagem.fxml");
+                        });
+
+                        btn4.setOnAction((ActionEvent event) -> {
+                            Hospedagem hospedagem = getTableView().getItems().get(getIndex());
+                            JDBCHospedagemDAO.h1 = hospedagem;
+                            trocarJanela("../../view/hospedagem/janelaHospedagemServico.fxml");
                         });
                     }
 

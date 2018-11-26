@@ -3,6 +3,8 @@ package model.jdbc;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.FabricaConexao;
+import model.classes.Hospedagem;
+import model.classes.Hospede;
 import model.dao.ServicoDAO;
 import model.classes.Servico;
 
@@ -12,10 +14,12 @@ public class JDBCServicoDAO implements ServicoDAO {
 
     private static JDBCServicoDAO instance;
     private ObservableList<Servico> list;
+    private ObservableList<Servico> conta;
     public static Servico s1;
 
     private JDBCServicoDAO(){
         list = FXCollections.observableArrayList();
+        conta = FXCollections.observableArrayList();
     }
 
     public static JDBCServicoDAO getInstance() {

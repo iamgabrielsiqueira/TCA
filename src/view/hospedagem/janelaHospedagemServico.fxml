@@ -95,7 +95,17 @@
                             <Font name="NanumGothic" size="15.0" />
                         </font></Label>
                 </HBox>
-                <HBox alignment="TOP_RIGHT" style="-fx-padding: 0 0 0 549;">
+                <HBox alignment="TOP_RIGHT" style="-fx-padding: 0 0 0 460;">
+                    <Button onAction="#salvar" prefHeight="23.0" prefWidth="90.0" style="-fx-border-color: white; -fx-background-color: white; -fx-border-radius: 5;" text="Salvar" textAlignment="CENTER" textFill="#2c3e50">
+                        <font>
+                            <Font name="NanumBarunGothic Bold" size="12.0" />
+                        </font>
+                        <HBox.margin>
+                            <Insets />
+                        </HBox.margin>
+                    </Button>
+                </HBox>
+                <HBox alignment="TOP_RIGHT">
                     <Button onAction="#voltar" prefHeight="23.0" prefWidth="90.0" style="-fx-border-color: #2c3e50; -fx-background-color: #2c3e50; -fx-border-radius: 5;" text="Voltar" textAlignment="CENTER" textFill="WHITE">
                         <font>
                             <Font name="NanumBarunGothic Bold" size="12.0" />
@@ -109,10 +119,10 @@
             <HBox style="-fx-background-color: #CAD3C8; -fx-background-radius: 5;" spacing="10" alignment="CENTER">
                 <VBox style="-fx-padding: 20 0 47 0;" spacing="10">
                     <Label text="Hóspede:" fx:id="lbHospede"/>
-                    <ListView fx:id="ltvwServico" minWidth="340"/>
+                    <ListView fx:id="ltvwServico" minWidth="340" style="-fx-background-radius: 5;"/>
                 </VBox>
                 <VBox style="-fx-padding: 47 0 20 0;" spacing="10">
-                    <ListView fx:id="ltvwConta" minWidth="340"/>
+                    <ListView fx:id="ltvwConta" minWidth="340" style="-fx-background-radius: 5;"/>
                     <Label text="Total:" fx:id="lbTotal" alignment="TOP_RIGHT"/>
                 </VBox>
             </HBox>

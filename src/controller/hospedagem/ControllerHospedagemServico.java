@@ -13,9 +13,13 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import model.classes.Hospedagem;
+import model.classes.HospedagemServico;
+import model.classes.Hospede;
 import model.classes.Servico;
+import model.jdbc.JDBCHospedagemDAO;
+import model.jdbc.JDBCHospedagemServicoDAO;
 import model.jdbc.JDBCServicoDAO;
-
 import java.io.IOException;
 import java.util.Optional;
 
@@ -35,6 +39,8 @@ public class ControllerHospedagemServico {
 
     @FXML
     private ListView<Servico> ltvwConta;
+
+    private Double valorTotal;
 
     @FXML
     public void voltar() {
@@ -66,11 +72,36 @@ public class ControllerHospedagemServico {
         trocarJanela("../../view/hospedagem/janelaHospedagem.fxml");
     }
 
+    @FXML
+    public void salvar() throws Exception {
+
+        Hospedagem hospedagem = JDBCHospedagemDAO.h1;
+
+        for (Servico servico : ltvwServico.getItems()) {
+            JDBCHospedagemServicoDAO.getInstance().delete(hospedagem, servico);
+        }
+
+        for (Servico servico: ltvwConta.getItems()) {
+            JDBCHospedagemServicoDAO.getInstance().create(hospedagem, servico);
+        }
+
+        mostrarMensagem("Conta atualizada!");
+        voltar();
+    }
+
     public void initialize() throws Exception {
+
+        Hospedagem hospedagem = JDBCHospedagemDAO.h1;
+
+        Hospede hospede = hospedagem.getHospede01();
+
+        lbHospede.setText("Hóspede: " + hospede.getNome());
 
         populaListView();
 
         ltvwServico.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+
+        ltvwConta.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
         ltvwServico.setCellFactory(new Callback<ListView<Servico>, ListCell<Servico>>() {
             @Override
@@ -82,7 +113,7 @@ public class ControllerHospedagemServico {
                         if(empty){
                             setText(null);
                         } else {
-                            setText(item.getNome());
+                            setText(item.getNome() + " — R$" + item.getValor());
                         }
                     }
                 };
@@ -91,8 +122,9 @@ public class ControllerHospedagemServico {
                     @Override
                     public void handle(MouseEvent event) {
                         Servico item = ltvwServico.getSelectionModel().getSelectedItem();
-                        System.out.println(item.getNome());
                         ltvwConta.getItems().add(item);
+                        valorTotal = valorTotal + item.getValor();
+                        lbTotal.setText("Total: R$" + valorTotal);
                     }
                 });
 
@@ -114,15 +146,70 @@ public class ControllerHospedagemServico {
         });
 
 
+        ltvwConta.setCellFactory(new Callback<ListView<Servico>, ListCell<Servico>>() {
+            @Override
+            public ListCell<Servico> call(ListView<Servico> param) {
+                ListCell<Servico> cell = new ListCell<Servico>(){
+                    @Override
+                    protected void updateItem(Servico item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if(empty){
+                            setText(null);
+                        } else {
+                            setText(item.getNome());
+                        }
+                    }
+                };
+
+                cell.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        Servico item = ltvwConta.getSelectionModel().getSelectedItem();
+                        ltvwConta.getItems().remove(item);
+                        valorTotal = valorTotal - item.getValor();
+                        lbTotal.setText("Total: R$" + valorTotal);
+                    }
+                });
+
+                cell.emptyProperty().addListener(new ChangeListener<Boolean>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Boolean> obs, Boolean wasEmpty, Boolean isNowEmpty) {
+
+                        if(isNowEmpty){
+                            cell.setContextMenu(null);
+                        }else{
+                            //cell.setContextMenu();
+                        }
+                    }});
+
+
+                return cell;
+
+            }
+        });
+
     }
 
     public void populaListView() throws Exception {
+
+        valorTotal = 0.0;
 
         ltvwServico.getItems().clear();
 
         for(Servico servico: JDBCServicoDAO.getInstance().list()) {
             ltvwServico.getItems().add(servico);
         }
+
+        ltvwConta.getItems().clear();
+
+        Hospedagem hospedagem = JDBCHospedagemDAO.h1;
+
+        for (HospedagemServico hospedagemServico : JDBCHospedagemServicoDAO.getInstance().list(hospedagem)) {
+            ltvwConta.getItems().add(hospedagemServico.getServico());
+            valorTotal = valorTotal + hospedagemServico.getServico().getValor();
+        }
+
+        lbTotal.setText("Total: R$" + valorTotal);
 
     }
 
@@ -169,7 +256,6 @@ public class ControllerHospedagemServico {
             Optional<ButtonType> result = dialog.showAndWait();
 
             if(result.isPresent() && result.get()==ButtonType.OK) {
-                //System.out.println("1: " + mensagem);
             }
         } catch (IOException e) {
             e.printStackTrace();

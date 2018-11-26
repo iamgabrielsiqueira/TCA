@@ -12,6 +12,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import javafx.scene.control.CheckBox?>
 <BorderPane fx:id="mainWindow" prefHeight="400.0" prefWidth="600.0"
             style="-fx-background-color: #2C3A47;" xmlns="http://javafx.com/javafx/8.0.60"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.hospedagem.ControllerCadastroHospedagem">
@@ -134,9 +137,10 @@
                         <ComboBox fx:id="tfHospede2" prefHeight="26.0" prefWidth="170.0" />
                         <ComboBox fx:id="tfHospede3" prefHeight="26.0" prefWidth="170.0" />
                         <ComboBox fx:id="tfQuarto" prefHeight="26.0" prefWidth="170.0" />
+                        <CheckBox fx:id="tbCheckIn" text="Check In Realizado"/>
                     </VBox>
                     <padding>
-                        <Insets top="60.0" />
+                        <Insets top="40.0" />
                     </padding>
                 </HBox>
             </VBox>

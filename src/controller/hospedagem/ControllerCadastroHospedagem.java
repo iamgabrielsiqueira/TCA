@@ -1,5 +1,7 @@
 package controller.hospedagem;
 
+import com.jfoenix.controls.JFXCheckBox;
+import com.jfoenix.controls.JFXToggleButton;
 import controller.MaskFieldUtil;
 import controller.Mensagem;
 import javafx.application.Platform;
@@ -9,10 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import model.classes.*;
 import model.jdbc.JDBCHospedagemDAO;
@@ -43,6 +42,9 @@ public class ControllerCadastroHospedagem {
 
     @FXML
     public ComboBox<Quarto> tfQuarto;
+
+    @FXML
+    private CheckBox tbCheckIn;
 
     private ObservableList<Hospede> listaHospede1;
 
@@ -84,6 +86,7 @@ public class ControllerCadastroHospedagem {
 
     @FXML
     public void salvarHospedagem() throws Exception {
+
         String checkIn = tfCheckIn.getText();
         String checkOut = tfCheckOut.getText();
         Hospede hospede = tfHospede.getSelectionModel().getSelectedItem();
@@ -94,8 +97,12 @@ public class ControllerCadastroHospedagem {
         Hospedagem hospedagem = new Hospedagem();
         hospedagem.setDataCheckIn(checkIn);
         hospedagem.setDataCheckOut(checkOut);
+        if(tbCheckIn.isSelected()) {
+            hospedagem.setStatusCheckIn(true);
+        } else {
+            hospedagem.setStatusCheckIn(false);
+        }
         hospedagem.setStatusCheckOut(false);
-        hospedagem.setStatusCheckIn(false);
         hospedagem.setValor(quarto.getTipoQuarto().getValor());
         hospedagem.setStatus(true);
         hospedagem.setHospede01(hospede);
@@ -106,6 +113,7 @@ public class ControllerCadastroHospedagem {
         JDBCHospedagemDAO.getInstance().create(hospedagem);
         mostrarMensagem("Hospedagem cadastrada!");
         voltar();
+
     }
 
     public void initialize() throws Exception {

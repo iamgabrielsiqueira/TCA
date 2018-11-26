@@ -9,10 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import model.classes.Hospedagem;
 import model.classes.Hospede;
@@ -53,6 +50,12 @@ public class ControllerAlterarHospedagem {
     private ObservableList<Hospede> listaHospede3;
 
     private ObservableList<Quarto> listaQuarto;
+
+    @FXML
+    private CheckBox tbCheckIn;
+
+    @FXML
+    private CheckBox tbCheckOut;
 
     @FXML
     public void voltar() {
@@ -101,8 +104,19 @@ public class ControllerAlterarHospedagem {
         Hospedagem hospedagem = new Hospedagem();
         hospedagem.setDataCheckIn(checkIn);
         hospedagem.setDataCheckOut(checkOut);
-        hospedagem.setStatusCheckOut(false);
-        hospedagem.setStatusCheckIn(false);
+
+        if(tbCheckIn.isSelected()) {
+            hospedagem.setStatusCheckIn(true);
+        } else {
+            hospedagem.setStatusCheckIn(false);
+        }
+
+        if(tbCheckOut.isSelected()) {
+            hospedagem.setStatusCheckOut(true);
+        } else {
+            hospedagem.setStatusCheckOut(false);
+        }
+
         hospedagem.setValor(quarto.getTipoQuarto().getValor());
         hospedagem.setStatus(true);
         hospedagem.setHospede01(hospede);
@@ -112,7 +126,13 @@ public class ControllerAlterarHospedagem {
 
         Hospedagem h1 = JDBCHospedagemDAO.h1;
         JDBCHospedagemDAO.getInstance().update(h1, hospedagem);
-        mostrarMensagem("Hospedagem alterada!");
+
+        if(tbCheckOut.isSelected()) {
+            mostrarMensagem("Conta fechada:");
+        } else {
+            mostrarMensagem("Hospedagem alterada!");
+        }
+
         voltar();
     }
 
@@ -158,6 +178,13 @@ public class ControllerAlterarHospedagem {
         tfHospede.getSelectionModel().select(hospedagem.getHospede01());
         tfQuarto.getSelectionModel().select(hospedagem.getQuarto());
 
+        if(hospedagem.isStatusCheckIn()) {
+            tbCheckIn.setSelected(true);
+        }
+
+        if(hospedagem.isStatusCheckOut()) {
+            tbCheckOut.setSelected(true);
+        }
     }
 
     public void trocarJanela(String address){

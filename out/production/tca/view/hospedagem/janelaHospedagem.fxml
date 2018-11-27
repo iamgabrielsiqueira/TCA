@@ -36,9 +36,9 @@
                         </font></Label>
                 </VBox>
                 <VBox alignment="CENTER" spacing="10" onMouseClicked="#carregarHospedagens">
-                    <ImageView>
+                    <ImageView fitWidth="47" fitHeight="47">
                         <image>
-                            <Image url="/imagens/hospedagem-branco.png" />
+                            <Image url="/imagens/hospedagem-branco-64.png" />
                         </image>
                     </ImageView>
                     <Label alignment="CENTER" contentDisplay="CENTER" text="Hospedagens" textAlignment="CENTER" textFill="#cad3c8">
@@ -80,7 +80,7 @@
                         </font></Label>
                 </VBox>
             </HBox>
-            <HBox style="-fx-padding: 0 0 0 273;">
+            <HBox style="-fx-padding: 0 0 0 270;">
                 <ImageView>
                     <image>
                         <Image url="/imagens/seta-cima.png" />

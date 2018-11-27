@@ -1,16 +1,20 @@
 package controller.hospede;
 
+import controller.MaskFieldData;
 import controller.MaskFieldUtil;
 import controller.Mensagem;
 import controller.ValidaCPF;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import jeanderson.br.util.MaskFormatter;
 import model.classes.Cidade;
@@ -20,6 +24,7 @@ import model.jdbc.JDBCEstadoDAO;
 import model.classes.Hospede;
 import model.jdbc.JDBCHospedeDAO;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Optional;
 
 public class ControllerCadastroHospede {
@@ -55,20 +60,6 @@ public class ControllerCadastroHospede {
     private ObservableList<Cidade> listaCidadeFiltro;
 
     @FXML
-    public void carregarCidade() {
-        Estado estadoSelecionado = tfEstado.getSelectionModel().getSelectedItem();
-
-        tfCidade.getItems().clear();
-
-        try {
-            listaCidadeFiltro = JDBCCidadeDAO.getInstance().listaPorEstado(estadoSelecionado);
-            tfCidade.setItems(listaCidadeFiltro);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
     public void carregarHospedes() {
         trocarJanela("../../view/hospede/janelaHospede.fxml");
     }
@@ -93,15 +84,28 @@ public class ControllerCadastroHospede {
         trocarJanela("../../view/hospedagem/janelaHospedagem.fxml");
     }
 
-
     @FXML
-    public void salvarHospede() {
+    public void carregarCidade() {
+        Estado estadoSelecionado = tfEstado.getSelectionModel().getSelectedItem();
+
+        tfCidade.getItems().clear();
 
         try {
-            if(tfNome.getText().isEmpty() || tfCpf.getText().isEmpty()
-                    || tfRg.getText().isEmpty() || tfTelefone.getText().isEmpty()
-                    || tfDataNasc.getText().isEmpty()) {
-                mostrarMensagem("Dados faltando!");
+            listaCidadeFiltro = JDBCCidadeDAO.getInstance().listaPorEstado(estadoSelecionado);
+            tfCidade.setItems(listaCidadeFiltro);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void salvarHospede() throws Exception {
+
+        try {
+            if (tfNome.getText().isEmpty() || tfCpf.getText().isEmpty() ||
+                    tfRg.getText().isEmpty() || tfTelefone.getText().isEmpty() ||
+                    tfDataNasc.getText().isEmpty()) {
+                mostrarMensagem("Faltam dados!");
             } else {
                 String nome = tfNome.getText();
                 String cpf = tfCpf.getText();
@@ -111,10 +115,10 @@ public class ControllerCadastroHospede {
 
                 String cpfValidar = cpf;
 
-                cpfValidar = cpfValidar.replace( "." , "");
-                cpfValidar = cpfValidar.replace( "-" , "");
+                cpfValidar = cpfValidar.replace(".", "");
+                cpfValidar = cpfValidar.replace("-", "");
 
-                if(ValidaCPF.isCPF(cpfValidar)) {
+                if (ValidaCPF.isCPF(cpfValidar)) {
                     Hospede hospede = new Hospede();
                     hospede.setNome(nome);
                     hospede.setCpf(cpf);
@@ -128,19 +132,31 @@ public class ControllerCadastroHospede {
                     Estado estado = tfEstado.getSelectionModel().getSelectedItem();
                     hospede.setEstado(estado);
 
-                    try {
-                        JDBCHospedeDAO.getInstance().create(hospede);
-                        mostrarMensagem("Hóspede cadastrado!");
-                        voltar();
-                    } catch (Exception e) {
-                        mostrarMensagem("Erro!");
+                    int flag = 0;
+
+                    for (Hospede hospedes: JDBCHospedeDAO.getInstance().list()) {
+                        if(hospedes.getCpf().equals(hospede.getCpf())) {
+                            flag = 1;
+                        }
                     }
-                } else {
-                    mostrarMensagem("CPF inválido!");
+
+                    if(flag != 1) {
+                        try {
+                            JDBCHospedeDAO.getInstance().create(hospede);
+                            mostrarMensagem("Hóspede cadastrado!");
+                            voltar();
+                        } catch (SQLException e) {
+                            mostrarMensagem("Data inválida!");
+                        } catch (Exception e) {
+                            mostrarMensagem("Erro!");
+                        }
+                    } else {
+                        mostrarMensagem("Este hóspede já existe!");
+                    }
                 }
             }
-        } catch (NullPointerException e) {
-            mostrarMensagem("Erro!");
+        } catch(NullPointerException e){
+            mostrarMensagem("Faltam dados!");
         }
     }
 
@@ -165,8 +181,20 @@ public class ControllerCadastroHospede {
         MaskFormatter formatter3 = new MaskFormatter(tfTelefone);
         formatter3.setMask(MaskFormatter.TEL_9DIG);
 
-        MaskFieldUtil.dateField(tfDataNasc);
+        MaskFieldData maskFieldData = new MaskFieldData(tfDataNasc);
+        maskFieldData.setMask(MaskFieldData.DATA);
 
+        //MaskFieldUtil.dateField(tfDataNasc);
+
+        tfDataNasc.setOnKeyPressed(new EventHandler<KeyEvent>(){
+            @Override
+            public void handle(KeyEvent ke){
+                if (ke.getCode().equals(KeyCode.BACK_SPACE)){
+                    //System.out.println("apagou");
+                    tfDataNasc.setText("");
+                }
+            }
+        });
     }
 
     public void trocarJanela(String address){
@@ -210,9 +238,7 @@ public class ControllerCadastroHospede {
 
             Optional<ButtonType> result = dialog.showAndWait();
 
-            if(result.isPresent() && result.get()==ButtonType.OK) {
-                System.out.println("1: " + mensagem);
-            }
+            if(result.isPresent() && result.get()==ButtonType.OK) { }
         } catch (IOException e) {
             e.printStackTrace();
         }

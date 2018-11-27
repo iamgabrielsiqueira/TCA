@@ -11,15 +11,17 @@
 <?import javafx.scene.text.Font?>
 
 <BorderPane fx:id="mainWindow" prefHeight="400.0" prefWidth="600.0"
-            style="-fx-background-color: #2C3A47;" xmlns="http://javafx.com/javafx/8.0.60"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerJanelaPrincipal">
+            style="-fx-background-color: #2C3A47;"
+            xmlns="http://javafx.com/javafx/8.0.60"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.ControllerJanelaPrincipal">
     <top>
         <VBox>
             <HBox>
                 <Label text="" />
             </HBox>
             <HBox alignment="CENTER" spacing="40" style="-fx-padding: 30;">
-                <VBox alignment="CENTER" spacing="10" onMouseClicked="#carregarHospedes">
+                <VBox alignment="CENTER" onMouseClicked="#carregarHospedes" spacing="10">
                     <ImageView>
                         <image>
                             <Image url="/imagens/hospede-cinza.png" />
@@ -28,9 +30,10 @@
                     <Label alignment="CENTER" contentDisplay="CENTER" text="Hóspedes" textAlignment="CENTER" textFill="#cad3c8">
                         <font>
                             <Font name="Khmer OS System" size="14.0" />
-                        </font></Label>
+                        </font>
+                    </Label>
                 </VBox>
-                <VBox alignment="CENTER" spacing="10" onMouseClicked="#carregarHospedagens">
+                <VBox alignment="CENTER" onMouseClicked="#carregarHospedagens" spacing="10">
                     <ImageView>
                         <image>
                             <Image url="/imagens/hospedagem-cinza.png" />
@@ -39,9 +42,10 @@
                     <Label alignment="CENTER" contentDisplay="CENTER" text="Hospedagens" textAlignment="CENTER" textFill="#cad3c8">
                         <font>
                             <Font name="Khmer OS System" size="14.0" />
-                        </font></Label>
+                        </font>
+                    </Label>
                 </VBox>
-                <VBox alignment="CENTER" spacing="10" onMouseClicked="#carregarQuartos">
+                <VBox alignment="CENTER" onMouseClicked="#carregarQuartos" spacing="10">
                     <ImageView>
                         <image>
                             <Image url="/imagens/quarto-cinza.png" />
@@ -50,9 +54,10 @@
                     <Label alignment="CENTER" contentDisplay="CENTER" text="Quartos" textAlignment="CENTER" textFill="#cad3c8">
                         <font>
                             <Font name="Khmer OS System" size="14.0" />
-                        </font></Label>
+                        </font>
+                    </Label>
                 </VBox>
-                <VBox alignment="CENTER" spacing="10" onMouseClicked="#carregarTiposQuartos">
+                <VBox alignment="CENTER" onMouseClicked="#carregarTiposQuartos" spacing="10">
                     <ImageView>
                         <image>
                             <Image url="/imagens/tipo-quarto-cinza.png" />
@@ -61,9 +66,10 @@
                     <Label alignment="CENTER" contentDisplay="CENTER" text="Tipos de Quartos" textAlignment="CENTER" textFill="#cad3c8">
                         <font>
                             <Font name="Khmer OS System" size="14.0" />
-                        </font></Label>
+                        </font>
+                    </Label>
                 </VBox>
-                <VBox alignment="CENTER" spacing="10" onMouseClicked="#carregarServicos">
+                <VBox alignment="CENTER" onMouseClicked="#carregarServicos" spacing="10">
                     <ImageView>
                         <image>
                             <Image url="/imagens/servico-cinza.png" />
@@ -72,7 +78,8 @@
                     <Label alignment="CENTER" contentDisplay="CENTER" text="Serviços" textAlignment="CENTER" textFill="#cad3c8">
                         <font>
                             <Font name="Khmer OS System" size="14.0" />
-                        </font></Label>
+                        </font>
+                    </Label>
                 </VBox>
             </HBox>
         </VBox>
@@ -81,14 +88,14 @@
         <VBox style="-fx-padding: 0 30 30 30;">
             <VBox style="-fx-padding: 0 0 10 0;">
                 <!--top right bottom left-->
-                <Label prefWidth="217.0" text="Hospedagens - 19/11/2018" textFill="WHITE" fx:id="labelHoje">
+                <Label fx:id="labelHoje" prefWidth="217.0" text="Hospedagens - 19/11/2018" textFill="WHITE">
                     <font>
-                        <Font name="Khmer OS System" size="16.0" />
+                        <Font name="Lato Semibold" size="15.0" />
                     </font>
                 </Label>
             </VBox>
             <VBox minHeight="320" style="-fx-background-color: #CAD3C8; -fx-background-radius: 5;">
-                <TableView fx:id="tbHospedes" style="-fx-background-color: none;">
+                <TableView fx:id="tbHospedagens" style="-fx-background-color: none;">
                     <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                     </columnResizePolicy>

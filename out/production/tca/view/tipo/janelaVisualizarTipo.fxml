@@ -53,9 +53,9 @@
                         </font></Label>
                 </VBox>
                 <VBox alignment="CENTER" spacing="10" onMouseClicked="#carregarTiposQuartos">
-                    <ImageView>
+                    <ImageView fitWidth="47" fitHeight="47">
                         <image>
-                            <Image url="/imagens/tipo-quarto-cinza.png" />
+                            <Image url="/imagens/tipo-quarto-branco-64.png" />
                         </image>
                     </ImageView>
                     <Label alignment="CENTER" contentDisplay="CENTER" text="Tipos de Quartos" textAlignment="CENTER" textFill="#cad3c8">
@@ -75,7 +75,7 @@
                         </font></Label>
                 </VBox>
             </HBox>
-            <HBox style="-fx-padding: 0 0 0 384;">
+            <HBox style="-fx-padding: 0 0 0 498;">
                 <ImageView>
                     <image>
                         <Image url="/imagens/seta-cima.png" />

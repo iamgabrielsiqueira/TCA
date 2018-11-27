@@ -19,9 +19,7 @@
                         <Font name="Noto Sans CJK KR Bold" size="14.0" />
                     </font>
                 </Label>
-
                 <Label text="" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-
                 <Label fx:id="lbMensagem" text="[Mensagem]" textFill="#ecf0f1" GridPane.columnIndex="0" GridPane.rowIndex="3">
                     <font>
                         <Font name="Noto Sans CJK JP Medium" size="14.0" />

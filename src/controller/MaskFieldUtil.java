@@ -62,13 +62,19 @@ public abstract class MaskFieldUtil {
 
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                if (newValue.intValue() < 11) {
-                    String value = textField.getText();
-                    value = value.replaceAll("[^0-9]", "");
-                    value = value.replaceFirst("(\\d{2})(\\d)", "$1/$2");
-                    value = value.replaceFirst("(\\d{2})\\/(\\d{2})(\\d)", "$1/$2/$3");
-                    textField.setText(value);
-                    MaskFieldUtil.positionCaret(textField);
+                try {
+                    if (newValue.intValue() < 11) {
+                        String value = textField.getText();
+                        value = value.replaceAll("[^0-9]", "");
+                        value = value.replaceFirst("(\\d{2})(\\d)", "$1/$2");
+                        value = value.replaceFirst("(\\d{2})\\/(\\d{2})(\\d)", "$1/$2/$3");
+                        try {
+                            textField.setText(value);
+                            MaskFieldUtil.positionCaret(textField);
+                        }catch(Exception ex){}
+                    }
+                } catch (IllegalArgumentException e) {
+                    System.out.println("Oi");
                 }
             }
         });

@@ -11,10 +11,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-
-<?import com.jfoenix.controls.JFXToggleButton?>
-<?import com.jfoenix.controls.JFXCheckBox?>
 <?import javafx.scene.control.CheckBox?>
+
 <BorderPane fx:id="mainWindow" prefHeight="400.0" prefWidth="600.0"
             style="-fx-background-color: #2C3A47;" xmlns="http://javafx.com/javafx/8.0.60"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.hospedagem.ControllerCadastroHospedagem">
@@ -36,9 +34,9 @@
                         </font></Label>
                 </VBox>
                 <VBox alignment="CENTER" spacing="10" onMouseClicked="#carregarHospedagens">
-                    <ImageView>
+                    <ImageView fitWidth="47" fitHeight="47">
                         <image>
-                            <Image url="/imagens/hospedagem-branco.png" />
+                            <Image url="/imagens/hospedagem-branco-64.png" />
                         </image>
                     </ImageView>
                     <Label alignment="CENTER" contentDisplay="CENTER" text="Hospedagens" textAlignment="CENTER" textFill="#cad3c8">
@@ -80,7 +78,7 @@
                         </font></Label>
                 </VBox>
             </HBox>
-            <HBox style="-fx-padding: 0 0 0 273;">
+            <HBox style="-fx-padding: 0 0 0 270;">
                 <ImageView>
                     <image>
                         <Image url="/imagens/seta-cima.png" />

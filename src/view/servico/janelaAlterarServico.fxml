@@ -66,9 +66,9 @@
                         </font></Label>
                 </VBox>
                 <VBox alignment="CENTER" spacing="10" onMouseClicked="#carregarServicos">
-                    <ImageView>
+                    <ImageView fitHeight="47" fitWidth="47">
                         <image>
-                            <Image url="/imagens/servico-branco.png" />
+                            <Image url="/imagens/servico-branco-64.png" />
                         </image>
                     </ImageView>
                     <Label alignment="CENTER" contentDisplay="CENTER" text="Serviços" textAlignment="CENTER" textFill="#cad3c8">

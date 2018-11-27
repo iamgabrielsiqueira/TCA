@@ -108,7 +108,7 @@ public class JDBCHospedagemDAO implements HospedagemDAO {
 
         try {
             Connection connection = FabricaConexao.getConnection();
-            String sql = "select * from tca_hospedagem";
+            String sql = "call listaHospedagens();";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -178,7 +178,7 @@ public class JDBCHospedagemDAO implements HospedagemDAO {
     @Override
     public Hospedagem search(int id) throws Exception {
         Connection connection = FabricaConexao.getConnection();
-        String sql = "select * from tca_hospedagem where id = ?";
+        String sql = "call buscarHospedagem(?)";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setInt(1, id);
         ResultSet resultSet = preparedStatement.executeQuery();

@@ -93,7 +93,7 @@ public class JDBCHospedeDAO implements HospedeDAO {
 
         try {
             Connection connection = FabricaConexao.getConnection();
-            String sql = "select * from tca_hospede";
+            String sql = "call listaHospedes();";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -158,7 +158,7 @@ public class JDBCHospedeDAO implements HospedeDAO {
     @Override
     public Hospede search(int id) throws Exception {
         Connection connection = FabricaConexao.getConnection();
-        String sql = "select * from tca_hospede where id = ?";
+        String sql = "call buscarHospede(?);";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setInt(1, id);
         ResultSet resultSet = preparedStatement.executeQuery();

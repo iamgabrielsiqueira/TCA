@@ -68,7 +68,7 @@ public class JDBCHospedagemServicoDAO implements HospedagemServicoDAO {
 
         try {
             Connection connection = FabricaConexao.getConnection();
-            String sql = "select * from tca_hospedagem_has_servico where fk_hospedagem_id=?";
+            String sql = "call listaServicosHospedagens(?);";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, hospedagem.getId());
             ResultSet resultSet = preparedStatement.executeQuery();

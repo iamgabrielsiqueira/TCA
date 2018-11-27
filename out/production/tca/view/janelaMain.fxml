@@ -100,11 +100,11 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                     </columnResizePolicy>
                     <columns>
-                        <TableColumn fx:id="tcHospede" style="-fx-background-color:  #dfe6e9; -fx-alignment: CENTER;" text="Hóspede" />
-                        <TableColumn fx:id="tcQuarto" minWidth="50" style="-fx-background-color:  #dfe6e9; -fx-alignment: CENTER;" text="Quarto" />
-                        <TableColumn fx:id="tcCheckIn" minWidth="50" style="-fx-background-color:  #dfe6e9; -fx-alignment: CENTER;" text="Check In" />
-                        <TableColumn fx:id="tcCheckOut" minWidth="50" style="-fx-background-color:  #dfe6e9; -fx-alignment: CENTER;" text="Check Out" />
-                        <TableColumn fx:id="tcOpcoes" minWidth="50" style="-fx-background-color:  #dfe6e9; -fx-alignment: CENTER;" text="Opções" />
+                        <TableColumn minWidth="150" fx:id="tcHospede" style="-fx-background-color:  #dfe6e9; -fx-alignment: CENTER;" text="Hóspede" />
+                        <TableColumn minWidth="120" fx:id="tcQuarto" style="-fx-background-color:  #dfe6e9; -fx-alignment: CENTER;" text="Quarto" />
+                        <TableColumn minWidth="125" fx:id="tcCheckIn" style="-fx-background-color:  #dfe6e9; -fx-alignment: CENTER;" text="Check In" />
+                        <TableColumn minWidth="125" fx:id="tcCheckOut" style="-fx-background-color:  #dfe6e9; -fx-alignment: CENTER;" text="Check Out" />
+                        <TableColumn minWidth="215" fx:id="tcOpcoes" style="-fx-background-color:  #dfe6e9; -fx-alignment: CENTER;" text="Opções" />
                     </columns>
                 </TableView>
             </VBox>

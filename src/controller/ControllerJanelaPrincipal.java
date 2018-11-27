@@ -1,6 +1,8 @@
 package controller;
 
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -47,6 +49,8 @@ public class ControllerJanelaPrincipal {
     @FXML
     private TableColumn tcOpcoes;
 
+    private ObservableList<Hospedagem> listaHospedagemHoje;
+
     @FXML
     public void carregarHospedes() {
         trocarJanela("../view/hospede/janelaHospede.fxml");
@@ -72,10 +76,9 @@ public class ControllerJanelaPrincipal {
         trocarJanela("../view/hospedagem/janelaHospedagem.fxml");
     }
 
-    public void initialize() {
-        Date date = new Date(System.currentTimeMillis());
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        labelHoje.setText("Hospedagens - " + formato.format(date));
+    public void initialize() throws Exception {
+        listaHospedagemHoje = FXCollections.observableArrayList();
+        carregarLista();
     }
 
     public void remover(Hospedagem hospedagem) throws Exception {
@@ -125,10 +128,10 @@ public class ControllerJanelaPrincipal {
 
                     private final HBox pane = new HBox(btn4, btn, btn3, btn2);
 
-                    private Image imagem = new Image(getClass().getResourceAsStream("../../imagens/editar.png"));
-                    private Image imagem2 = new Image(getClass().getResourceAsStream("../../imagens/remover.png"));
-                    private Image imagem3 = new Image(getClass().getResourceAsStream("../../imagens/visualizar.png"));
-                    private Image imagem4 = new Image(getClass().getResourceAsStream("../../imagens/add.png"));
+                    private Image imagem = new Image(getClass().getResourceAsStream("../imagens/editar.png"));
+                    private Image imagem2 = new Image(getClass().getResourceAsStream("../imagens/remover.png"));
+                    private Image imagem3 = new Image(getClass().getResourceAsStream("../imagens/visualizar.png"));
+                    private Image imagem4 = new Image(getClass().getResourceAsStream("../imagens/add.png"));
 
                     private ImageView imgview = new ImageView(imagem);
                     private ImageView imgview2 = new ImageView(imagem2);
@@ -152,7 +155,7 @@ public class ControllerJanelaPrincipal {
                         btn.setOnAction((ActionEvent event) -> {
                             Hospedagem hospedagem = getTableView().getItems().get(getIndex());
                             JDBCHospedagemDAO.h1 = hospedagem;
-                            trocarJanela("../../view/hospedagem/janelaAlterarHospedagem.fxml");
+                            trocarJanela("../view/hospedagem/janelaAlterarHospedagem.fxml");
                         });
 
                         btn2.setOnAction((ActionEvent event) -> {
@@ -168,13 +171,13 @@ public class ControllerJanelaPrincipal {
                         btn3.setOnAction((ActionEvent event) -> {
                             Hospedagem hospedagem = getTableView().getItems().get(getIndex());
                             JDBCHospedagemDAO.h1 = hospedagem;
-                            trocarJanela("../../view/hospedagem/janelaVisualizarHospedagem.fxml");
+                            trocarJanela("../view/hospedagem/janelaVisualizarHospedagem.fxml");
                         });
 
                         btn4.setOnAction((ActionEvent event) -> {
                             Hospedagem hospedagem = getTableView().getItems().get(getIndex());
                             JDBCHospedagemDAO.h1 = hospedagem;
-                            trocarJanela("../../view/hospedagem/janelaHospedagemServico.fxml");
+                            trocarJanela("../view/hospedagem/janelaHospedagemServico.fxml");
                         });
                     }
 
@@ -197,6 +200,15 @@ public class ControllerJanelaPrincipal {
     }
 
     public void carregarLista() throws Exception {
+
+        Date date = new Date(System.currentTimeMillis());
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+
+        SimpleDateFormat fromUser = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat myFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+        labelHoje.setText("Hospedagens - " + formato.format(date));
+
         tcHospede.setCellValueFactory(new PropertyValueFactory<>("hospede01"));
         tcCheckIn.setCellValueFactory(new PropertyValueFactory<>("dataCheckIn"));
         tcCheckOut.setCellValueFactory(new PropertyValueFactory<>("dataCheckOut"));
@@ -204,7 +216,21 @@ public class ControllerJanelaPrincipal {
 
         addButtonToTable();
 
-        tbHospedagens.setItems(JDBCHospedagemDAO.getInstance().list());
+        for (Hospedagem hospedagem : JDBCHospedagemDAO.getInstance().list()) {
+
+            String data3 = myFormat.format(fromUser.parse(hospedagem.getDataCheckIn()));
+            java.sql.Date checkIn = java.sql.Date.valueOf(data3);
+
+            String data4 = myFormat.format(fromUser.parse(hospedagem.getDataCheckOut()));
+            java.sql.Date checkOut = java.sql.Date.valueOf(data4);
+
+            if (checkIn.before(date) && checkOut.after(date)) {
+                listaHospedagemHoje.add(hospedagem);
+            }
+
+        }
+
+        tbHospedagens.setItems(listaHospedagemHoje);
     }
 
     public void trocarJanela(String address){

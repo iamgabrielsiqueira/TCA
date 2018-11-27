@@ -3,7 +3,6 @@ package model.jdbc;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.FabricaConexao;
-import model.classes.Hospedagem;
 import model.dao.HospedeDAO;
 import model.classes.Cidade;
 import model.classes.Estado;

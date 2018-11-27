@@ -176,8 +176,6 @@ public class ControllerAlterarHospede {
 
         MaskFormatter formatter3 = new MaskFormatter(tfTelefone);
         formatter3.setMask(MaskFormatter.TEL_9DIG);
-
-        //MaskFieldUtil.dateField(tfDataNasc);
     }
 
     public void trocarJanela(String address){

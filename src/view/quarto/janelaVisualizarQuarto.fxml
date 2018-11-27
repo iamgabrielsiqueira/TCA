@@ -28,7 +28,8 @@
                     <Label alignment="CENTER" contentDisplay="CENTER" text="Hóspedes" textAlignment="CENTER" textFill="#cad3c8">
                         <font>
                             <Font name="Khmer OS System" size="14.0" />
-                        </font></Label>
+                        </font>
+                    </Label>
                 </VBox>
                 <VBox alignment="CENTER" spacing="10" onMouseClicked="#carregarHospedagens">
                     <ImageView>
@@ -39,7 +40,8 @@
                     <Label alignment="CENTER" contentDisplay="CENTER" text="Hospedagens" textAlignment="CENTER" textFill="#cad3c8">
                         <font>
                             <Font name="Khmer OS System" size="14.0" />
-                        </font></Label>
+                        </font>
+                    </Label>
                 </VBox>
                 <VBox alignment="CENTER" spacing="10" onMouseClicked="#carregarQuartos">
                     <ImageView fitWidth="47" fitHeight="47">
@@ -50,7 +52,8 @@
                     <Label alignment="CENTER" contentDisplay="CENTER" text="Quartos" textAlignment="CENTER" textFill="#cad3c8">
                         <font>
                             <Font name="Khmer OS System" size="14.0" />
-                        </font></Label>
+                        </font>
+                    </Label>
                 </VBox>
                 <VBox alignment="CENTER" spacing="10" onMouseClicked="#carregarTiposQuartos">
                     <ImageView>
@@ -61,7 +64,8 @@
                     <Label alignment="CENTER" contentDisplay="CENTER" text="Tipos de Quartos" textAlignment="CENTER" textFill="#cad3c8">
                         <font>
                             <Font name="Khmer OS System" size="14.0" />
-                        </font></Label>
+                        </font>
+                    </Label>
                 </VBox>
                 <VBox alignment="CENTER" spacing="10" onMouseClicked="#carregarServicos">
                     <ImageView>
@@ -72,7 +76,8 @@
                     <Label alignment="CENTER" contentDisplay="CENTER" text="Serviços" textAlignment="CENTER" textFill="#cad3c8">
                         <font>
                             <Font name="Khmer OS System" size="14.0" />
-                        </font></Label>
+                        </font>
+                    </Label>
                 </VBox>
             </HBox>
             <HBox style="-fx-padding: 0 0 0 379;">
@@ -92,7 +97,8 @@
                     <Label prefHeight="28.0" prefWidth="76.0" style="-fx-alignment: center;" text="Visualizar" textFill="#daf0ff">
                         <font>
                             <Font name="NanumGothic" size="15.0" />
-                        </font></Label>
+                        </font>
+                    </Label>
                 </HBox>
                 <HBox alignment="TOP_RIGHT" style="-fx-padding: 0 0 0 569;">
                     <Button onAction="#voltar" prefHeight="23.0" prefWidth="90.0" style="-fx-border-color: #2c3e50; -fx-background-color: #2c3e50; -fx-border-radius: 5;" text="Voltar" textAlignment="CENTER" textFill="WHITE">
@@ -107,17 +113,16 @@
             </HBox>
             <VBox minHeight="320" style="-fx-background-color: #CAD3C8; -fx-background-radius: 5;">
                 <HBox alignment="CENTER" prefHeight="268.0" prefWidth="500.0">
-                    <VBox maxWidth="170" minWidth="170" spacing="21">
-                        <Label fx:id="lbNumero" />
-                        <Label fx:id="lbDescricao" />
-                        <Label fx:id="lbTipo" />
+                    <VBox spacing="21" alignment="CENTER">
+                        <Label text="Nome" fx:id="lbNumero"/>
+                        <Label text="Valor" fx:id="lbDescricao"/>
+                        <Label text="Tipo" fx:id="lbTipo"/>
                     </VBox>
                     <padding>
-                        <Insets top="100.0" />
+                        <Insets top="40.0" />
                     </padding>
                 </HBox>
             </VBox>
         </VBox>
     </center>
-
 </BorderPane>

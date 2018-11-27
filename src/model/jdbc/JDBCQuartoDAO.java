@@ -6,7 +6,6 @@ import model.FabricaConexao;
 import model.dao.QuartoDAO;
 import model.classes.Quarto;
 import model.classes.TipoQuarto;
-
 import java.sql.*;
 
 public class JDBCQuartoDAO implements QuartoDAO {

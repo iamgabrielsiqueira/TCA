@@ -62,7 +62,7 @@ public class ControllerVisualizarQuarto {
     public void initialize() {
         Quarto quarto = JDBCQuartoDAO.q1;
 
-        lbNumero.setText("Numero: " + quarto.getNumero());
+        lbNumero.setText("Número: " + quarto.getNumero());
         lbDescricao.setText("Descrição: " + quarto.getDescricao());
         lbTipo.setText("Tipo: " + quarto.getTipoQuarto().getNome());
     }
@@ -108,9 +108,7 @@ public class ControllerVisualizarQuarto {
 
             Optional<ButtonType> result = dialog.showAndWait();
 
-            if(result.isPresent() && result.get()==ButtonType.OK) {
-                System.out.println("1: " + mensagem);
-            }
+            if(result.isPresent() && result.get()==ButtonType.OK) { }
         } catch (IOException e) {
             e.printStackTrace();
         }

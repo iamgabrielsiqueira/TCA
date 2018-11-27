@@ -10,7 +10,6 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 import model.classes.Hospedagem;
 import model.jdbc.JDBCHospedagemDAO;
-
 import java.io.IOException;
 import java.util.Optional;
 
@@ -36,6 +35,9 @@ public class ControllerVisualizarHospedagem {
 
     @FXML
     public Label lbQuarto;
+
+    @FXML
+    public Label lbValor;
 
     @FXML
     public void voltar() {
@@ -86,7 +88,9 @@ public class ControllerVisualizarHospedagem {
             lbHospede3.setText("Hóspede Terciário: " + hospedagem.getHospede01().getNome());
         }
 
-        lbQuarto.setText("Quarto: " + hospedagem.getQuarto().getNumero());
+        lbQuarto.setText("Quarto: " + hospedagem.getQuarto().getNumero()+" - "+hospedagem.getQuarto().getTipoQuarto().getNome());
+
+        lbValor.setText("Valor: R$" + hospedagem.getValor());
     }
 
     public void trocarJanela(String address){
@@ -107,7 +111,6 @@ public class ControllerVisualizarHospedagem {
 
                 }catch (IOException e){
                     mostrarMensagem("Erro!");
-                    //e.printStackTrace();
                 }
             }
         });
@@ -131,9 +134,7 @@ public class ControllerVisualizarHospedagem {
 
             Optional<ButtonType> result = dialog.showAndWait();
 
-            if(result.isPresent() && result.get()==ButtonType.OK) {
-                //System.out.println("1: " + mensagem);
-            }
+            if(result.isPresent() && result.get()==ButtonType.OK) { }
         } catch (IOException e) {
             e.printStackTrace();
         }

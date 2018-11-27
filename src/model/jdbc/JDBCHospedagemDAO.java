@@ -114,7 +114,6 @@ public class JDBCHospedagemDAO implements HospedagemDAO {
 
             while (resultSet.next()){
                 Hospedagem hospedagem = carregarHospedagem(resultSet);
-                //System.out.println(hospedagem.getHospede01().getId());
                 list.add(hospedagem);
             }
 

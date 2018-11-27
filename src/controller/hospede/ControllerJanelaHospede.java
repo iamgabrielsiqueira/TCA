@@ -116,6 +116,8 @@ public class ControllerJanelaHospede {
                     return true;
                 } else if (hospede.getCpf().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
+                } else if (hospede.getDataNasc().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
                 }
                 return false;
             });
@@ -279,9 +281,7 @@ public class ControllerJanelaHospede {
 
             Optional<ButtonType> result = dialog.showAndWait();
 
-            if(result.isPresent() && result.get()==ButtonType.OK) {
-                //System.out.println("1: " + mensagem);
-            }
+            if(result.isPresent() && result.get()==ButtonType.OK) { }
         } catch (IOException e) {
             e.printStackTrace();
         }

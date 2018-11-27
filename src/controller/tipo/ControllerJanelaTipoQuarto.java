@@ -113,7 +113,13 @@ public class ControllerJanelaTipoQuarto {
 
                 String lowerCaseFilter = newValue.toLowerCase();
 
+                String tf = String.valueOf(tipo.getValor());
+
                 if (tipo.getNome().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                } else if (tipo.getDescricao().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                } else if (tf.toLowerCase().contains(lowerCaseFilter)) {
                     return true;
                 }
 
@@ -278,9 +284,7 @@ public class ControllerJanelaTipoQuarto {
 
             Optional<ButtonType> result = dialog.showAndWait();
 
-            if(result.isPresent() && result.get()==ButtonType.OK) {
-                //System.out.println("1: " + mensagem);
-            }
+            if(result.isPresent() && result.get()==ButtonType.OK) { }
         } catch (IOException e) {
             e.printStackTrace();
         }

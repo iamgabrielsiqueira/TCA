@@ -17,27 +17,22 @@
                     <Font name="Noto Sans CJK KR Bold" size="14.0" />
                 </font>
             </Label>
-
             <Label text="" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-
             <Label fx:id="lbNome" text="Nome:" textFill="#ecf0f1" GridPane.columnIndex="0" GridPane.rowIndex="3">
                 <font>
                     <Font name="Noto Sans CJK JP Medium" size="14.0" />
                 </font>
             </Label>
-
             <Label fx:id="lbValor" text="Valor:" textFill="#ecf0f1" GridPane.columnIndex="0" GridPane.rowIndex="4">
                 <font>
                     <Font name="Noto Sans CJK JP Medium" size="14.0" />
                 </font>
             </Label>
-
             <Label fx:id="lbDescricao" text="Descrição:" textFill="#ecf0f1" GridPane.columnIndex="0" GridPane.rowIndex="5">
                 <font>
                     <Font name="Noto Sans CJK JP Medium" size="14.0" />
                 </font>
             </Label>
-
         </GridPane>
     </content>
 </DialogPane>

@@ -12,9 +12,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import model.classes.Hospedagem;
+import model.classes.HospedagemServico;
 import model.classes.Hospede;
 import model.classes.Quarto;
 import model.jdbc.JDBCHospedagemDAO;
+import model.jdbc.JDBCHospedagemServicoDAO;
 import model.jdbc.JDBCHospedeDAO;
 import model.jdbc.JDBCQuartoDAO;
 import java.io.IOException;
@@ -125,13 +127,22 @@ public class ControllerAlterarHospedagem {
         hospedagem.setQuarto(quarto);
 
         Hospedagem h1 = JDBCHospedagemDAO.h1;
-        JDBCHospedagemDAO.getInstance().update(h1, hospedagem);
+
+        Double valorTotal = h1.getValor();
 
         if(tbCheckOut.isSelected()) {
-            mostrarMensagem("Conta fechada:");
+            for (HospedagemServico hospedagemServico : JDBCHospedagemServicoDAO.getInstance().list(h1)) {
+                valorTotal = valorTotal + hospedagemServico.getServico().getValor();
+            }
+            mostrarMensagem("Conta fechada! Total: R$" + valorTotal);
+            hospedagem.setValor(valorTotal);
+
         } else {
+            hospedagem.setStatusCheckOut(false);
             mostrarMensagem("Hospedagem alterada!");
         }
+
+        JDBCHospedagemDAO.getInstance().update(h1, hospedagem);
 
         voltar();
     }
@@ -180,10 +191,14 @@ public class ControllerAlterarHospedagem {
 
         if(hospedagem.isStatusCheckIn()) {
             tbCheckIn.setSelected(true);
+        } else {
+            tbCheckIn.setSelected(false);
         }
 
         if(hospedagem.isStatusCheckOut()) {
             tbCheckOut.setSelected(true);
+        } else {
+            tbCheckOut.setSelected(false);
         }
     }
 
@@ -205,7 +220,6 @@ public class ControllerAlterarHospedagem {
 
                 }catch (IOException e){
                     mostrarMensagem("Erro!");
-                    //e.printStackTrace();
                 }
             }
         });
@@ -229,9 +243,7 @@ public class ControllerAlterarHospedagem {
 
             Optional<ButtonType> result = dialog.showAndWait();
 
-            if(result.isPresent() && result.get()==ButtonType.OK) {
-                //System.out.println("1: " + mensagem);
-            }
+            if(result.isPresent() && result.get()==ButtonType.OK) { }
         } catch (IOException e) {
             e.printStackTrace();
         }

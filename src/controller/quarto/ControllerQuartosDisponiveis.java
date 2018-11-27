@@ -121,19 +121,19 @@ public class ControllerQuartosDisponiveis {
 
                         // Se a data digitada for depois ao do check in
                         if(data1.after(checkIn) && data2.before(checkOut) && data1.before(checkOut) && data2.after(checkIn)) {
-                            //System.out.println('1');
+
                             listaRemover.add(hospedagem.getQuarto());
                         } else if (data1.equals(checkIn) && data2.equals(checkOut) ) {
-                            //System.out.println('2');
+
                             listaRemover.add(hospedagem.getQuarto());
                         } else if (data1.before(checkIn) && data2.before(checkOut) && data1.before(checkOut) && data2.after(checkIn)) {
-                            //System.out.println('3');
+
                             listaRemover.add(hospedagem.getQuarto());
                         } else if (data1.after(checkIn) && data2.after(checkOut) && data1.before(checkOut) && data2.after(checkIn)) {
-                            //System.out.println('4');
+
                             listaRemover.add(hospedagem.getQuarto());
                         } else {
-                            //listaFiltrada2.add(q);
+
                         }
                     }
                 }
@@ -147,13 +147,13 @@ public class ControllerQuartosDisponiveis {
         for (Quarto quarto : JDBCQuartoDAO.getInstance().list()) {
             for (Quarto quarto1 : listaRemover) {
                 if(quarto.getId() == quarto1.getId()) {
-                    //System.out.println("Quarto IGUAL: " + quarto.getNumero());
+
                     diferente = 1;
                 }
             }
 
             if(diferente == 0) {
-                //System.out.println("Quarto DIFERENTE: " + quarto.getNumero());
+
                 listaFiltrada2.add(quarto);
             }
 

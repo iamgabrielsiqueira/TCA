@@ -101,7 +101,8 @@
                     <Label prefHeight="28.0" prefWidth="76.0" style="-fx-alignment: center;" text="Cadastrar" textFill="#daf0ff">
                   <font>
                      <Font name="NanumGothic" size="15.0" />
-                  </font></Label>
+                  </font>
+                    </Label>
                 </HBox>
                 <HBox alignment="TOP_RIGHT" style="-fx-padding: 0 0 0 500;">
                     <Button onAction="#salvarHospede" prefHeight="23.0" prefWidth="90.0" style="-fx-border-color: white; -fx-background-color: white; -fx-border-radius: 5;" text="Salvar" textAlignment="CENTER" textFill="#2c3e50">
@@ -151,5 +152,4 @@
             </VBox>
         </VBox>
     </center>
-
 </BorderPane>

@@ -16,7 +16,6 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 import model.classes.Hospedagem;
 import model.jdbc.JDBCHospedagemDAO;
-
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;

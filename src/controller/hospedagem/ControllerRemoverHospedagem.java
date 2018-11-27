@@ -4,9 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import model.classes.Hospedagem;
-import model.classes.Hospede;
 import model.jdbc.JDBCHospedagemDAO;
-import model.jdbc.JDBCHospedeDAO;
 
 public class ControllerRemoverHospedagem {
 

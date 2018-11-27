@@ -9,8 +9,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-
 <?import javafx.scene.control.ListView?>
+
 <BorderPane fx:id="mainWindow" prefHeight="400.0" prefWidth="600.0"
             style="-fx-background-color: #2C3A47;" xmlns="http://javafx.com/javafx/8.0.60"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.hospedagem.ControllerHospedagemServico">
@@ -29,7 +29,8 @@
                     <Label alignment="CENTER" contentDisplay="CENTER" text="Hóspedes" textAlignment="CENTER" textFill="#cad3c8">
                         <font>
                             <Font name="Khmer OS System" size="14.0" />
-                        </font></Label>
+                        </font>
+                    </Label>
                 </VBox>
                 <VBox alignment="CENTER" spacing="10" onMouseClicked="#carregarHospedagens">
                     <ImageView fitWidth="47" fitHeight="47">
@@ -40,7 +41,8 @@
                     <Label alignment="CENTER" contentDisplay="CENTER" text="Hospedagens" textAlignment="CENTER" textFill="#cad3c8">
                         <font>
                             <Font name="Khmer OS System" size="14.0" />
-                        </font></Label>
+                        </font>
+                    </Label>
                 </VBox>
                 <VBox alignment="CENTER" spacing="10" onMouseClicked="#carregarQuartos">
                     <ImageView>
@@ -51,7 +53,8 @@
                     <Label alignment="CENTER" contentDisplay="CENTER" text="Quartos" textAlignment="CENTER" textFill="#cad3c8">
                         <font>
                             <Font name="Khmer OS System" size="14.0" />
-                        </font></Label>
+                        </font>
+                    </Label>
                 </VBox>
                 <VBox alignment="CENTER" spacing="10" onMouseClicked="#carregarTiposQuartos">
                     <ImageView>
@@ -62,7 +65,8 @@
                     <Label alignment="CENTER" contentDisplay="CENTER" text="Tipos de Quartos" textAlignment="CENTER" textFill="#cad3c8">
                         <font>
                             <Font name="Khmer OS System" size="14.0" />
-                        </font></Label>
+                        </font>
+                    </Label>
                 </VBox>
                 <VBox alignment="CENTER" spacing="10" onMouseClicked="#carregarServicos">
                     <ImageView>
@@ -73,7 +77,8 @@
                     <Label alignment="CENTER" contentDisplay="CENTER" text="Serviços" textAlignment="CENTER" textFill="#cad3c8">
                         <font>
                             <Font name="Khmer OS System" size="14.0" />
-                        </font></Label>
+                        </font>
+                    </Label>
                 </VBox>
             </HBox>
             <HBox style="-fx-padding: 0 0 0 270;">
@@ -93,7 +98,8 @@
                     <Label prefHeight="28.0" style="-fx-alignment: center;" text="Registrar serviços" textFill="#daf0ff">
                         <font>
                             <Font name="NanumGothic" size="15.0" />
-                        </font></Label>
+                        </font>
+                    </Label>
                 </HBox>
                 <HBox alignment="TOP_RIGHT" style="-fx-padding: 0 0 0 460;">
                     <Button onAction="#salvar" prefHeight="23.0" prefWidth="90.0" style="-fx-border-color: white; -fx-background-color: white; -fx-border-radius: 5;" text="Salvar" textAlignment="CENTER" textFill="#2c3e50">
@@ -128,5 +134,4 @@
             </HBox>
         </VBox>
     </center>
-
 </BorderPane>

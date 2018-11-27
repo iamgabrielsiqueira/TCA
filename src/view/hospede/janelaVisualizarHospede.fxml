@@ -28,7 +28,8 @@
                     <Label alignment="CENTER" contentDisplay="CENTER" text="Hóspedes" textAlignment="CENTER" textFill="#cad3c8">
                         <font>
                             <Font name="Khmer OS System" size="14.0" />
-                        </font></Label>
+                        </font>
+                    </Label>
                 </VBox>
                 <VBox alignment="CENTER" spacing="10" onMouseClicked="#carregarHospedagens">
                     <ImageView>
@@ -39,7 +40,8 @@
                     <Label alignment="CENTER" contentDisplay="CENTER" text="Hospedagens" textAlignment="CENTER" textFill="#cad3c8">
                         <font>
                             <Font name="Khmer OS System" size="14.0" />
-                        </font></Label>
+                        </font>
+                    </Label>
                 </VBox>
                 <VBox alignment="CENTER" onMouseClicked="#carregarQuartos" spacing="10">
                     <ImageView>
@@ -50,7 +52,8 @@
                     <Label alignment="CENTER" contentDisplay="CENTER" text="Quartos" textAlignment="CENTER" textFill="#cad3c8">
                         <font>
                             <Font name="Khmer OS System" size="14.0" />
-                        </font></Label>
+                        </font>
+                    </Label>
                 </VBox>
                 <VBox alignment="CENTER" onMouseClicked="#carregarTiposQuartos" spacing="10">
                     <ImageView>
@@ -61,7 +64,8 @@
                     <Label alignment="CENTER" contentDisplay="CENTER" text="Tipos de Quartos" textAlignment="CENTER" textFill="#cad3c8">
                         <font>
                             <Font name="Khmer OS System" size="14.0" />
-                        </font></Label>
+                        </font>
+                    </Label>
                 </VBox>
                 <VBox alignment="CENTER" onMouseClicked="#carregarServicos" spacing="10">
                     <ImageView>
@@ -72,7 +76,8 @@
                     <Label alignment="CENTER" contentDisplay="CENTER" text="Serviços" textAlignment="CENTER" textFill="#cad3c8">
                         <font>
                             <Font name="Khmer OS System" size="14.0" />
-                        </font></Label>
+                        </font>
+                    </Label>
                 </VBox>
             </HBox>
             <HBox style="-fx-padding: 0 0 0 157;">
@@ -123,5 +128,4 @@
             </VBox>
         </VBox>
     </center>
-
 </BorderPane>

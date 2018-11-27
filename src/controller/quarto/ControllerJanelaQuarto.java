@@ -117,7 +117,13 @@ public class ControllerJanelaQuarto {
 
                 String lowerCaseFilter = newValue.toLowerCase();
 
+                String num = String.valueOf(quarto.getNumero());
+
                 if (quarto.getTipoQuarto().getNome().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                } else if (quarto.getDescricao().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                } else if (num.toLowerCase().contains(lowerCaseFilter)) {
                     return true;
                 }
 
@@ -283,9 +289,7 @@ public class ControllerJanelaQuarto {
 
             Optional<ButtonType> result = dialog.showAndWait();
 
-            if(result.isPresent() && result.get()==ButtonType.OK) {
-                //System.out.println("1: " + mensagem);
-            }
+            if(result.isPresent() && result.get()==ButtonType.OK) { }
         } catch (IOException e) {
             e.printStackTrace();
         }

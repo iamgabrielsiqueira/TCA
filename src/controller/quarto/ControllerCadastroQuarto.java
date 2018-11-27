@@ -29,6 +29,9 @@ public class ControllerCadastroQuarto {
     private TextField tfDescricao;
 
     @FXML
+    private Label lbPreco;
+
+    @FXML
     private ComboBox<TipoQuarto> tfTipo;
 
     private ObservableList<TipoQuarto> listaTipos;
@@ -59,7 +62,14 @@ public class ControllerCadastroQuarto {
     }
 
     @FXML
-    public void salvarQuarto() {
+    public void setPreco() {
+        TipoQuarto tipoQuarto = tfTipo.getValue();
+
+        lbPreco.setText("Preço: R$" + tipoQuarto.getValor());
+    }
+
+    @FXML
+    public void salvarQuarto() throws Exception {
 
         if(tfNumero.getText().isEmpty() || tfTipo.getSelectionModel().isEmpty()) {
             mostrarMensagem("Dados faltando!");
@@ -82,15 +92,27 @@ public class ControllerCadastroQuarto {
 
                 quarto.setTipoQuarto(tipoQuarto);
 
-                try {
-                    JDBCQuartoDAO.getInstance().create(quarto);
-                    mostrarMensagem("Quarto cadastrado!");
-                    voltar();
-                } catch (Exception e) {
-                    mostrarMensagem("Erro!");
+                int flag = 0;
+
+                for (Quarto quarto1 : JDBCQuartoDAO.getInstance().list()) {
+                    if(quarto1.getNumero() == quarto.getNumero()) {
+                        flag = 1;
+                    }
+                }
+
+                if(flag!=1) {
+                    try {
+                        JDBCQuartoDAO.getInstance().create(quarto);
+                        mostrarMensagem("Quarto cadastrado!");
+                        voltar();
+                    } catch (Exception e) {
+                        mostrarMensagem("Erro!");
+                    }
+                } else {
+                    mostrarMensagem("Este número de quarto já existe!");
                 }
             } catch (NullPointerException e) {
-                mostrarMensagem("Erro!");
+                mostrarMensagem("Faltam dados!");
             }
         }
     }
@@ -146,9 +168,7 @@ public class ControllerCadastroQuarto {
 
             Optional<ButtonType> result = dialog.showAndWait();
 
-            if(result.isPresent() && result.get()==ButtonType.OK) {
-                //System.out.println("1: " + mensagem);
-            }
+            if(result.isPresent() && result.get()==ButtonType.OK) { }
         } catch (IOException e) {
             e.printStackTrace();
         }

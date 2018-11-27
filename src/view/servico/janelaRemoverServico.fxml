@@ -37,7 +37,6 @@
                     <Font name="Noto Sans CJK JP Medium" size="14.0" />
                 </font>
             </Label>
-
         </GridPane>
     </content>
 </DialogPane>

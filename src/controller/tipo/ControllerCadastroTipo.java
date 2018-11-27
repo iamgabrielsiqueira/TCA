@@ -56,27 +56,46 @@ public class ControllerCadastroTipo {
     }
 
     @FXML
-    public void salvarTipo() {
-        if(tfNome.getText().isEmpty() || tfValor.getCleanValue().isEmpty()) {
-            mostrarMensagem("Dados faltando!");
-        } else {
-            String nome = tfNome.getText();
-            Double valor = Double.valueOf(tfValor.getCleanValue());
-            String descricao = tfDescricao.getText();
+    public void salvarTipo() throws Exception {
 
-            TipoQuarto tipoQuarto = new TipoQuarto();
-            tipoQuarto.setNome(nome);
-            tipoQuarto.setValor(valor);
-            tipoQuarto.setDescricao(descricao);
+        try {
+            if(tfNome.getText().isEmpty() || tfValor.getCleanValue().isEmpty()) {
+                mostrarMensagem("Dados faltando!");
+            } else {
+                String nome = tfNome.getText();
+                Double valor = Double.valueOf(tfValor.getCleanValue());
+                String descricao = tfDescricao.getText();
 
-            try {
-                JDBCTipoQuartoDAO.getInstance().create(tipoQuarto);
-                mostrarMensagem("Tipo de Quarto cadastrado!");
-                voltar();
-            } catch (Exception e) {
-                mostrarMensagem("Erro!");
+                TipoQuarto tipoQuarto = new TipoQuarto();
+                tipoQuarto.setNome(nome);
+                tipoQuarto.setValor(valor);
+                tipoQuarto.setDescricao(descricao);
+
+                int flag = 0;
+
+                for (TipoQuarto tipoQuarto1: JDBCTipoQuartoDAO.getInstance().list()) {
+                    if(tipoQuarto1.getNome().equals(tipoQuarto.getNome())) {
+                        flag = 1;
+                    }
+                }
+
+                if(flag != 1) {
+                    try {
+                        JDBCTipoQuartoDAO.getInstance().create(tipoQuarto);
+                        mostrarMensagem("Tipo de Quarto cadastrado!");
+                        voltar();
+                    } catch (Exception e) {
+                        mostrarMensagem("Erro!");
+                    }
+                } else {
+                    mostrarMensagem("Este tipo de quarto já existe!");
+                }
+
             }
+        } catch (NullPointerException e) {
+            mostrarMensagem("Faltam dados!");
         }
+
     }
 
     @FXML
@@ -124,9 +143,7 @@ public class ControllerCadastroTipo {
 
             Optional<ButtonType> result = dialog.showAndWait();
 
-            if(result.isPresent() && result.get()==ButtonType.OK) {
-                //System.out.println("1: " + mensagem);
-            }
+            if(result.isPresent() && result.get()==ButtonType.OK) { }
         } catch (IOException e) {
             e.printStackTrace();
         }

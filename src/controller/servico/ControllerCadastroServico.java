@@ -56,27 +56,52 @@ public class ControllerCadastroServico {
     }
 
     @FXML
-    public void salvarServico() {
-        if(tfNome.getText().isEmpty() || tfValor.getCleanValue().isEmpty()) {
-            mostrarMensagem("Faltam dados!");
-        } else {
-            String nome = tfNome.getText();
-            Double valor = Double.valueOf(tfValor.getCleanValue());
-            String descricao = tfDescricao.getText();
+    public void salvarServico() throws Exception {
 
-            Servico servico = new Servico();
-            servico.setNome(nome);
-            servico.setValor(valor);
-            servico.setDescricao(descricao);
+        try {
+            if(tfNome.getText().isEmpty() || tfValor.getCleanValue().isEmpty()) {
+                mostrarMensagem("Faltam dados!");
+            } else {
+                String nome = tfNome.getText();
+                Double valor = Double.valueOf(tfValor.getCleanValue());
+                String descricao;
 
-            try {
-                JDBCServicoDAO.getInstance().create(servico);
-                mostrarMensagem("Serviço cadastrado!");
-                voltar();
-            } catch (Exception e) {
-                mostrarMensagem("Erro!");
+                Servico servico = new Servico();
+                servico.setNome(nome);
+                servico.setValor(valor);
+
+                if(tfDescricao.getText().isEmpty()) {
+                    descricao = "Sem descrição";
+                } else {
+                    descricao = tfDescricao.getText();
+                }
+
+                servico.setDescricao(descricao);
+
+                int flag = 0;
+
+                for (Servico servico1 : JDBCServicoDAO.getInstance().list()) {
+                    if(servico1.getNome().equals(servico.getNome())) {
+                        flag = 1;
+                    }
+                }
+
+                if(flag!=1) {
+                    try {
+                        JDBCServicoDAO.getInstance().create(servico);
+                        mostrarMensagem("Serviço cadastrado!");
+                        voltar();
+                    } catch (Exception e) {
+                        mostrarMensagem("Erro!");
+                    }
+                } else {
+                    mostrarMensagem("Este serviço já existe!");
+                }
             }
+        } catch (NullPointerException e) {
+            mostrarMensagem("Faltam dados!");
         }
+
     }
 
     @FXML
@@ -124,9 +149,7 @@ public class ControllerCadastroServico {
 
             Optional<ButtonType> result = dialog.showAndWait();
 
-            if(result.isPresent() && result.get()==ButtonType.OK) {
-                //System.out.println("1: " + mensagem);
-            }
+            if(result.isPresent() && result.get()==ButtonType.OK) { }
         } catch (IOException e) {
             e.printStackTrace();
         }

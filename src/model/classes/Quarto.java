@@ -76,6 +76,6 @@ public class Quarto {
 
     @Override
     public String toString() {
-        return "" + this.numero.getValue();
+        return "" + this.numero.getValue() + " - " + this.tipoQuarto.getNome();
     }
 }

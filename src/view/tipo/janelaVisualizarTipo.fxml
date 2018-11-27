@@ -107,13 +107,13 @@
             </HBox>
             <VBox minHeight="320" style="-fx-background-color: #CAD3C8; -fx-background-radius: 5;">
                 <HBox alignment="CENTER" prefHeight="268.0" prefWidth="500.0">
-                    <VBox maxWidth="170" minWidth="170" spacing="21" alignment="CENTER">
+                    <VBox spacing="21" alignment="CENTER">
                         <Label text="Nome" fx:id="lbNome"/>
                         <Label text="Valor" fx:id="lbValor"/>
                         <Label text="Descrição" fx:id="lbDescricao"/>
                     </VBox>
                     <padding>
-                        <Insets top="100.0" />
+                        <Insets top="40.0" />
                     </padding>
                 </HBox>
             </VBox>

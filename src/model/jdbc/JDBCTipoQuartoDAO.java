@@ -5,7 +5,6 @@ import javafx.collections.ObservableList;
 import model.FabricaConexao;
 import model.dao.TipoQuartoDAO;
 import model.classes.TipoQuarto;
-
 import java.sql.*;
 
 public class JDBCTipoQuartoDAO implements TipoQuartoDAO {

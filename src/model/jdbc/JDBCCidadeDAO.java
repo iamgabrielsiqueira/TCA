@@ -6,7 +6,6 @@ import model.dao.CidadeDAO;
 import model.FabricaConexao;
 import model.classes.Cidade;
 import model.classes.Estado;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

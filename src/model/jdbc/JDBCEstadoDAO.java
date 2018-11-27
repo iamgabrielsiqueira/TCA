@@ -5,7 +5,6 @@ import javafx.collections.ObservableList;
 import model.dao.EstadoDAO;
 import model.FabricaConexao;
 import model.classes.Estado;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

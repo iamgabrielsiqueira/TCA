@@ -1,7 +1,6 @@
 package controller.hospede;
 
 import controller.MaskFieldData;
-import controller.MaskFieldUtil;
 import controller.Mensagem;
 import controller.ValidaCPF;
 import javafx.application.Platform;
@@ -184,13 +183,10 @@ public class ControllerCadastroHospede {
         MaskFieldData maskFieldData = new MaskFieldData(tfDataNasc);
         maskFieldData.setMask(MaskFieldData.DATA);
 
-        //MaskFieldUtil.dateField(tfDataNasc);
-
         tfDataNasc.setOnKeyPressed(new EventHandler<KeyEvent>(){
             @Override
             public void handle(KeyEvent ke){
                 if (ke.getCode().equals(KeyCode.BACK_SPACE)){
-                    //System.out.println("apagou");
                     tfDataNasc.setText("");
                 }
             }

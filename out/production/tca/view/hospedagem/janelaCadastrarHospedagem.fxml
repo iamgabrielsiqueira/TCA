@@ -31,7 +31,8 @@
                     <Label alignment="CENTER" contentDisplay="CENTER" text="Hóspedes" textAlignment="CENTER" textFill="#cad3c8">
                         <font>
                             <Font name="Khmer OS System" size="14.0" />
-                        </font></Label>
+                        </font>
+                    </Label>
                 </VBox>
                 <VBox alignment="CENTER" spacing="10" onMouseClicked="#carregarHospedagens">
                     <ImageView fitWidth="47" fitHeight="47">
@@ -42,7 +43,8 @@
                     <Label alignment="CENTER" contentDisplay="CENTER" text="Hospedagens" textAlignment="CENTER" textFill="#cad3c8">
                         <font>
                             <Font name="Khmer OS System" size="14.0" />
-                        </font></Label>
+                        </font>
+                    </Label>
                 </VBox>
                 <VBox alignment="CENTER" spacing="10" onMouseClicked="#carregarQuartos">
                     <ImageView>
@@ -53,7 +55,8 @@
                     <Label alignment="CENTER" contentDisplay="CENTER" text="Quartos" textAlignment="CENTER" textFill="#cad3c8">
                         <font>
                             <Font name="Khmer OS System" size="14.0" />
-                        </font></Label>
+                        </font>
+                    </Label>
                 </VBox>
                 <VBox alignment="CENTER" spacing="10" onMouseClicked="#carregarTiposQuartos">
                     <ImageView>
@@ -64,7 +67,8 @@
                     <Label alignment="CENTER" contentDisplay="CENTER" text="Tipos de Quartos" textAlignment="CENTER" textFill="#cad3c8">
                         <font>
                             <Font name="Khmer OS System" size="14.0" />
-                        </font></Label>
+                        </font>
+                    </Label>
                 </VBox>
                 <VBox alignment="CENTER" spacing="10" onMouseClicked="#carregarServicos">
                     <ImageView>
@@ -75,7 +79,8 @@
                     <Label alignment="CENTER" contentDisplay="CENTER" text="Serviços" textAlignment="CENTER" textFill="#cad3c8">
                         <font>
                             <Font name="Khmer OS System" size="14.0" />
-                        </font></Label>
+                        </font>
+                    </Label>
                 </VBox>
             </HBox>
             <HBox style="-fx-padding: 0 0 0 270;">
@@ -95,7 +100,8 @@
                     <Label prefHeight="28.0" prefWidth="76.0" style="-fx-alignment: center;" text="Cadastrar" textFill="#daf0ff">
                         <font>
                             <Font name="NanumGothic" size="15.0" />
-                        </font></Label>
+                        </font>
+                    </Label>
                 </HBox>
                 <HBox alignment="TOP_RIGHT" style="-fx-padding: 0 0 0 500;">
                     <Button onAction="#salvarHospedagem" prefHeight="23.0" prefWidth="90.0" style="-fx-border-color: white; -fx-background-color: white; -fx-border-radius: 5;" text="Salvar" textAlignment="CENTER" textFill="#2c3e50">
@@ -121,17 +127,17 @@
             <VBox minHeight="320" style="-fx-background-color: #CAD3C8; -fx-background-radius: 5;">
                 <HBox alignment="CENTER" prefHeight="268.0" prefWidth="500.0">
                     <VBox maxWidth="170" minWidth="170" spacing="21">
-                        <Label text="Check In" />
-                        <Label text="Check Out" />
-                        <Label text="Hóspede Principal" />
-                        <Label text="Hóspede Secundário" />
-                        <Label text="Hóspede Terciário" />
-                        <Label text="Quarto" />
+                        <Label text="Check In:" />
+                        <Label text="Check Out:" />
+                        <Label text="Hóspede Principal:" />
+                        <Label text="Hóspede Secundário:" />
+                        <Label text="Hóspede Terciário:" />
+                        <Label text="Quarto:" />
                     </VBox>
                     <VBox maxWidth="170" minWidth="170" spacing="10">
                         <TextField fx:id="tfCheckIn" />
-                        <TextField fx:id="tfCheckOut" />
-                        <ComboBox fx:id="tfHospede" prefHeight="26.0" prefWidth="170.0" />
+                        <TextField fx:id="tfCheckOut"/>
+                        <ComboBox fx:id="tfHospede" prefHeight="26.0" prefWidth="170.0" onAction="#setData1"/>
                         <ComboBox fx:id="tfHospede2" prefHeight="26.0" prefWidth="170.0" />
                         <ComboBox fx:id="tfHospede3" prefHeight="26.0" prefWidth="170.0" />
                         <ComboBox fx:id="tfQuarto" prefHeight="26.0" prefWidth="170.0" />
@@ -144,5 +150,4 @@
             </VBox>
         </VBox>
     </center>
-
 </BorderPane>

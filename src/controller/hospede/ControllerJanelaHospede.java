@@ -19,7 +19,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import model.classes.Hospedagem;
 import model.classes.Hospede;
+import model.jdbc.JDBCHospedagemDAO;
 import model.jdbc.JDBCHospedeDAO;
 import java.io.IOException;
 import java.util.Optional;
@@ -146,11 +148,23 @@ public class ControllerJanelaHospede {
 
             if(result.isPresent() && result.get()==ButtonType.OK) {
                 if(hospede!=null) {
-                    try {
-                        JDBCHospedeDAO.getInstance().delete(hospede);
-                    } catch (Exception e) {
-                        mostrarMensagem("Erro!");
+                    int flag = 0;
+                    for (Hospedagem hospedagem: JDBCHospedagemDAO.getInstance().list()) {
+                        if(hospedagem.getHospede01().getId() == hospede.getId()) {
+                            flag = 1;
+                        }
                     }
+
+                    if(flag == 0) {
+                        try {
+                            JDBCHospedeDAO.getInstance().delete(hospede);
+                        } catch (Exception e) {
+                            mostrarMensagem("Erro!");
+                        }
+                    } else {
+                        mostrarMensagem("Não é possível deletar este hóspede!");
+                    }
+
                 }
 
             }

@@ -19,6 +19,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import model.classes.Quarto;
+import model.jdbc.JDBCQuartoDAO;
 import model.jdbc.JDBCTipoQuartoDAO;
 import model.classes.TipoQuarto;
 import java.io.IOException;
@@ -174,11 +176,24 @@ public class ControllerJanelaTipoQuarto {
 
             if(result.isPresent() && result.get()==ButtonType.OK) {
                 if(tipoQuarto!=null) {
-                    try {
-                        JDBCTipoQuartoDAO.getInstance().delete(tipoQuarto);
-                    } catch (Exception e) {
-                        mostrarMensagem("Erro!");
+                    int flag = 0;
+
+                    for (Quarto quarto: JDBCQuartoDAO.getInstance().list()) {
+                        if(quarto.getTipoQuarto().getId() == tipoQuarto.getId()) {
+                            flag = 1;
+                        }
                     }
+
+                    if(flag == 0) {
+                        try {
+                            JDBCTipoQuartoDAO.getInstance().delete(tipoQuarto);
+                        } catch (Exception e) {
+                            mostrarMensagem("Erro!");
+                        }
+                    } else {
+                        mostrarMensagem("Não é possível deletar este tipo!");
+                    }
+
                 }
 
             }

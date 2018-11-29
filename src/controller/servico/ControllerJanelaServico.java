@@ -19,6 +19,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import model.classes.Hospedagem;
+import model.classes.HospedagemServico;
+import model.jdbc.JDBCHospedagemDAO;
+import model.jdbc.JDBCHospedagemServicoDAO;
 import model.jdbc.JDBCQuartoDAO;
 import model.jdbc.JDBCServicoDAO;
 import model.classes.Servico;
@@ -172,10 +176,24 @@ public class ControllerJanelaServico {
 
             if(result.isPresent() && result.get()==ButtonType.OK) {
                 if(servico!=null) {
-                    try {
-                        JDBCServicoDAO.getInstance().delete(servico);
-                    } catch (Exception e) {
-                        mostrarMensagem("Erro!");
+                    int flag = 0;
+
+                    for (Hospedagem hospedagem : JDBCHospedagemDAO.getInstance().list()) {
+                        for (HospedagemServico hospedagemServico: JDBCHospedagemServicoDAO.getInstance().list(hospedagem)) {
+                            if(hospedagemServico.getServico().getId() == servico.getId()) {
+                                flag = 1;
+                            }
+                        }
+                    }
+
+                    if(flag == 0) {
+                        try {
+                            JDBCServicoDAO.getInstance().delete(servico);
+                        } catch (Exception e) {
+                            mostrarMensagem("Erro!");
+                        }
+                    } else {
+                        mostrarMensagem("Não é possível deletar este serviço!");
                     }
                 }
 
